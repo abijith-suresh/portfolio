@@ -4,8 +4,8 @@ export const SITE = {
   title: "Abijith S",
   description: "Personal portfolio and blog of Abijith S - developer, builder, writer.",
   author: "Abijith S",
-  domain: "abijith-suresh.github.io",
-  url: "https://abijith-suresh.github.io",
+  domain: "abijith.sh",
+  url: "https://abijith.sh",
   locale: "en-US",
 
   // Hero Section

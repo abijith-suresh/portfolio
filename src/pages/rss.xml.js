@@ -2,6 +2,8 @@ import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import { SITE } from "@/consts";
 
+export const prerender = true;
+
 export async function GET(context) {
   // Validate site context first
   if (!context.site) {
@@ -51,9 +53,6 @@ export async function GET(context) {
         description: post.data.description,
         link: `/blog/${post.slug}/`,
         categories: post.data.tags,
-        ...(post.data.updatedDate && {
-          updatedDate: post.data.updatedDate,
-        }),
       })),
     });
   } catch (error) {

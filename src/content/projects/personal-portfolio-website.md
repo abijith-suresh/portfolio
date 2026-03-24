@@ -3,8 +3,8 @@ title: "Personal Portfolio Website"
 description: "My personal portfolio and blog built with Astro, featuring a clean minimal design, fast performance, and optimal developer experience."
 date: 2026-02-11
 tags: ["Astro", "TypeScript", "Tailwind CSS", "Portfolio"]
-github: "https://github.com/abijith-suresh/abijith-suresh.github.io"
-demo: "https://abijith-suresh.github.io"
+github: "https://github.com/abijith-suresh/abijith.sh"
+demo: "https://abijith.sh"
 ---
 
 This is my personal portfolio and blog website — a space where I showcase my projects, share my thoughts on software development, and document my learning journey.
@@ -30,7 +30,7 @@ I wanted a platform that I fully own and control. While LinkedIn and other platf
 - **Content**: MDX for blog posts and projects
 - **Search**: FlexSearch for client-side search
 - **Icons**: Font Awesome 6 via astro-icon
-- **Deployment**: GitHub Pages with GitHub Actions
+- **Deployment**: Vercel with a custom domain
 
 ## Design Philosophy
 
@@ -43,10 +43,10 @@ Building this site taught me a lot about:
 - Modern static site generation with Astro
 - Content modeling and validation with Zod
 - Implementing search functionality with FlexSearch
-- Setting up CI/CD pipelines with GitHub Actions
+- Connecting Vercel deployments to GitHub
 - The importance of accessibility and semantic HTML
 
 ## Links
 
-- **Repository**: [GitHub](https://github.com/abijith-suresh/abijith-suresh.github.io)
-- **Live Demo**: [abijith-suresh.github.io](https://abijith-suresh.github.io)
+- **Repository**: [GitHub](https://github.com/abijith-suresh/abijith.sh)
+- **Live Demo**: [abijith.sh](https://abijith.sh)

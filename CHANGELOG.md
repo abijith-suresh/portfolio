@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### March 2026
+
+#### Changed
+
+- Migrated deployment from GitHub Pages to Vercel for the `abijith.sh` custom domain
+- Renamed the repository to `abijith.sh` and updated canonical site references
+
+#### Fixed
+
+- Prevented draft blog posts from being generated as public pages
+- Restored Astro-aware type checking in CI and added regression coverage for launch readiness
+
 ### February 2026
 
 #### Added
@@ -83,4 +95,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Reorganized folder structure for better code organization
 - Co-located page-specific components with their respective pages
 
-[unreleased]: https://github.com/abijith-suresh/portfolio/compare/HEAD...HEAD
+[unreleased]: https://github.com/abijith-suresh/abijith.sh/compare/HEAD...HEAD
