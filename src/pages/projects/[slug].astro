@@ -26,11 +26,7 @@ const { Content } = await project.render();
 const formattedDate = formatBlogDate(date);
 ---
 
-<Layout
-  title={`${title} - Projects - ${SITE.title}`}
-  description={description}
-  jsonLd={{ type: "article" }}
->
+<Layout title={`${title} - Projects - ${SITE.title}`} description={description}>
   <div class="w-full mx-auto flex grow flex-col gap-y-6 px-4 max-w-3xl pb-12 page-enter">
     <div class="page-enter page-enter-delay-1">
       <Breadcrumb

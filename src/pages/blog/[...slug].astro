@@ -14,7 +14,7 @@ import { calculateReadingTime, formatBlogDate, formatReadingTime } from "@/lib/u
 import { type CollectionEntry, getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
+  const posts = await getCollection("blog", (post) => !post.data.draft);
   return posts.map((post) => ({
     params: { slug: post.slug },
     props: { post },
