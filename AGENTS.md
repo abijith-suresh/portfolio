@@ -306,7 +306,6 @@ Blog and project content must match Zod schemas in `src/content/config.ts`:
   title: string;
   description: string;
   publishDate: Date;
-  updatedDate?: Date;
   tags: string[];
   draft: boolean;  // default: false
 }

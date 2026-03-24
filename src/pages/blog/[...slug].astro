@@ -26,10 +26,9 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, tags, publishDate, updatedDate } = post.data;
+const { title, description, tags, publishDate } = post.data;
 const { Content, headings } = await post.render();
 const formattedDate = formatBlogDate(publishDate);
-const formattedUpdatedDate = updatedDate ? formatBlogDate(updatedDate) : null;
 const readingTime = calculateReadingTime(post.body ?? "");
 
 const tocHeadings = filterTocHeadings(headings);
@@ -46,7 +45,6 @@ const relatedPosts = await getRelatedPosts(post.slug, 3);
   type="article"
   article={{
     publishedTime: publishDate,
-    modifiedTime: updatedDate,
     authors: [SITE.author],
     tags: tags,
   }}
@@ -56,7 +54,6 @@ const relatedPosts = await getRelatedPosts(post.slug, 3);
       headline: title,
       description: description,
       datePublished: publishDate,
-      dateModified: updatedDate,
       keywords: tags,
     },
   }}
@@ -86,16 +83,6 @@ const relatedPosts = await getRelatedPosts(post.slug, 3);
         </time>
         <span>&middot;</span>
         <span>{formatReadingTime(readingTime)}</span>
-        {
-          formattedUpdatedDate && (
-            <>
-              <span>&middot;</span>
-              <span>
-                Updated <time datetime={updatedDate!.toISOString()}>{formattedUpdatedDate}</time>
-              </span>
-            </>
-          )
-        }
       </div>
 
       <p class="text-lg text-muted-foreground max-w-2xl">{description}</p>

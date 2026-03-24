@@ -53,9 +53,6 @@ export async function GET(context) {
         description: post.data.description,
         link: `/blog/${post.slug}/`,
         categories: post.data.tags,
-        ...(post.data.updatedDate && {
-          updatedDate: post.data.updatedDate,
-        }),
       })),
     });
   } catch (error) {

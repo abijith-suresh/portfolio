@@ -14,10 +14,14 @@ describe("production readiness regressions", () => {
     expect(pageSource).toMatch(/getCollection\("blog",\s*\(post\)\s*=>\s*!post\.data\.draft\s*\)/);
   });
 
-  it("supports optional blog updatedDate metadata", async () => {
+  it("does not support blog updatedDate metadata", async () => {
     const configSource = await readWorkspaceFile("src", "content", "config.ts");
+    const blogPageSource = await readWorkspaceFile("src", "pages", "blog", "[...slug].astro");
+    const rssSource = await readWorkspaceFile("src", "pages", "rss.xml.js");
 
-    expect(configSource).toMatch(/updatedDate:\s*z\.coerce\.date\(\)\.optional\(\)/);
+    expect(configSource).not.toMatch(/updatedDate/);
+    expect(blogPageSource).not.toMatch(/updatedDate/);
+    expect(rssSource).not.toMatch(/updatedDate/);
   });
 
   it("keeps search index and rss prerendered on Vercel", async () => {
