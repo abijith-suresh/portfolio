@@ -6,6 +6,12 @@ dist/
 # dependencies
 node_modules/
 
+# vercel
+.vercel/
+
+# generated output from local vercel builds
+.vercel/output/
+
 # logs
 npm-debug.log*
 yarn-debug.log*
@@ -22,3 +28,4 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+.vercel

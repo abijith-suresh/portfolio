@@ -2,6 +2,8 @@ import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import { SITE } from "@/consts";
 
+export const prerender = true;
+
 export async function GET(context) {
   // Validate site context first
   if (!context.site) {

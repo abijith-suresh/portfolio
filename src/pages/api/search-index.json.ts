@@ -1,6 +1,8 @@
 import type { APIContext } from "astro";
 import { getCollection } from "astro:content";
 
+export const prerender = true;
+
 /**
  * Search index data structure
  */

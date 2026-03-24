@@ -1,12 +1,14 @@
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
+import vercel from "@astrojs/vercel";
 import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import expressiveCode from "astro-expressive-code";
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://abijith-suresh.github.io",
+  site: "https://abijith.sh",
+  adapter: vercel(),
   integrations: [
     expressiveCode({
       themes: ["github-light", "github-dark"],
@@ -14,7 +16,6 @@ export default defineConfig({
       themeCssSelector: (theme) => `[data-theme="${theme.name.split("-")[1]}"]`,
       defaultProps: {
         wrap: true,
-        showLineNumbers: false,
       },
       plugins: [],
       styleOverrides: {
@@ -61,7 +62,6 @@ export default defineConfig({
           "sun",
           "moon",
           "arrow-right",
-          "arrow-up-right",
           "arrow-left",
           "arrow-up-right-from-square",
           "circle-info",

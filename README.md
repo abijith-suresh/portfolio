@@ -2,7 +2,7 @@
 
 > My personal corner of the internet where I share thoughts and experiences in writing, not in short clips or fast feeds.
 
-[Live Site](https://abijith-suresh.github.io)
+[Live Site](https://abijith.sh)
 
 ## Why This Exists
 
@@ -59,6 +59,10 @@ Their simplicity and thoughtfulness shaped how I approached mine.
 ## Technical Details
 
 For development guidelines, project structure, and contribution info, see [AGENTS.md](AGENTS.md).
+
+## Deployment
+
+This site is deployed on Vercel and served from the custom domain `abijith.sh`.
 
 ## License
 

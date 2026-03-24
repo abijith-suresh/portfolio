@@ -7,7 +7,7 @@ This document provides essential information for AI coding agents working in thi
 **Tech Stack:** Astro 5.16+, TypeScript, Tailwind CSS 4, MDX, FlexSearch (search)  
 **Package Manager:** Bun 1.3.5+ (preferred) or npm  
 **Node Version:** v24+ (ES Module project)  
-**Site URL:** https://abijith-suresh.github.io (GitHub Pages)  
+**Site URL:** https://abijith.sh (Vercel)  
 **Description:** Personal portfolio and blog built with Astro, featuring content collections for blog posts and projects, with integrated search functionality via FlexSearch.
 
 ## Build & Development Commands
@@ -374,15 +374,13 @@ This project uses Husky and lint-staged for automated code quality checks:
 
 1. **CI Workflow** (`.github/workflows/ci.yml`)
    - Triggers: Pull requests to `main`
-   - Runs: ESLint, Prettier check, build validation
+   - Runs: Astro type checking, ESLint, Prettier check, tests, build validation
    - Uses: Bun 1.3.5, frozen lockfile
 
-2. **GitHub Pages Deployment** (`.github/workflows/gh-pages.yml`)
-   - Triggers: Push to `main`, manual dispatch
-   - Steps: Install deps → Build → Upload artifact → Deploy
-   - Output: Deploys to https://abijith-suresh.github.io
-
-**Note:** Vercel deployment was removed in PR #136 (2026-01-25)
+2. **Vercel Deployment**
+   - Managed through Vercel's Git integration and CLI
+   - Production deploys are triggered from `main`
+   - Preview deploys are created automatically for pull requests once the repo is connected in Vercel
 
 ## Development Rules & Best Practices
 
@@ -397,7 +395,7 @@ This project uses Husky and lint-staged for automated code quality checks:
 ### Approval Required
 
 - Adding new dependencies
-- Modifying `astro.config.mjs`
+- Modifying `astro.config.ts`
 - Changing content collection schemas
 - Modifying the theme/design system
 
@@ -495,13 +493,14 @@ type(scope): subject
 
 ## Site Configuration
 
-Site URL: `https://abijith-suresh.github.io` (configured in `astro.config.mjs`)
+Site URL: `https://abijith.sh` (configured in `astro.config.ts`)
 Features: RSS feed at `/rss.xml`, auto-generated sitemap
 
 ## Recent Important Changes
 
 - **2026-02-12:** Redesigned about page — centered layout with labeled content sections and inline interests
 - **2026-02-06:** Portfolio redesign — Ink & Paper theme, editorial Hero, about page with avatar, search fixes
+- **2026-03-24:** Migrated hosting to Vercel, renamed the repository to `abijith.sh`, and tightened launch-readiness checks
 - **2026-01-31:** Migrated from Pagefind to FlexSearch for improved search experience (PR #176)
 - **2026-01-25:** Migrated to GitHub Pages deployment, removed Vercel analytics (PR #136)
 - **2026-01-24:** Added comprehensive search modal with FlexSearch integration (PR #130)
@@ -522,6 +521,7 @@ Features: RSS feed at `/rss.xml`, auto-generated sitemap
 
 ### Deployment Issues
 
-- GitHub Pages builds require all imports to have corresponding dependencies
+- Run `vercel link` if the local project is not connected to the Vercel project yet
+- Confirm `abijith.sh` is assigned in the Vercel project domains dashboard
 - Check that RSS generation works: look for `dist/rss.xml` after build
-- Ensure `site` is configured in `astro.config.mjs` for absolute URLs
+- Ensure `site` is configured in `astro.config.ts` for absolute URLs
