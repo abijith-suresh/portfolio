@@ -46,11 +46,18 @@ describe("production readiness regressions", () => {
     expect(packageJson.scripts?.["type-check"]).toBe("astro check");
   });
 
-  it("fails CI on type errors and includes tests", async () => {
+  it("runs the shared quality gate in CI", async () => {
+    const packageJson = JSON.parse(await readWorkspaceFile("package.json")) as {
+      scripts?: Record<string, string>;
+    };
     const ciSource = await readWorkspaceFile(".github", "workflows", "ci.yml");
 
-    expect(ciSource).toContain("run: bun run type-check");
+    expect(packageJson.scripts?.verify).toBe(
+      "bun run type-check && bun run lint && bun run format:check && bun run test && bun run build"
+    );
+    expect(ciSource).toContain("name: quality");
+    expect(ciSource).toContain("run: bun run verify");
+    expect(ciSource).toContain("uses: actions/dependency-review-action@v4");
     expect(ciSource).not.toContain("|| true");
-    expect(ciSource).toContain("run: bun run test");
   });
 });
