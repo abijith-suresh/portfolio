@@ -1,6 +1,7 @@
 {
   "name": "abijith.sh",
   "type": "module",
+  "packageManager": "bun@1.3.5",
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
