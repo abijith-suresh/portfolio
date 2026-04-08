@@ -7,95 +7,78 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.4.0] - 2026-03-24
+## [0.6.0] - 2026-03-24
 
 ### Changed
 
-- Migrated deployment from GitHub Pages to Vercel for the `abijith.sh` custom domain
-- Renamed the repository to `abijith.sh` and updated canonical site references
+- Migrated deployment from GitHub Pages to Vercel for the `abijith.sh` custom domain.
+- Renamed the repository to `abijith.sh` and aligned canonical site references around that identity.
 
 ### Fixed
 
-- Prevented draft blog posts from being generated as public pages
-- Restored Astro-aware type checking in CI and added regression coverage for launch readiness
+- Prevented draft blog posts from being generated as public pages.
+- Restored Astro-aware type checking in CI and added regression coverage for launch readiness.
 
-## [0.3.0] - 2026-02-14
+## [0.5.0] - 2026-02-14
 
 ### Added
 
-- Portfolio redesign with Ink & Paper theme featuring editorial design, custom color palette, and Satoshi font
-- Custom AS branding favicon replacing default Astro icon
-- Font Awesome integration for social media icons
-- Redesigned about page with centered layout, labeled content sections, and inline interests
-- Year-based organization for blog and project listings
-- Bluesky butterfly SVG icon
+- Portfolio redesign with the Ink and Paper theme, editorial styling, a custom color palette, and Satoshi typography.
+- Font Awesome integration, dynamic OG image generation, content templates, and real starter content for the Astro-era site.
 
 ### Changed
 
-- Migrated to GitHub Pages deployment, removed Vercel analytics
-- Related posts layout changed from grid to row-based design
-- Improved content collection schemas with better TypeScript types
-- Cleaned up code architecture by removing excessive comments and extracting modular components
+- Redesigned the About page around a more personal centered layout and refined the site's branded visual language.
 
-### Fixed
-
-- Search modal view transitions and result URL handling
-- Footer alignment and visibility issues
-- Tag casing normalization to prevent duplicates
-
-## [0.2.0] - 2026-01-31
+## [0.4.0] - 2026-02-01
 
 ### Added
 
-- FlexSearch integration replacing Pagefind for improved search experience
-- Comprehensive search modal with keyboard navigation and result highlighting
-- RSS feed generation at `/rss.xml`
-- DevContainer support for both Docker and Podman
-- Dual licensing (MIT for code, CC BY 4.0 for content)
-- Comprehensive AGENTS.md documentation for development guidelines
-- SEO improvements including JsonLd structured data and meta tags
-- JSDoc comments throughout codebase
-- CI/CD pipeline with GitHub Actions for linting and deployment
-- Pre-commit hooks with Husky and lint-staged
+- FlexSearch-powered search, year-based content organization, dual licensing, and refreshed DevContainer support.
 
 ### Changed
 
-- Simplified theme system to two-option toggle (light/dark) with smooth animations
-- Extracted shared patterns: consolidated blog and project cards, shared pagination logic
-- Unified page transitions with prefetch strategy
-- Refactored data utilities by domain (blog.ts, projects.ts, utils.ts)
+- Replaced Pagefind, simplified the theme system, and improved shared content and search architecture.
+
+## [0.3.0] - 2026-01-28
+
+### Added
+
+- Reading progress, related posts, tag discovery pages, richer search modal interactions, and broader navigation and metadata polish.
+
+### Changed
+
+- Refined the post and project browsing experience with better motion, card layouts, and semantic content patterns.
 
 ### Fixed
 
-- MDX suspense errors in client components
-- Build issues with TypeScript and import resolution
-- Robots.txt sitemap URL to match canonical site URL
-- Image loading optimization and position warnings
-- Text readability on project/post cards in light mode
+- Closed multiple navigation, modal, tag-casing, sitemap, and CI/type-safety issues across the publishing experience.
+
+## [0.2.0] - 2026-01-26
+
+### Added
+
+- Publishing foundations for the Astro rewrite: RSS, sitemap and robots support, structured SEO, MDX and Expressive Code support, TOC and custom MDX components, CI, and pre-commit automation.
+
+### Changed
+
+- Evolved the initial rewrite into a more complete blog and portfolio platform with smoother transitions and a more maintainable content architecture.
 
 ## [0.1.0] - 2026-01-16
 
 ### Added
 
-- Initial migration from Next.js to Astro with Bun package manager
-- Content collections with Zod schema validation for blog posts and projects
-- Site configuration system with constants for navigation and social links
-- Responsive layout with Header, Hero, Footer components
-- Dynamic project listing with filtering and individual project pages
-- Blog listing with recent posts and individual blog post pages
-- About page with personal introduction
-- Table of Contents (TOC) for blog posts
-- Theme toggle with CSS custom properties
-- Page view transitions with Astro's View Transitions API
-- Shadcn/ui component integration with Tailwind CSS
+- Initial migration from Next.js to Astro with Bun.
+- Content collections with Zod validation, responsive layout primitives, dynamic project and blog pages, an About page, a theme toggle, and View Transitions.
+- Shadcn-style component integration and the first site configuration structure for navigation and social links.
 
 ### Changed
 
-- Migrated from Tailwind CSS v4 to v3 for better ecosystem compatibility
-- Reorganized folder structure for better code organization
-- Co-located page-specific components with their respective pages
+- Reorganized the early Astro codebase to make page-specific components and content easier to manage.
 
-[unreleased]: https://github.com/abijith-suresh/abijith.sh/compare/v0.4.0...HEAD
+[unreleased]: https://github.com/abijith-suresh/abijith.sh/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/abijith-suresh/abijith.sh/compare/v0.5.0...v0.6.0
+[0.5.0]: https://github.com/abijith-suresh/abijith.sh/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/abijith-suresh/abijith.sh/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/abijith-suresh/abijith.sh/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/abijith-suresh/abijith.sh/compare/v0.1.0...v0.2.0
