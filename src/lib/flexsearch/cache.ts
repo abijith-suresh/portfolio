@@ -1,33 +1,53 @@
-import type { SearchResult } from "@/pages/api/search-index.json";
+import type { SearchIndexPayload } from "@/lib/search/types";
 
-const INDEX_CACHE_KEY = "search_index_data";
-const INDEX_VERSION = "1.0";
-const CACHE_VERSION_KEY = "search_index_version";
+const INDEX_CACHE_KEY = "search_index_payload";
+const LEGACY_INDEX_CACHE_KEY = "search_index_data";
+const LEGACY_CACHE_VERSION_KEY = "search_index_version";
 
-export function getCachedIndex(): SearchResult[] | null {
-  try {
-    const cachedVersion = localStorage.getItem(CACHE_VERSION_KEY);
-    if (cachedVersion !== INDEX_VERSION) {
-      localStorage.removeItem(INDEX_CACHE_KEY);
-      localStorage.setItem(CACHE_VERSION_KEY, INDEX_VERSION);
-      return null;
-    }
-
-    const cached = localStorage.getItem(INDEX_CACHE_KEY);
-    if (cached) {
-      return JSON.parse(cached) as SearchResult[];
-    }
-  } catch {
-    // localStorage not available or error
-  }
-  return null;
+function clearLegacyCache(): void {
+  localStorage.removeItem(LEGACY_INDEX_CACHE_KEY);
+  localStorage.removeItem(LEGACY_CACHE_VERSION_KEY);
 }
 
-export function cacheIndex(data: SearchResult[]): void {
+function isSearchIndexPayload(payload: unknown): payload is SearchIndexPayload {
+  if (!payload || typeof payload !== "object") return false;
+
+  const candidate = payload as Partial<SearchIndexPayload>;
+  return (
+    typeof candidate.generatedAt === "string" &&
+    typeof candidate.signature === "string" &&
+    Array.isArray(candidate.results)
+  );
+}
+
+export function getCachedIndex(): SearchIndexPayload | null {
   try {
-    localStorage.setItem(INDEX_CACHE_KEY, JSON.stringify(data));
-    localStorage.setItem(CACHE_VERSION_KEY, INDEX_VERSION);
+    clearLegacyCache();
+
+    const cached = localStorage.getItem(INDEX_CACHE_KEY);
+    if (!cached) return null;
+
+    const parsed = JSON.parse(cached) as unknown;
+    return isSearchIndexPayload(parsed) ? parsed : null;
+  } catch {
+    return null;
+  }
+}
+
+export function cacheIndex(payload: SearchIndexPayload): void {
+  try {
+    clearLegacyCache();
+    localStorage.setItem(INDEX_CACHE_KEY, JSON.stringify(payload));
   } catch {
     // localStorage not available or quota exceeded
+  }
+}
+
+export function clearCachedIndex(): void {
+  try {
+    clearLegacyCache();
+    localStorage.removeItem(INDEX_CACHE_KEY);
+  } catch {
+    // localStorage not available
   }
 }

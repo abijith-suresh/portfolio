@@ -1,14 +1,12 @@
-import type { SearchResult } from "@/pages/api/search-index.json";
+import type { SearchResult } from "@/lib/search/types";
 
-export function calculateRelevanceScore(
-  result: SearchResult,
-  query: string,
-  queryLower: string
-): number {
+export function calculateRelevanceScore(result: SearchResult, queryLower: string): number {
   let score = 0;
   const titleLower = result.title.toLowerCase();
   const descLower = result.description.toLowerCase();
   const tagsLower = result.tags.join(" ").toLowerCase();
+  const contentLower = result.content.toLowerCase();
+  const queryWords = queryLower.split(/\s+/).filter(Boolean);
 
   if (titleLower === queryLower) {
     score += 1000;
@@ -18,26 +16,16 @@ export function calculateRelevanceScore(
     score += 300;
   }
 
-  const titleWords = titleLower.split(/\s+/);
-  const queryWords = queryLower.split(/\s+/);
-  for (const qWord of queryWords) {
-    for (const tWord of titleWords) {
-      if (tWord === qWord) score += 50;
-      else if (tWord.startsWith(qWord)) score += 30;
-      else if (tWord.includes(qWord)) score += 10;
-    }
+  for (const queryWord of queryWords) {
+    if (titleLower.includes(queryWord)) score += 40;
+    if (descLower.includes(queryWord)) score += 20;
+    if (tagsLower.includes(queryWord)) score += 35;
+    if (contentLower.includes(queryWord)) score += 10;
   }
 
-  if (descLower.includes(queryLower)) {
-    score += 100;
-  }
-  for (const qWord of queryWords) {
-    if (descLower.includes(qWord)) score += 20;
-  }
-
-  for (const qWord of queryWords) {
-    if (tagsLower.includes(qWord)) score += 40;
-  }
+  if (descLower.includes(queryLower)) score += 120;
+  if (tagsLower.includes(queryLower)) score += 160;
+  if (contentLower.includes(queryLower)) score += 80;
 
   try {
     const postDate = new Date(result.date);
