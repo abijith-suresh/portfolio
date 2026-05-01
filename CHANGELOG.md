@@ -1,13 +1,17 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this site are documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+This changelog follows the categories and intent of [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), but tracks the site as a series of dated milestones instead of package releases.
 
-## [Unreleased]
+## Unreleased
 
-## [0.6.0] - 2026-03-24
+### Changed
+
+- Removed release automation, Git tags, and release-oriented package metadata from the repository.
+- Reframed project history as a manual site changelog instead of GitHub release notes.
+
+## 2026-03-24 — Vercel migration
 
 ### Changed
 
@@ -19,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Prevented draft blog posts from being generated as public pages.
 - Restored Astro-aware type checking in CI and added regression coverage for launch readiness.
 
-## [0.5.0] - 2026-02-14
+## 2026-02-14 — Ink and Paper refresh
 
 ### Added
 
@@ -30,7 +34,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Redesigned the About page around a more personal centered layout and refined the site's branded visual language.
 
-## [0.4.0] - 2026-02-01
+## 2026-02-01 — Search and content organization
 
 ### Added
 
@@ -40,7 +44,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Replaced Pagefind, simplified the theme system, and improved shared content and search architecture.
 
-## [0.3.0] - 2026-01-28
+## 2026-01-28 — Discovery and navigation improvements
 
 ### Added
 
@@ -54,7 +58,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Closed multiple navigation, modal, tag-casing, sitemap, and CI/type-safety issues across the publishing experience.
 
-## [0.2.0] - 2026-01-26
+## 2026-01-26 — Publishing foundations
 
 ### Added
 
@@ -64,7 +68,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Evolved the initial rewrite into a more complete blog and portfolio platform with smoother transitions and a more maintainable content architecture.
 
-## [0.1.0] - 2026-01-16
+## 2026-01-16 — Astro rewrite foundation
 
 ### Added
 
@@ -75,11 +79,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - Reorganized the early Astro codebase to make page-specific components and content easier to manage.
-
-[unreleased]: https://github.com/abijith-suresh/abijith.sh/compare/v0.6.0...HEAD
-[0.6.0]: https://github.com/abijith-suresh/abijith.sh/compare/v0.5.0...v0.6.0
-[0.5.0]: https://github.com/abijith-suresh/abijith.sh/compare/v0.4.0...v0.5.0
-[0.4.0]: https://github.com/abijith-suresh/abijith.sh/compare/v0.3.0...v0.4.0
-[0.3.0]: https://github.com/abijith-suresh/abijith.sh/compare/v0.2.0...v0.3.0
-[0.2.0]: https://github.com/abijith-suresh/abijith.sh/compare/v0.1.0...v0.2.0
-[0.1.0]: https://github.com/abijith-suresh/abijith.sh/releases/tag/v0.1.0
