@@ -5,47 +5,68 @@ import Link from "@/components/Link.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
 import { SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
-import { getAllBlogPosts, getAllBlogTags } from "@/lib/blog";
+import { getAllBlogPosts } from "@/lib/blog";
+import { getAllContentTagCounts } from "@/lib/content-tags";
 import { groupByYear } from "@/lib/group-by-year";
-import { getAllProjects, getAllProjectTags, sortProjects } from "@/lib/projects";
+import { getAllProjects, sortProjects } from "@/lib/projects";
+import { getTagHref, slugifyTag } from "@/lib/tags";
 import type { CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
-  const blogTags = await getAllBlogTags();
-  const projectTags = await getAllProjectTags();
+  const [tagCounts, allPosts, allProjects] = await Promise.all([
+    getAllContentTagCounts(),
+    getAllBlogPosts(),
+    getAllProjects(),
+  ]);
 
-  // Get all unique tags
-  const allTags = Array.from(new Set([...blogTags, ...projectTags])).sort();
+  return tagCounts.flatMap(({ slug, label }) => {
+    const filteredPosts = allPosts.filter((post) =>
+      post.data.tags.some((tag) => slugifyTag(tag) === slug)
+    );
+    const filteredProjects = sortProjects(
+      allProjects.filter((project) => project.data.tags.some((tag) => slugifyTag(tag) === slug)),
+      "date"
+    );
 
-  const allPosts = await getAllBlogPosts();
-  const allProjects = await getAllProjects();
-
-  return allTags.map((tag) => {
-    const filteredPosts = allPosts.filter((post) => post.data.tags.includes(tag));
-    const filteredProjects = allProjects.filter((project) => project.data.tags.includes(tag));
-
-    // Sort projects by date
-    const sortedProjects = sortProjects(filteredProjects, "date");
-
-    return {
-      params: { tag },
-      props: { tag, posts: filteredPosts, projects: sortedProjects },
+    const sharedProps = {
+      tagLabel: label,
+      tagSlug: slug,
+      posts: filteredPosts,
+      projects: filteredProjects,
     };
+
+    const paths = [
+      {
+        params: { tag: slug },
+        props: { ...sharedProps, isAlias: false },
+      },
+    ];
+
+    if (label !== slug) {
+      paths.push({
+        params: { tag: label },
+        props: { ...sharedProps, isAlias: true },
+      });
+    }
+
+    return paths;
   });
 }
 
 interface Props {
-  tag: string;
+  tagLabel: string;
+  tagSlug: string;
   posts: CollectionEntry<"blog">[];
   projects: CollectionEntry<"projects">[];
+  isAlias: boolean;
 }
 
-const { tag, posts, projects } = Astro.props;
+const { tagLabel, tagSlug, posts, projects, isAlias } = Astro.props;
 const postCount = posts.length;
 const projectCount = projects.length;
 const totalCount = postCount + projectCount;
+const canonicalURL = new URL(getTagHref(tagSlug), SITE.url).href;
 
-// Combine and sort by date (most recent first)
 type ContentItem =
   | {
       type: "blog";
@@ -79,8 +100,10 @@ const contentByYear = groupByYear(allContent, (item) => item.date);
 ---
 
 <Layout
-  title={`Tag: ${tag} - ${SITE.title}`}
-  description={`Content tagged with "${tag}" - ${postCount} ${postCount === 1 ? "post" : "posts"} and ${projectCount} ${projectCount === 1 ? "project" : "projects"}`}
+  title={`Tag: ${tagLabel} - ${SITE.title}`}
+  description={`Content tagged with "${tagLabel}" - ${postCount} ${postCount === 1 ? "post" : "posts"} and ${projectCount} ${projectCount === 1 ? "project" : "projects"}`}
+  canonicalURL={canonicalURL}
+  noindex={isAlias}
   jsonLd={{ type: "website" }}
 >
   <div class="w-full mx-auto flex grow flex-col gap-y-8 px-4 max-w-3xl pb-12 page-enter">
@@ -89,13 +112,13 @@ const contentByYear = groupByYear(allContent, (item) => item.date);
         items={[
           { label: "Home", href: "/", icon: "home" },
           { label: "Tags", href: "/tags", icon: "tags" },
-          { label: tag, icon: "tag" },
+          { label: tagLabel, icon: "tag" },
         ]}
       />
     </div>
 
     <div class="flex flex-col gap-y-2 page-enter page-enter-delay-2">
-      <h1 class="text-3xl font-semibold text-foreground">{tag}</h1>
+      <h1 class="text-3xl font-semibold text-foreground">{tagLabel}</h1>
       <p class="text-sm text-muted-foreground">
         {totalCount}
         {totalCount === 1 ? "item" : "items"}
