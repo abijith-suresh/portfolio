@@ -1,37 +1,46 @@
 import { getAllBlogTagsWithCount } from "@/lib/blog";
 import { getAllProjectTagsWithCount } from "@/lib/projects";
+import { normalizeTagCounts } from "@/lib/tags";
 
 export type TagCounts = {
-  tag: string;
+  slug: string;
+  label: string;
   blogCount: number;
   projectCount: number;
   totalCount: number;
 };
 
 export async function getAllContentTagCounts(): Promise<TagCounts[]> {
-  const blogTags = await getAllBlogTagsWithCount();
-  const projectTags = await getAllProjectTagsWithCount();
-  const tagMap = new Map<string, { blogCount: number; projectCount: number }>();
+  const blogTags = normalizeTagCounts(await getAllBlogTagsWithCount());
+  const projectTags = normalizeTagCounts(await getAllProjectTagsWithCount());
+  const tagMap = new Map<string, TagCounts>();
 
-  blogTags.forEach(({ tag, count }) => {
-    tagMap.set(tag, { blogCount: count, projectCount: 0 });
-  });
+  for (const { slug, label, count } of blogTags) {
+    tagMap.set(slug, {
+      slug,
+      label,
+      blogCount: count,
+      projectCount: 0,
+      totalCount: count,
+    });
+  }
 
-  projectTags.forEach(({ tag, count }) => {
-    const existing = tagMap.get(tag);
+  for (const { slug, label, count } of projectTags) {
+    const existing = tagMap.get(slug);
     if (existing) {
       existing.projectCount = count;
-    } else {
-      tagMap.set(tag, { blogCount: 0, projectCount: count });
+      existing.totalCount = existing.blogCount + count;
+      continue;
     }
-  });
 
-  return Array.from(tagMap.entries())
-    .map(([tag, counts]) => ({
-      tag,
-      blogCount: counts.blogCount,
-      projectCount: counts.projectCount,
-      totalCount: counts.blogCount + counts.projectCount,
-    }))
-    .sort((a, b) => a.tag.localeCompare(b.tag));
+    tagMap.set(slug, {
+      slug,
+      label,
+      blogCount: 0,
+      projectCount: count,
+      totalCount: count,
+    });
+  }
+
+  return Array.from(tagMap.values()).sort((a, b) => a.label.localeCompare(b.label));
 }
