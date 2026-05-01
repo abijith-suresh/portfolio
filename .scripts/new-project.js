@@ -10,10 +10,12 @@
  *   node .scripts/new-project.js
  */
 
-import { readFileSync, writeFileSync, existsSync } from "fs";
-import { fileURLToPath } from "url";
-import { dirname, join } from "path";
-import readline from "readline";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { dirname, join, resolve } from "node:path";
+import readline from "node:readline";
+import { fileURLToPath } from "node:url";
+
+import { getCurrentDate, renderProjectTemplate, slugify } from "./scaffold-utils.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -35,29 +37,9 @@ function prompt(question) {
 }
 
 /**
- * Convert title to kebab-case slug
- */
-function slugify(title) {
-  return title
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, "") // Remove special chars except spaces and hyphens
-    .replace(/\s+/g, "-") // Replace spaces with hyphens
-    .replace(/-+/g, "-") // Replace multiple hyphens with single
-    .substring(0, 100); // Limit length
-}
-
-/**
- * Format date as YYYY-MM-DD
- */
-function getCurrentDate() {
-  const now = new Date();
-  return now.toISOString().split("T")[0];
-}
-
-/**
  * Main function
  */
-async function main() {
+export async function main() {
   console.log("\n🚀 Create New Project\n");
 
   // Get user input
@@ -97,36 +79,17 @@ async function main() {
     process.exit(1);
   }
 
-  let template = readFileSync(templatePath, "utf-8");
-
-  // Replace placeholders
-  template = template.replace(/\{\{TITLE\}\}/g, title);
-  template = template.replace(/\{\{DESCRIPTION\}\}/g, description);
-  template = template.replace(/\{\{DATE_FULL\}\}/g, getCurrentDate());
-
-  // Handle optional URLs
-  if (githubUrl) {
-    template = template.replace(/\{\{GITHUB_URL\}\}/g, githubUrl);
-    template = template.replace(
-      /- \*\*Repository\*\*: \[GitHub\]\(\{\{GITHUB_URL\}\}\)/g,
-      `- **Repository**: [GitHub](${githubUrl})`
-    );
-  } else {
-    template = template.replace(/- \*\*Repository\*\*: \[GitHub\]\(\{\{GITHUB_URL\}\}\)/g, "");
-  }
-
-  if (demoUrl) {
-    template = template.replace(/\{\{DEMO_URL\}\}/g, demoUrl);
-    template = template.replace(
-      /- \*\*Live Demo\*\*: \[Demo\]\(\{\{DEMO_URL\}\}\)/g,
-      `- **Live Demo**: [Demo](${demoUrl})`
-    );
-  } else {
-    template = template.replace(/- \*\*Live Demo\*\*: \[Demo\]\(\{\{DEMO_URL\}\}\)/g, "");
-  }
+  const template = readFileSync(templatePath, "utf-8");
+  const renderedTemplate = renderProjectTemplate(template, {
+    title,
+    description,
+    date: getCurrentDate(),
+    githubUrl,
+    demoUrl,
+  });
 
   // Write file
-  writeFileSync(targetFile, template, "utf-8");
+  writeFileSync(targetFile, renderedTemplate, "utf-8");
 
   console.log("\n✅ Project created successfully!");
   console.log(`\n📄 File: ${targetFile}`);
@@ -138,7 +101,11 @@ async function main() {
   rl.close();
 }
 
-main().catch((error) => {
-  console.error("❌ Error:", error.message);
-  process.exit(1);
-});
+const isDirectRun = process.argv[1] && resolve(process.argv[1]) === __filename;
+
+if (isDirectRun) {
+  main().catch((error) => {
+    console.error("❌ Error:", error.message);
+    process.exit(1);
+  });
+}

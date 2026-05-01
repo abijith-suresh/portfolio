@@ -196,7 +196,7 @@ import SearchModalSkeleton from "@/components/SearchModalSkeleton.astro";
     search,
     setCallbacks,
   } from "@/lib/flexsearch";
-  import type { SearchResult } from "@/pages/api/search-index.json";
+  import type { SearchResult } from "@/lib/search/types";
 
   // DOM element references (re-queried on each init)
   let modal: HTMLElement | null;

@@ -17,7 +17,7 @@ describe("production readiness regressions", () => {
   it("does not support blog updatedDate metadata", async () => {
     const configSource = await readWorkspaceFile("src", "content", "config.ts");
     const blogPageSource = await readWorkspaceFile("src", "pages", "blog", "[...slug].astro");
-    const rssSource = await readWorkspaceFile("src", "pages", "rss.xml.js");
+    const rssSource = await readWorkspaceFile("src", "pages", "rss.xml.ts");
 
     expect(configSource).not.toMatch(/updatedDate/);
     expect(blogPageSource).not.toMatch(/updatedDate/);
@@ -26,7 +26,7 @@ describe("production readiness regressions", () => {
 
   it("keeps search index and rss prerendered on Vercel", async () => {
     const searchSource = await readWorkspaceFile("src", "pages", "api", "search-index.json.ts");
-    const rssSource = await readWorkspaceFile("src", "pages", "rss.xml.js");
+    const rssSource = await readWorkspaceFile("src", "pages", "rss.xml.ts");
 
     expect(searchSource).toContain("export const prerender = true;");
     expect(rssSource).toContain("export const prerender = true;");
