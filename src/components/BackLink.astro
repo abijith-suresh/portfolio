@@ -12,10 +12,7 @@ const { href, label, class: className } = Astro.props;
 ---
 
 <div class:list={cn("pt-6 border-t border-border", className)}>
-  <Link
-    href={href}
-    class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-  >
+  <Link href={href} class="back-link">
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M10 12L6 8L10 4"
