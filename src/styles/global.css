@@ -40,7 +40,7 @@
 :root {
   /* ── Light theme: Unbleached Paper ─────────────────────────────────────── */
   --background: oklch(97.5% 0.007 80); /* barely-warm off-white, paper stock */
-  --foreground: oklch(17% 0.014 50); /* warm near-black, clay-tinted ink    */
+  --foreground: oklch(17% 0.014 50); /* warm near-black, green-tinted ink    */
 
   --card: oklch(95% 0.01 80); /* one step deeper than background     */
   --card-foreground: oklch(17% 0.014 50);
@@ -65,12 +65,12 @@
 
   --border: oklch(88% 0.015 74); /* warm visible border                 */
   --input: oklch(88% 0.015 74);
-  --ring: oklch(47% 0.115 30); /* clay accent                         */
+  --ring: oklch(47% 0.09 155); /* green accent                        */
 
-  /* ── Clay accent ─────────────────────────────────────────────────────── */
-  --color-warm: oklch(47% 0.115 30); /* fired clay / red ochre              */
-  --color-warm-muted: oklch(47% 0.115 30 / 0.1);
-  --color-warm-subtle: oklch(47% 0.115 30 / 0.15);
+  /* ── Green accent ────────────────────────────────────────────────────── */
+  --color-warm: oklch(47% 0.09 155); /* deep evergreen                      */
+  --color-warm-muted: oklch(47% 0.09 155 / 0.1);
+  --color-warm-subtle: oklch(47% 0.09 155 / 0.15);
 
   --transition-fast: 150ms;
   --transition-normal: 200ms;
@@ -80,38 +80,38 @@
 
 [data-theme="dark"] {
   /* ── Dark theme: Workshop at Night ─────────────────────────────────────── */
-  --background: oklch(13.5% 0.016 50); /* warm dark — amber-shifted, not cool */
+  --background: oklch(13.5% 0.006 50); /* near-neutral dark with warm bias   */
   --foreground: oklch(93% 0.01 75); /* warm off-white                      */
 
-  --card: oklch(18% 0.018 50); /* slightly elevated warm surface      */
+  --card: oklch(18% 0.008 50); /* slightly elevated surface           */
   --card-foreground: oklch(93% 0.01 75);
 
-  --popover: oklch(22% 0.018 50); /* popover / deeper surface            */
+  --popover: oklch(22% 0.009 50); /* popover / deeper surface            */
   --popover-foreground: oklch(93% 0.01 75);
 
   --primary: oklch(93% 0.01 75);
-  --primary-foreground: oklch(13.5% 0.016 50);
+  --primary-foreground: oklch(13.5% 0.006 50);
 
-  --secondary: oklch(18% 0.018 50);
+  --secondary: oklch(18% 0.008 50);
   --secondary-foreground: oklch(93% 0.01 75);
 
-  --muted: oklch(22% 0.018 50);
-  --muted-foreground: oklch(58% 0.014 62); /* warm stone                         */
+  --muted: oklch(22% 0.009 50);
+  --muted-foreground: oklch(58% 0.01 55); /* warm stone                         */
 
-  --accent: oklch(18% 0.018 50);
+  --accent: oklch(18% 0.008 50);
   --accent-foreground: oklch(93% 0.01 75);
 
   --destructive: oklch(63% 0.22 20); /* brighter red for dark mode          */
-  --destructive-foreground: oklch(13.5% 0.016 50);
+  --destructive-foreground: oklch(13.5% 0.006 50);
 
-  --border: oklch(28% 0.02 50); /* warm border                         */
-  --input: oklch(28% 0.02 50);
-  --ring: oklch(69% 0.115 28); /* lighter clay — glows against warm dark */
+  --border: oklch(28% 0.01 50); /* subtle warm border                  */
+  --input: oklch(28% 0.01 50);
+  --ring: oklch(69% 0.09 155); /* lighter green — glows against warm dark */
 
-  /* ── Clay accent (dark) ──────────────────────────────────────────────── */
-  --color-warm: oklch(69% 0.115 28); /* fired clay, lighter for dark mode   */
-  --color-warm-muted: oklch(69% 0.115 28 / 0.15);
-  --color-warm-subtle: oklch(69% 0.115 28 / 0.2);
+  /* ── Green accent (dark) ─────────────────────────────────────────────── */
+  --color-warm: oklch(69% 0.09 155); /* lighter evergreen for dark mode     */
+  --color-warm-muted: oklch(69% 0.09 155 / 0.15);
+  --color-warm-subtle: oklch(69% 0.09 155 / 0.2);
 }
 
 /* Smooth theme transitions */
@@ -170,24 +170,20 @@
 
 @layer components {
   .card-hover {
-    @apply rounded-lg overflow-hidden border border-border/60;
+    @apply rounded-lg overflow-hidden border border-border;
+    background: var(--card);
     @apply transition-all;
-    transition-duration: var(--transition-normal);
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .card-hover:hover {
-    transform: translateY(-2px);
-    background: var(--color-warm-subtle);
-    border-color: var(--color-warm);
-    box-shadow: 0 4px 12px rgb(0 0 0 / 0.06);
+    transform: scale(1.015);
+    background: var(--popover);
   }
 
   .group:hover .card-hover svg {
     color: var(--color-warm);
-  }
-
-  :where([data-theme="dark"]) .card-hover:hover {
-    box-shadow: 0 4px 12px rgb(0 0 0 / 0.3);
   }
 
   .tag-pill {

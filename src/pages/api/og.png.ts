@@ -9,12 +9,12 @@ export const GET: APIRoute = async ({ url }) => {
   const description = url.searchParams.get("description") || SITE.description;
   const type = url.searchParams.get("type") || "website";
 
-  // Ink & Clay theme colors
+  // Ink & Evergreen theme colors (OKLCH converted to hex for @vercel/og)
   const theme = {
-    background: "#faf8f5", // Light mode background (warm off-white)
-    foreground: "#1e1610", // Warm near-black text
-    accent: "#8f4028", // Clay accent
-    muted: "#7a6e68", // Warm stone gray
+    background: "#f9f6f2", // oklch(97.5% 0.007 80) — unbleached paper
+    foreground: "#150e0a", // oklch(17% 0.014 50) — warm near-black
+    accent: "#296944", // oklch(47% 0.09 155) — deep evergreen
+    muted: "#746d68", // oklch(54% 0.012 65) — warm stone gray
   };
 
   // Generate HTML for the OG image

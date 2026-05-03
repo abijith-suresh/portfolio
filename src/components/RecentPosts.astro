@@ -19,7 +19,16 @@ const recentPosts = allPosts.slice(0, limit);
   recentPosts.length > 0 && (
     <section class:list={cn("flex flex-col gap-y-4", className)}>
       <div class="flex items-center justify-between">
-        <h2 class="text-lg font-semibold text-foreground">Latest Posts</h2>
+        <div class="flex items-center gap-2.5">
+          <div
+            class="w-[3px] h-4 rounded-sm shrink-0"
+            style="background-color: var(--color-warm);"
+            aria-hidden="true"
+          />
+          <span class="text-[0.8125rem] font-semibold uppercase tracking-wide text-muted-foreground">
+            Recent Writing
+          </span>
+        </div>
         <Link
           href="/blog"
           class="group inline-flex items-center gap-1.5 text-sm transition-colors"

@@ -2,10 +2,10 @@ import type { ThemeDefinition } from "./types";
 
 const inkAndPaper: ThemeDefinition = {
   name: "ink-and-paper",
-  displayName: "Ink & Clay",
+  displayName: "Ink & Evergreen",
 
   // Light theme: Unbleached Paper
-  // Warm off-white canvas, clay-tinted near-black text, warm stone muted.
+  // Warm off-white canvas, green-tinted near-black text, warm stone muted.
   light: {
     background: "oklch(97.5% 0.007 80)",
     foreground: "oklch(17% 0.014 50)",
@@ -33,39 +33,39 @@ const inkAndPaper: ThemeDefinition = {
 
     border: "oklch(88% 0.015 74)",
     input: "oklch(88% 0.015 74)",
-    ring: "oklch(47% 0.115 30)",
+    ring: "oklch(47% 0.09 155)",
   },
 
   // Dark theme: Workshop at Night
-  // Warm amber-shifted dark (not cool midnight), clay accent glows brighter.
+  // Near-neutral dark with warm bias (hue 50), green accent carries the color.
   dark: {
-    background: "oklch(13.5% 0.016 50)",
+    background: "oklch(13.5% 0.006 50)",
     foreground: "oklch(93% 0.010 75)",
 
-    card: "oklch(18% 0.018 50)",
+    card: "oklch(18% 0.008 50)",
     cardForeground: "oklch(93% 0.010 75)",
 
-    popover: "oklch(22% 0.018 50)",
+    popover: "oklch(22% 0.009 50)",
     popoverForeground: "oklch(93% 0.010 75)",
 
     primary: "oklch(93% 0.010 75)",
-    primaryForeground: "oklch(13.5% 0.016 50)",
+    primaryForeground: "oklch(13.5% 0.006 50)",
 
-    secondary: "oklch(18% 0.018 50)",
+    secondary: "oklch(18% 0.008 50)",
     secondaryForeground: "oklch(93% 0.010 75)",
 
-    muted: "oklch(22% 0.018 50)",
-    mutedForeground: "oklch(58% 0.014 62)",
+    muted: "oklch(22% 0.009 50)",
+    mutedForeground: "oklch(58% 0.010 55)",
 
-    accent: "oklch(18% 0.018 50)",
+    accent: "oklch(18% 0.008 50)",
     accentForeground: "oklch(93% 0.010 75)",
 
     destructive: "oklch(63% 0.22 20)",
-    destructiveForeground: "oklch(13.5% 0.016 50)",
+    destructiveForeground: "oklch(13.5% 0.006 50)",
 
-    border: "oklch(28% 0.020 50)",
-    input: "oklch(28% 0.020 50)",
-    ring: "oklch(69% 0.115 28)",
+    border: "oklch(28% 0.010 50)",
+    input: "oklch(28% 0.010 50)",
+    ring: "oklch(69% 0.09 155)",
   },
 };
 
