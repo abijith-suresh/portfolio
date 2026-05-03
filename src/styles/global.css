@@ -65,12 +65,12 @@
 
   --border: oklch(88% 0.015 74); /* warm visible border                 */
   --input: oklch(88% 0.015 74);
-  --ring: oklch(47% 0.115 30); /* clay accent                         */
+  --ring: oklch(47% 0.065 30); /* clay accent                         */
 
   /* ── Clay accent ─────────────────────────────────────────────────────── */
-  --color-warm: oklch(47% 0.115 30); /* fired clay / red ochre              */
-  --color-warm-muted: oklch(47% 0.115 30 / 0.1);
-  --color-warm-subtle: oklch(47% 0.115 30 / 0.15);
+  --color-warm: oklch(47% 0.065 30); /* fired clay / red ochre              */
+  --color-warm-muted: oklch(47% 0.065 30 / 0.1);
+  --color-warm-subtle: oklch(47% 0.065 30 / 0.15);
 
   --transition-fast: 150ms;
   --transition-normal: 200ms;
@@ -106,12 +106,12 @@
 
   --border: oklch(28% 0.02 50); /* warm border                         */
   --input: oklch(28% 0.02 50);
-  --ring: oklch(69% 0.115 28); /* lighter clay — glows against warm dark */
+  --ring: oklch(69% 0.065 28); /* lighter clay — glows against warm dark */
 
   /* ── Clay accent (dark) ──────────────────────────────────────────────── */
-  --color-warm: oklch(69% 0.115 28); /* fired clay, lighter for dark mode   */
-  --color-warm-muted: oklch(69% 0.115 28 / 0.15);
-  --color-warm-subtle: oklch(69% 0.115 28 / 0.2);
+  --color-warm: oklch(69% 0.065 28); /* fired clay, lighter for dark mode   */
+  --color-warm-muted: oklch(69% 0.065 28 / 0.15);
+  --color-warm-subtle: oklch(69% 0.065 28 / 0.2);
 }
 
 /* Smooth theme transitions */
@@ -177,9 +177,7 @@
 
   .card-hover:hover {
     transform: translateY(-2px);
-    background: var(--color-warm-subtle);
     border-color: var(--color-warm);
-    box-shadow: 0 4px 12px rgb(0 0 0 / 0.06);
   }
 
   .group:hover .card-hover svg {
@@ -187,7 +185,7 @@
   }
 
   :where([data-theme="dark"]) .card-hover:hover {
-    box-shadow: 0 4px 12px rgb(0 0 0 / 0.3);
+    border-color: var(--color-warm);
   }
 
   .tag-pill {
