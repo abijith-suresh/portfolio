@@ -7,7 +7,7 @@
 
 ## Stack
 
-- Astro 5
+- Astro 6
 - TypeScript
 - Tailwind CSS v4
 - MDX
@@ -22,7 +22,7 @@
 
 ## Project Map
 
-- `src/content/config.ts`: content collection schemas
+- `src/content.config.ts`: content collection schemas
 - `src/content/blog/`: blog posts
 - `src/content/projects/`: project entries
 - `src/components/`: Astro components and MDX helpers
@@ -32,7 +32,7 @@
 ## Hard Rules
 
 - Use the `@/` path alias for `src` imports.
-- Keep content frontmatter valid against `src/content/config.ts` schemas.
+- Keep content frontmatter valid against `src/content.config.ts` schemas.
 - Prefer existing Astro component and content patterns over new abstractions.
 - If you change collection schemas, update affected content and validation paths together.
 

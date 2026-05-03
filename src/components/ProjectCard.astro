@@ -10,7 +10,7 @@ interface Props {
 
 const { project, class: className } = Astro.props;
 const { title, description, tags, date } = project.data;
-const projectUrl = `/projects/${project.slug}`;
+const projectUrl = `/projects/${project.id}`;
 const formattedDate = formatBlogDate(date);
 ---
 

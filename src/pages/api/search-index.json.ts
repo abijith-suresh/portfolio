@@ -25,7 +25,7 @@ async function generateSearchIndex(): Promise<SearchResult[]> {
       description: post.data.description,
       date: post.data.publishDate.toISOString(),
       tags: post.data.tags,
-      url: `/blog/${post.slug}`,
+      url: `/blog/${post.id}`,
       content: toSearchableText(post.body || ""),
       type: "blog",
     });
@@ -38,7 +38,7 @@ async function generateSearchIndex(): Promise<SearchResult[]> {
       description: project.data.description,
       date: project.data.date.toISOString(),
       tags: project.data.tags,
-      url: `/projects/${project.slug}`,
+      url: `/projects/${project.id}`,
       content: toSearchableText(project.body || ""),
       type: "project",
     });
