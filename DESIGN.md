@@ -2,8 +2,8 @@
 name: "abijith.sh"
 description: "Personal portfolio and blog of Abijith S — one backend engineer's home on the web"
 colors:
-  clay: "oklch(47% 0.09 155)"
-  clay-light: "oklch(69% 0.09 155)"
+  evergreen: "oklch(47% 0.09 155)"
+  evergreen-light: "oklch(69% 0.09 155)"
   unbleached: "oklch(97.5% 0.007 80)"
   inkstone: "oklch(17% 0.014 50)"
   washi: "oklch(95% 0.010 80)"
@@ -61,15 +61,14 @@ components:
     padding: "20px"
   content-card-hover:
     backgroundColor: "pith"
-    borderColor: "clay"
     rounded: "md"
   tag-pill:
-    backgroundColor: "clay (10% alpha)"
-    textColor: "clay"
+    backgroundColor: "evergreen (10% alpha)"
+    textColor: "evergreen"
     rounded: "full"
     padding: "2px 8px"
   icon-button:
-    textColor: "clay"
+    textColor: "evergreen"
     rounded: "sm"
     padding: "8px"
   nav-link:
@@ -93,7 +92,7 @@ The palette uses warm neutrals paired with a deep evergreen accent. The green br
 **Key Characteristics:**
 
 - All OKLCH colors. Every neutral is tinted toward warmth (chroma ≥ 0.007); no pure black, no pure white.
-- Committed color strategy: Clay is the system's voice across both themes. The hue is the same; only the lightness changes between light (L=47%) and dark (L=69%).
+- Committed color strategy: Evergreen is the system's voice across both themes. The hue is the same; only the lightness changes between light (L=47%) and dark (L=69%).
 - Dark theme is warm-shifted (amber hue 50°), not cool. Both modes feel like the same room.
 - Single typeface (Satoshi) carrying the entire hierarchy through weight and scale.
 - Flat by default. Elevation emerges from tonal layering, not static shadows.
@@ -108,12 +107,12 @@ The palette uses warm neutrals paired with a deep evergreen accent. The green br
 ### Light palette — "Unbleached Paper"
 
 - **Unbleached** (`oklch(97.5% 0.007 80)`): Light background. Barely-warm off-white, like quality unbleached paper stock. Never pure white.
-- **Inkstone** (`oklch(17% 0.014 50)`): Light foreground. Warm near-black, clay-tinted. Like quality printing ink. Warmer and darker than the previous carbon (#2c2c2c).
+- **Inkstone** (`oklch(17% 0.014 50)`): Light foreground. Warm near-black, green-tinted. Like quality printing ink. Warmer and darker than the previous carbon (#2c2c2c).
 - **Washi** (`oklch(95% 0.010 80)`): Card and secondary surfaces. One step deeper than Unbleached.
 - **Pith** (`oklch(92% 0.013 78)`): Popover and hover surfaces. The deepest light neutral.
 - **Sandstone** (`oklch(54% 0.012 65)`): Muted text. Dates, descriptions, metadata. Warm gray. Passes WCAG AA (≈4.7:1).
 - **Linen Edge** (`oklch(88% 0.015 74)`): Borders and dividers. Warm, visible, not harsh.
-- **Kiln Red** (`oklch(45% 0.22 18)`): Destructive / error states. Pure cardinal red — distinguishable from Clay (different hue at 18° vs 30°).
+- **Kiln Red** (`oklch(45% 0.22 18)`): Destructive / error states. Pure cardinal red — clearly distinguishable from Evergreen (hue 18° vs 155°).
 
 ### Dark palette — "Workshop at Night"
 
@@ -178,14 +177,14 @@ No shadows on any state. Card hover uses scale and tonal background wash only.
 ### Tag Pill
 
 - **Shape:** Fully rounded.
-- **Background:** Clay at 10% alpha.
-- **Text:** Clay.
+- **Background:** Evergreen at 10% alpha.
+- **Text:** Evergreen.
 - **No border.** Padding: 2px 8px.
 
 ### Navigation Link
 
 - **Text:** Sandstone at rest. Inkstone / Warm Off-White on hover.
-- **Underline:** Invisible at rest. Grows left-to-right (200ms) in Clay on hover.
+- **Underline:** Invisible at rest. Grows left-to-right (200ms) in Evergreen on hover.
 
 ### Header
 
@@ -211,11 +210,11 @@ No shadows on any state. Card hover uses scale and tonal background wash only.
 ### Don't:
 
 - **Don't** use pure black (#000) or pure white (#fff). Every surface and text color is tinted.
-- **Don't** use Clay or terracotta as the accent. The system has moved to a green accent. Update any remaining clay references.
+- **Don't** use terracotta or clay hues as the accent. The system uses an evergreen accent (hue 155°).
 - **Don't** use side-stripe borders (border-left > 1px as accent). Blockquotes use a 2px left border; that's the one exception.
 - **Don't** use gradient text (background-clip: text with a gradient). Emphasis comes from weight or size.
 - **Don't** apply glassmorphism decoratively. All surfaces are opaque and tonal.
 - **Don't** add static shadows to any element. No shadows on hover either — scale and tonal wash only.
-- **Don't** use Clay as a large background fill or body text color. It marks identity and interaction, not surfaces.
+- **Don't** use Evergreen as a large background fill or body text color. It marks identity and interaction, not surfaces.
 - **Don't** let the dark theme go cool. Ironwood (warm amber-shifted dark) is not negotiable.
 - **Don't** add 3D scenes, particle effects, scroll-jacking, or WebGL showcases. The craft shows in precision, not spectacle.

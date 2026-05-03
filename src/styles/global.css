@@ -40,7 +40,7 @@
 :root {
   /* ── Light theme: Unbleached Paper ─────────────────────────────────────── */
   --background: oklch(97.5% 0.007 80); /* barely-warm off-white, paper stock */
-  --foreground: oklch(17% 0.014 50); /* warm near-black, clay-tinted ink    */
+  --foreground: oklch(17% 0.014 50); /* warm near-black, green-tinted ink    */
 
   --card: oklch(95% 0.01 80); /* one step deeper than background     */
   --card-foreground: oklch(17% 0.014 50);

@@ -2,10 +2,10 @@ import type { ThemeDefinition } from "./types";
 
 const inkAndPaper: ThemeDefinition = {
   name: "ink-and-paper",
-  displayName: "Ink & Clay",
+  displayName: "Ink & Evergreen",
 
   // Light theme: Unbleached Paper
-  // Warm off-white canvas, clay-tinted near-black text, warm stone muted.
+  // Warm off-white canvas, green-tinted near-black text, warm stone muted.
   light: {
     background: "oklch(97.5% 0.007 80)",
     foreground: "oklch(17% 0.014 50)",

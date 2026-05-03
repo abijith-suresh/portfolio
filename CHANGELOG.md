@@ -13,10 +13,10 @@ This changelog follows the categories and intent of [Keep a Changelog](https://k
 ### Changed
 
 - Rewrote the hero greeting to a conversational first-person voice ("Hey, I'm Abijith"), shortened the intro to two focused sentences with a line break, and changed the tagline from "Software Developer" to "Backend Engineer".
-- Widened the hero clay rule from `w-12` to `w-20` so it reads as a confident compositional element rather than a tick mark.
+- Widened the hero accent rule from `w-12` to `w-20` so it reads as a confident compositional element rather than a tick mark.
 - Adjusted hero spacing to `pt-24 md:pt-32` for generous but not excessive breathing room; tightened content sections to `py-8` for a focused rhythm.
 - Replaced the "Latest Posts" heading with the uppercase tracked label treatment ("RECENT WRITING"), matching the about page's section markers and letting card titles stay the visual focus.
-- Made content card hover arrows visible at ~40% opacity at rest, transitioning to clay color on hover for better clickability affordance.
+- Made content card hover arrows visible at ~40% opacity at rest, transitioning to evergreen on hover for better clickability affordance.
 - Entrance animations now play only on the first page load per session; subsequent navigations skip the staggered reveal for a snappier experience.
 - Replaced clay accent with deep evergreen (OKLCH hue 155, chroma 0.09) for a more grounded, confident identity that works in both light and dark themes.
 - Removed card borders entirely; cards now use tonal surface steps (card → popover) for visual separation.
@@ -26,6 +26,7 @@ This changelog follows the categories and intent of [Keep a Changelog](https://k
 - Replaced card hover easing from generic `ease-out` to ease-out-quint (`cubic-bezier(0.22, 1, 0.36, 1)`) with 250ms duration for a smoother settle into place.
 - Increased card hover scale from 1.01 to 1.015 for perceptible but subtle movement.
 - Reduced dark theme surface chroma from 0.016–0.020 to 0.006–0.010 (near-neutral with warm bias) to eliminate the reddish-brown cast and let the green accent dominate the canvas.
+- Removed forced transitions from `Link.astro` (it now provides semantics only) and moved `card-hover` from the link to the article wrapper in `ContentCard.astro`, fixing a cascade conflict where Link's `transition-colors` excluded `transform` from the animated properties.
 
 ## 2026-05-01 — Repository metadata cleanup
 
