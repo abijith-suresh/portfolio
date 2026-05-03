@@ -18,9 +18,10 @@ This changelog follows the categories and intent of [Keep a Changelog](https://k
 - Replaced the "Latest Posts" heading with the uppercase tracked label treatment ("RECENT WRITING"), matching the about page's section markers and letting card titles stay the visual focus.
 - Made content card hover arrows visible at ~40% opacity at rest, transitioning to clay color on hover for better clickability affordance.
 - Entrance animations now play only on the first page load per session; subsequent navigations skip the staggered reveal for a snappier experience.
-- Reduced clay accent chroma from 0.115 to 0.065 in both light and dark themes, toning down the intensity while keeping the warm character.
-- Removed card hover background wash and shadow; hover feedback now uses lift + border color change + arrow shift only.
-- Updated DESIGN.md to reflect the new chroma values and simplified hover behavior.
+- Replaced clay accent with deep evergreen (OKLCH hue 155, chroma 0.09) for a more grounded, confident identity that works in both light and dark themes.
+- Removed card borders entirely; cards now use tonal surface steps (card → popover) for visual separation.
+- Replaced card translate-y hover with subtle scale(1.01) and tonal background wash for a smoother, more organic feel.
+- Updated DESIGN.md to document the new green accent and simplified card hover behavior.
 
 ## 2026-05-01 — Repository metadata cleanup
 

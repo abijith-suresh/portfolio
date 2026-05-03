@@ -2,8 +2,8 @@
 name: "abijith.sh"
 description: "Personal portfolio and blog of Abijith S — one backend engineer's home on the web"
 colors:
-  clay: "oklch(47% 0.065 30)"
-  clay-light: "oklch(69% 0.065 28)"
+  clay: "oklch(47% 0.09 155)"
+  clay-light: "oklch(69% 0.09 155)"
   unbleached: "oklch(97.5% 0.007 80)"
   inkstone: "oklch(17% 0.014 50)"
   washi: "oklch(95% 0.010 80)"
@@ -84,11 +84,11 @@ components:
 
 Warm materials, everything in its place, the tools of someone who takes pride in their work. This system draws from the feeling of a well-organized workshop at different hours of the day: unbleached paper under good afternoon light, the same desk by lamplight in the evening. Every surface is intentional. Nothing is ornamental for its own sake.
 
-**Color reference:** _Muji production catalog, 1986 — unbleached paper stock, deep red-clay ink stamps, everything functional, nothing decorative._
+**Color reference:** _A well-kept workshop at different hours of the day — green-handled precision tools on unbleached paper under good afternoon light, the same bench by lamplight in the evening. Green as the color of systems that work: a successful build, a healthy indicator light, a well-maintained machine. Every surface is intentional. Nothing is ornamental for its own sake._
 
-The palette breaks from the teal/cream convention that saturated the "warm but technical developer portfolio" aesthetic. Clay — the color of fired terracotta, red ochre pigment, unglazed earthenware — is the committed accent. It is warm-but-not-orange, earthy-but-not-brown. The light theme is unbleached paper under good light; the dark theme is the same workshop after sundown, with the amber warmth of the desk lamp casting everything in the same hue family. Where previous palettes used a cool dark (blue-shifted midnight) against teal, this palette keeps the dark warm so both modes feel like the same room.
+The palette uses warm neutrals paired with a deep evergreen accent. The green breaks from the warm-red/terracotta convention and gives the site a grounded, technical identity. The light theme is unbleached paper under good light; the dark theme is the same workshop after sundown, with the amber warmth of the desk lamp casting everything in the same hue family. Green carries identity and interaction; warm neutrals carry the canvas.
 
-**Color strategy: Committed** — Clay carries ~40% of the site's identity surfaces: hero role text, the horizontal rule below the name, prose links, tag pills, active nav states, card hover borders, icon buttons, TOC active headings, and reading progress. The canvas is never Clay. Clay marks identity and interaction. That's its job.
+**Color strategy: Committed** — Green carries ~40% of the site's identity surfaces: hero role text, the horizontal rule below the name, prose links, tag pills, active nav states, icon buttons, TOC active headings, and reading progress. The canvas is never green. Green marks identity and interaction. That's its job.
 
 **Key Characteristics:**
 
@@ -102,8 +102,8 @@ The palette breaks from the teal/cream convention that saturated the "warm but t
 
 ### Accent
 
-- **Clay** (`oklch(47% 0.065 30)`): The sole accent. Muted terracotta, warm ochre dust. Used for the logo, horizontal rule, prose links, tag pills, active nav, card hover borders, icon buttons, TOC active headings, and reading progress. Passes WCAG AA on the light background (≈6.3:1 contrast). Never used as a background fill or large surface color.
-- **Clay Light** (`oklch(69% 0.065 28)`): Dark theme variant. Same hue family, higher lightness. Passes WCAG AA on the dark background (≈7.5:1). Keeps the same character — warm clay, just caught in warm lamplight.
+- **Evergreen** (`oklch(47% 0.09 155)`): The sole accent. Deep forest green, grounded and confident. Used for the logo, horizontal rule, prose links, tag pills, active nav, icon buttons, TOC active headings, and reading progress. Passes WCAG AA on the light background. Never used as a background fill or large surface color.
+- **Evergreen Light** (`oklch(69% 0.09 155)`): Dark theme variant. Same hue family, higher lightness. Passes WCAG AA on the dark background. Keeps the same character — green indicator light caught in warm lamplight.
 
 ### Light palette — "Unbleached Paper"
 
@@ -127,9 +127,9 @@ The palette breaks from the teal/cream convention that saturated the "warm but t
 
 ### Named Rules
 
-**The Committed Strategy Rule.** Clay carries 30–40% of the site's visual weight. It is not a token accent used once in the nav. Every identity surface and interactive state uses Clay. Diluting it defeats the system.
+**The Committed Strategy Rule.** Green carries 30–40% of the site's visual weight. It is not a token accent used once in the nav. Every identity surface and interactive state uses green. Diluting it defeats the system.
 
-**The Surface Boundary Rule.** Committed ≠ drenched. Page backgrounds and body text are never Clay. Clay marks things you interact with or things that identify the site. The canvas stays warm neutral.
+**The Surface Boundary Rule.** Committed ≠ drenched. Page backgrounds and body text are never green. Green marks things you interact with or things that identify the site. The canvas stays warm neutral.
 
 **The No-Neutrals Rule.** Every color in the system has chroma ≥ 0.007. Pure black (#000) and pure white (#fff) are prohibited. Even the darkest dark and brightest light carry a perceptible tint.
 
@@ -171,10 +171,9 @@ Shadows appear exclusively on hover feedback. The card hover state: subtle lift 
 
 ### Content Card
 
-- **Background:** Washi at rest. Pith on hover. Clay border reveal at hover.
-- **Border:** Linen Edge at 60% opacity at rest, full opacity + Clay on hover.
-- **Shadow:** None. Elevation from lift alone.
-- **Hover behavior:** Border solidifies with Clay tint, card lifts 2px, arrow icon shifts to Clay, 200ms ease-out.
+- **Background:** Card surface at rest. Popover surface on hover (one tonal step deeper).
+- **Border:** None. Tonal surface difference provides visual separation.
+- **Hover behavior:** Card scales 1.01% with ease-out, background deepens one tonal step, arrow icon shifts to green, 200ms ease-out.
 
 ### Tag Pill
 
@@ -190,21 +189,21 @@ Shadows appear exclusively on hover feedback. The card hover state: subtle lift 
 
 ### Header
 
-- **Logo:** "AS" in Clay, 20px, semibold. The Clay anchor of the page.
+- **Logo:** "AS" in green, 20px, semibold. The green anchor of the page.
 - **Border:** Bottom Linen Edge at 50% opacity.
 
 ### Footer
 
-- **Middot** between year and author name: Clay. The only Clay in the footer.
+- **Middot** between year and author name: green. The only green in the footer.
 - **Border:** Top Linen Edge at 50% opacity.
 
 ## 6. Do's and Don'ts
 
 ### Do:
 
-- **Do** use Clay on identity markers (logo, accent rules, section bars), interactive states (card hover borders, nav underlines, back links), prose links, tag pills, icon buttons, reading progress, TOC active headings. Clay is the system's voice.
+- **Do** use green on identity markers (logo, accent rules, section bars), interactive states (card hover tonal shift, nav underlines, back links), prose links, tag pills, icon buttons, reading progress, TOC active headings. Green is the system's voice.
 - **Do** tint every neutral toward warmth (OKLCH hue 50–80°). No surface should feel cold.
-- **Do** make hover states tangible. Cards lift and shadow. Nav links grow underlines. Arrows slide.
+- **Do** make hover states tangible. Cards scale and deepen. Nav links grow underlines. Arrows shift.
 - **Do** cap body text at 65–75ch. Reading comfort is non-negotiable.
 - **Do** use tonal surface steps (Unbleached > Washi > Pith) instead of shadows for depth.
 - **Do** keep both light and dark themes warm. The dark is not the opposite of the light.
@@ -212,6 +211,7 @@ Shadows appear exclusively on hover feedback. The card hover state: subtle lift 
 ### Don't:
 
 - **Don't** use pure black (#000) or pure white (#fff). Every surface and text color is tinted.
+- **Don't** use Clay or terracotta as the accent. The system has moved to a green accent. Update any remaining clay references.
 - **Don't** use side-stripe borders (border-left > 1px as accent). Blockquotes use a 2px left border; that's the one exception.
 - **Don't** use gradient text (background-clip: text with a gradient). Emphasis comes from weight or size.
 - **Don't** apply glassmorphism decoratively. All surfaces are opaque and tonal.
