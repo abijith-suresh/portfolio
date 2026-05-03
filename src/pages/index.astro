@@ -29,15 +29,11 @@ const hasProjects = allProjects.length > 0;
         <section class="py-8 border-t border-border/50 page-enter page-enter-delay-1">
           <div class="flex flex-col gap-y-4">
             <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2.5">
-                <div
-                  class="w-[3px] h-4 rounded-sm shrink-0"
-                  style="background-color: var(--color-warm);"
-                  aria-hidden="true"
-                />
-                <span class="text-[0.8125rem] font-semibold uppercase tracking-wide text-muted-foreground">
+              <div class="flex flex-col gap-0.5">
+                <span class="text-sm font-semibold uppercase tracking-wide text-muted-foreground font-display">
                   Featured Projects
                 </span>
+                <span class="text-sm text-muted-foreground/75">Things I'm building</span>
               </div>
               <Link
                 href="/projects"

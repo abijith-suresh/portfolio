@@ -9,6 +9,8 @@ This changelog follows the categories and intent of [Keep a Changelog](https://k
 ### Added
 
 - Featured Projects section to the landing page, pulling project cards from the projects collection.
+- Two-font typographic system: Clash Display for identity surfaces (hero, page titles, section labels, detail titles) paired with Satoshi for content surfaces (body text, cards, navigation, meta).
+- Two-layered section labels with a Clash Display primary label and a Satoshi descriptive sublabel across landing, about, blog, and projects pages.
 
 ### Changed
 
@@ -27,6 +29,11 @@ This changelog follows the categories and intent of [Keep a Changelog](https://k
 - Increased card hover scale from 1.01 to 1.015 for perceptible but subtle movement.
 - Reduced dark theme surface chroma from 0.016–0.020 to 0.006–0.010 (near-neutral with warm bias) to eliminate the reddish-brown cast and let the green accent dominate the canvas.
 - Removed forced transitions from `Link.astro` (it now provides semantics only) and moved `card-hover` from the link to the article wrapper in `ContentCard.astro`, fixing a cascade conflict where Link's `transition-colors` excluded `transform` from the animated properties.
+- Removed side-stripe accent bars from section labels (about page, landing page, recent posts) to comply with the design system's own ban on side-stripe borders.
+- Replaced `text-foreground/80` and `text-foreground/70` with `text-foreground` on the about page to fix WCAG AA contrast failures on the light theme.
+- Replaced single-line section labels with two-layered format (Clash Display primary + Satoshi descriptive sublabel) across all pages.
+- Updated blog and projects listing page titles to use the display font with a descriptive sublabel.
+- Updated DESIGN.md typography section to document the Clash Display + Satoshi pairing and label pair rules.
 
 ## 2026-05-01 — Repository metadata cleanup
 

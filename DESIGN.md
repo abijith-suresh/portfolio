@@ -20,19 +20,19 @@ colors:
   ember-red: "oklch(63% 0.22 20)"
 typography:
   display:
-    fontFamily: "Satoshi, system-ui, sans-serif"
+    fontFamily: "Clash Display, Satoshi, system-ui, sans-serif"
     fontSize: "clamp(2.25rem, 6vw, 3.75rem)"
     fontWeight: 700
     lineHeight: 1.1
     letterSpacing: "-0.025em"
   headline:
-    fontFamily: "Satoshi, system-ui, sans-serif"
+    fontFamily: "Clash Display, Satoshi, system-ui, sans-serif"
     fontSize: "1.5rem"
     fontWeight: 600
     lineHeight: 1.3
     letterSpacing: "normal"
   title:
-    fontFamily: "Satoshi, system-ui, sans-serif"
+    fontFamily: "Clash Display, Satoshi, system-ui, sans-serif"
     fontSize: "1.25rem"
     fontWeight: 600
     lineHeight: 1.4
@@ -44,8 +44,8 @@ typography:
     lineHeight: 1.625
     letterSpacing: "normal"
   label:
-    fontFamily: "Satoshi, system-ui, sans-serif"
-    fontSize: "0.8125rem"
+    fontFamily: "Clash Display, Satoshi, system-ui, sans-serif"
+    fontSize: "0.875rem"
     fontWeight: 600
     lineHeight: 1
     letterSpacing: "0.05em"
@@ -136,23 +136,27 @@ The palette uses warm neutrals paired with a deep evergreen accent. The green br
 
 ## 3. Typography
 
-**Display Font:** Satoshi (system-ui, sans-serif fallback)  
-**Body Font:** Satoshi (same family; weight and scale create hierarchy)  
-**Label Font:** Satoshi (uppercase, wide tracking distinguishes labels from body)
+**Display Font:** Clash Display (Satoshi, system-ui, sans-serif fallback)
+**Body Font:** Satoshi (system-ui, sans-serif fallback)
+**Label Font:** Clash Display (same as display; uppercase, wide tracking distinguishes labels from body)
 
-**Character:** Satoshi is a geometric sans with just enough warmth in its terminals to feel human. Single-family: hierarchy lives entirely in weight (400 to 700) and scale (0.8125rem to 3.75rem). No serif/sans personality crutch.
+**Character:** Two-family pairing from the same foundry (Indian Type Foundry / Fontshare). Clash Display is a bold grotesque with personality at large sizes — slightly quirky terminals and a confident stance that reads as deliberate, not decorated. Satoshi is a geometric sans with warmth in its terminals, handling body text and functional UI with clean readability. The pairing creates structural hierarchy through typeface contrast: identity surfaces (display, headlines, titles, labels) use Clash Display; content and utility (body, nav, meta, cards) use Satoshi. The two families share enough geometric DNA to feel cohesive, but differ enough at display sizes to create instant visual distinction.
 
 ### Hierarchy
 
-- **Display** (700, clamp 2.25rem–3.75rem, line-height 1.1, tracking -0.025em): Hero name. Single largest element. Negative tracking keeps it confident.
-- **Headline** (600, 1.5rem, line-height 1.3): Blog post titles, section headings.
-- **Title** (600, 1.25rem, line-height 1.4): Card titles, secondary headings.
-- **Body** (400, 1rem, line-height 1.625): All running content. Max 65–75ch line length.
-- **Label** (600, 0.8125rem, letter-spacing 0.05em, uppercase): Section markers. Used sparingly.
+- **Display** (700, clamp 2.25rem–3.75rem, line-height 1.1, tracking -0.025em): Hero greeting, about page name. Clash Display. Single largest element. Negative tracking keeps it confident.
+- **Headline** (600, 1.5rem–2rem, line-height 1.3): Blog post titles, project detail titles. Clash Display.
+- **Title** (600, 1.5rem, line-height 1.4): Page titles on listing pages (Blog, Projects, Tags). Clash Display.
+- **Body** (400, 1rem, line-height 1.625): All running content. Satoshi. Max 65–75ch line length.
+- **Label primary** (600, 0.875rem, letter-spacing 0.05em, uppercase): Section markers (“Background”, “Featured Projects”). Clash Display.
+- **Label secondary** (400, 0.875rem, sentence case): Descriptive sublabels (“How I got here”, “Things I'm building”). Satoshi. Softer voice beneath the label.
+- **Card title** (600, 1.125rem): Blog and project card titles. Satoshi — cards are functional density, not identity.
 
 ### Named Rules
 
-**The Scale-Only Rule.** One typeface means hierarchy from weight and size contrast alone. Adjacent heading levels must differ by ≥1.25× in size or one full weight step. Flat hierarchies are prohibited.
+**The Two-Family Rule.** Identity surfaces (display, headlines, page titles, labels) use Clash Display. Content surfaces (body, cards, nav, meta, breadcrumbs, tags) use Satoshi. The boundary is strict: if it announces identity or structure, it's Clash Display. If it's content to be read, it's Satoshi.
+
+**The Label Pair Rule.** Section labels are always two-layered: a Clash Display primary label (uppercase, tracked) and a Satoshi secondary line (sentence case, softer). The secondary line is the voice; the primary line is the structure. Both appear together.
 
 **The Writing-First Rule.** Blog prose typography takes priority. Body line height (1.625) and line length (65–75ch) are tuned for long-form reading comfort. Everything else accommodates this.
 
@@ -206,6 +210,8 @@ No shadows on any state. Card hover uses scale and tonal background wash only.
 - **Do** cap body text at 65–75ch. Reading comfort is non-negotiable.
 - **Do** use tonal surface steps (Unbleached > Washi > Pith) instead of shadows for depth.
 - **Do** keep both light and dark themes warm. The dark is not the opposite of the light.
+- **Do** use Clash Display for identity surfaces (hero, page titles, section labels, detail titles) and Satoshi for content surfaces (body, cards, nav, meta). The boundary is identity vs content.
+- **Do** pair section labels with a secondary descriptive line in Satoshi (sentence case, softer).
 
 ### Don't:
 
@@ -218,3 +224,5 @@ No shadows on any state. Card hover uses scale and tonal background wash only.
 - **Don't** use Evergreen as a large background fill or body text color. It marks identity and interaction, not surfaces.
 - **Don't** let the dark theme go cool. Ironwood (warm amber-shifted dark) is not negotiable.
 - **Don't** add 3D scenes, particle effects, scroll-jacking, or WebGL showcases. The craft shows in precision, not spectacle.
+- **Don't** use Clash Display for body text, card titles, or functional UI elements. It's an identity font, not a reading font.
+- **Don't** use Satoshi for page-level titles or section labels when Clash Display is available. The typographic contrast is the hierarchy.

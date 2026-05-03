@@ -28,7 +28,7 @@ const paragraphs = AUTHOR.aboutNarrative.split("\n\n");
         class="w-36 h-36 sm:w-44 sm:h-44 rounded-full object-cover ring-2 ring-border"
       />
       <div>
-        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-foreground font-display">
           {AUTHOR.fullName}
         </h1>
         <p class="mt-1.5 text-muted-foreground text-sm">{AUTHOR.tagline}</p>
@@ -39,29 +39,42 @@ const paragraphs = AUTHOR.aboutNarrative.split("\n\n");
     <div class="mx-auto max-w-2xl w-full flex flex-col gap-10">
       <!-- Section: Background -->
       <section class="flex flex-col gap-3 page-enter page-enter-delay-2">
-        <h2 class="text-[0.8125rem] font-semibold uppercase tracking-wide text-muted-foreground">
-          Background
-        </h2>
+        <div class="flex flex-col gap-0.5">
+          <h2
+            class="text-sm font-semibold uppercase tracking-wide text-muted-foreground font-display"
+          >
+            Background
+          </h2>
+          <p class="text-sm text-muted-foreground/75">How I got here</p>
+        </div>
         <p class="text-foreground leading-relaxed">{paragraphs[0]}</p>
       </section>
 
       <!-- Section: This site -->
       <section class="flex flex-col gap-3 page-enter page-enter-delay-3">
-        <h2 class="text-[0.8125rem] font-semibold uppercase tracking-wide text-muted-foreground">
-          This site
-        </h2>
+        <div class="flex flex-col gap-0.5">
+          <h2
+            class="text-sm font-semibold uppercase tracking-wide text-muted-foreground font-display"
+          >
+            This Site
+          </h2>
+          <p class="text-sm text-muted-foreground/75">What this corner of the internet is for</p>
+        </div>
         <p class="text-foreground leading-relaxed">{paragraphs[1]}</p>
       </section>
 
       <!-- Interests -->
       <aside class="page-enter page-enter-delay-3">
         <div class="h-px w-full mb-8 bg-border" aria-hidden="true"></div>
-        <div class="flex flex-col gap-2.5 sm:flex-row sm:items-baseline sm:gap-4">
-          <span
-            class="text-[0.8125rem] font-semibold uppercase tracking-wide text-muted-foreground whitespace-nowrap"
-          >
-            Away from the keyboard
-          </span>
+        <div class="flex flex-col gap-1">
+          <div class="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:gap-4">
+            <h2
+              class="text-sm font-semibold uppercase tracking-wide text-muted-foreground whitespace-nowrap font-display"
+            >
+              Away from the Keyboard
+            </h2>
+            <span class="text-sm text-muted-foreground/75">When I'm not coding</span>
+          </div>
           <span class="flex flex-wrap items-baseline gap-1">
             {
               AUTHOR.interests.map((interest, i) => (
