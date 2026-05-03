@@ -65,12 +65,12 @@
 
   --border: oklch(88% 0.015 74); /* warm visible border                 */
   --input: oklch(88% 0.015 74);
-  --ring: oklch(47% 0.065 30); /* clay accent                         */
+  --ring: oklch(47% 0.09 155); /* green accent                        */
 
-  /* ── Clay accent ─────────────────────────────────────────────────────── */
-  --color-warm: oklch(47% 0.065 30); /* fired clay / red ochre              */
-  --color-warm-muted: oklch(47% 0.065 30 / 0.1);
-  --color-warm-subtle: oklch(47% 0.065 30 / 0.15);
+  /* ── Green accent ────────────────────────────────────────────────────── */
+  --color-warm: oklch(47% 0.09 155); /* deep evergreen                      */
+  --color-warm-muted: oklch(47% 0.09 155 / 0.1);
+  --color-warm-subtle: oklch(47% 0.09 155 / 0.15);
 
   --transition-fast: 150ms;
   --transition-normal: 200ms;
@@ -106,12 +106,12 @@
 
   --border: oklch(28% 0.02 50); /* warm border                         */
   --input: oklch(28% 0.02 50);
-  --ring: oklch(69% 0.065 28); /* lighter clay — glows against warm dark */
+  --ring: oklch(69% 0.09 155); /* lighter green — glows against warm dark */
 
-  /* ── Clay accent (dark) ──────────────────────────────────────────────── */
-  --color-warm: oklch(69% 0.065 28); /* fired clay, lighter for dark mode   */
-  --color-warm-muted: oklch(69% 0.065 28 / 0.15);
-  --color-warm-subtle: oklch(69% 0.065 28 / 0.2);
+  /* ── Green accent (dark) ─────────────────────────────────────────────── */
+  --color-warm: oklch(69% 0.09 155); /* lighter evergreen for dark mode     */
+  --color-warm-muted: oklch(69% 0.09 155 / 0.15);
+  --color-warm-subtle: oklch(69% 0.09 155 / 0.2);
 }
 
 /* Smooth theme transitions */
@@ -170,22 +170,20 @@
 
 @layer components {
   .card-hover {
-    @apply rounded-lg overflow-hidden border border-border/60;
+    @apply rounded-lg overflow-hidden;
+    background: var(--card);
     @apply transition-all;
     transition-duration: var(--transition-normal);
+    transition-timing-function: ease-out;
   }
 
   .card-hover:hover {
-    transform: translateY(-2px);
-    border-color: var(--color-warm);
+    transform: scale(1.01);
+    background: var(--popover);
   }
 
   .group:hover .card-hover svg {
     color: var(--color-warm);
-  }
-
-  :where([data-theme="dark"]) .card-hover:hover {
-    border-color: var(--color-warm);
   }
 
   .tag-pill {

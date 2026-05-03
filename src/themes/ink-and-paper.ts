@@ -33,7 +33,7 @@ const inkAndPaper: ThemeDefinition = {
 
     border: "oklch(88% 0.015 74)",
     input: "oklch(88% 0.015 74)",
-    ring: "oklch(47% 0.065 30)",
+    ring: "oklch(47% 0.09 155)",
   },
 
   // Dark theme: Workshop at Night
@@ -65,7 +65,7 @@ const inkAndPaper: ThemeDefinition = {
 
     border: "oklch(28% 0.020 50)",
     input: "oklch(28% 0.020 50)",
-    ring: "oklch(69% 0.065 28)",
+    ring: "oklch(69% 0.09 155)",
   },
 };
 
