@@ -9,12 +9,12 @@ export const GET: APIRoute = async ({ url }) => {
   const description = url.searchParams.get("description") || SITE.description;
   const type = url.searchParams.get("type") || "website";
 
-  // Ink & Paper theme colors
+  // Ink & Clay theme colors
   const theme = {
-    background: "#faf8f5", // Light mode background
-    foreground: "#2c2c2c", // Dark text
-    accent: "#4a8f8c", // Teal accent
-    muted: "#8a8580", // Muted text
+    background: "#faf8f5", // Light mode background (warm off-white)
+    foreground: "#1e1610", // Warm near-black text
+    accent: "#8f4028", // Clay accent
+    muted: "#7a6e68", // Warm stone gray
   };
 
   // Generate HTML for the OG image

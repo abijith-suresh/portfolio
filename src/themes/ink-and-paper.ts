@@ -2,66 +2,70 @@ import type { ThemeDefinition } from "./types";
 
 const inkAndPaper: ThemeDefinition = {
   name: "ink-and-paper",
-  displayName: "Ink & Paper",
+  displayName: "Ink & Clay",
 
+  // Light theme: Unbleached Paper
+  // Warm off-white canvas, clay-tinted near-black text, warm stone muted.
   light: {
-    background: "#faf8f5",
-    foreground: "#2c2c2c",
+    background: "oklch(97.5% 0.007 80)",
+    foreground: "oklch(17% 0.014 50)",
 
-    card: "#f3f0eb",
-    cardForeground: "#2c2c2c",
+    card: "oklch(95% 0.010 80)",
+    cardForeground: "oklch(17% 0.014 50)",
 
-    popover: "#ede9e3",
-    popoverForeground: "#2c2c2c",
+    popover: "oklch(92% 0.013 78)",
+    popoverForeground: "oklch(17% 0.014 50)",
 
-    primary: "#2c2c2c",
-    primaryForeground: "#faf8f5",
+    primary: "oklch(17% 0.014 50)",
+    primaryForeground: "oklch(97.5% 0.007 80)",
 
-    secondary: "#f3f0eb",
-    secondaryForeground: "#2c2c2c",
+    secondary: "oklch(95% 0.010 80)",
+    secondaryForeground: "oklch(17% 0.014 50)",
 
-    muted: "#f3f0eb",
-    mutedForeground: "#8a8580",
+    muted: "oklch(95% 0.010 80)",
+    mutedForeground: "oklch(54% 0.012 65)",
 
-    accent: "#ede9e3",
-    accentForeground: "#2c2c2c",
+    accent: "oklch(92% 0.013 78)",
+    accentForeground: "oklch(17% 0.014 50)",
 
-    destructive: "#c4453a",
-    destructiveForeground: "#faf8f5",
+    destructive: "oklch(45% 0.22 18)",
+    destructiveForeground: "oklch(97.5% 0.007 80)",
 
-    border: "#e4dfd8",
-    input: "#e4dfd8",
-    ring: "#4a8f8c",
+    border: "oklch(88% 0.015 74)",
+    input: "oklch(88% 0.015 74)",
+    ring: "oklch(47% 0.115 30)",
   },
 
+  // Dark theme: Workshop at Night
+  // Warm amber-shifted dark (not cool midnight), clay accent glows brighter.
   dark: {
-    background: "#1a1a1d",
-    foreground: "#e8e4df",
+    background: "oklch(13.5% 0.016 50)",
+    foreground: "oklch(93% 0.010 75)",
 
-    card: "#222225",
-    cardForeground: "#e8e4df",
+    card: "oklch(18% 0.018 50)",
+    cardForeground: "oklch(93% 0.010 75)",
 
-    popover: "#2a2a2e",
-    popoverForeground: "#e8e4df",
+    popover: "oklch(22% 0.018 50)",
+    popoverForeground: "oklch(93% 0.010 75)",
 
-    primary: "#e8e4df",
-    primaryForeground: "#1a1a1d",
+    primary: "oklch(93% 0.010 75)",
+    primaryForeground: "oklch(13.5% 0.016 50)",
 
-    secondary: "#222225",
-    secondaryForeground: "#e8e4df",
+    secondary: "oklch(18% 0.018 50)",
+    secondaryForeground: "oklch(93% 0.010 75)",
 
-    muted: "#2a2a2e",
-    mutedForeground: "#8a8580",
+    muted: "oklch(22% 0.018 50)",
+    mutedForeground: "oklch(58% 0.014 62)",
 
-    accent: "#222225",
-    accentForeground: "#e8e4df",
+    accent: "oklch(18% 0.018 50)",
+    accentForeground: "oklch(93% 0.010 75)",
 
-    destructive: "#e05a4f",
-    destructiveForeground: "#1a1a1d",
+    destructive: "oklch(63% 0.22 20)",
+    destructiveForeground: "oklch(13.5% 0.016 50)",
 
-    border: "#363639",
-    input: "#363639",
-    ring: "#6db3b0",
+    border: "oklch(28% 0.020 50)",
+    input: "oklch(28% 0.020 50)",
+    ring: "oklch(69% 0.115 28)",
   },
 };
 
