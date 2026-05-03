@@ -15,8 +15,8 @@ interface Props {
 const { title, description, tags, href, meta, class: className } = Astro.props;
 ---
 
-<article class:list={cn("group", className)}>
-  <Link href={href} class:list={cn("block card-hover")} prefetch="hover">
+<article class:list={cn("group card-hover", className)}>
+  <Link href={href} class="block" prefetch="hover">
     <div class="flex flex-col gap-2 p-5">
       <div class="flex items-start justify-between gap-3">
         <h3
