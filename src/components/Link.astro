@@ -5,11 +5,12 @@ interface Props {
   href: string;
   external?: boolean;
   class?: string;
+  style?: string;
   underline?: boolean;
   prefetch?: boolean | "hover" | "tap" | "load" | "viewport";
 }
 
-const { href, external, class: className, underline, prefetch, ...rest } = Astro.props;
+const { href, external, class: className, style, underline, prefetch, ...rest } = Astro.props;
 const isExternal = external || href.startsWith("http");
 ---
 
@@ -19,12 +20,11 @@ const isExternal = external || href.startsWith("http");
   rel={isExternal ? "noopener noreferrer" : undefined}
   data-astro-prefetch={!isExternal && prefetch ? prefetch : undefined}
   class:list={cn(
-    "transition-colors ease-in-out",
     underline &&
       "underline decoration-muted-foreground underline-offset-[3px] hover:decoration-foreground",
     className
   )}
-  style="transition-duration: var(--transition-slow);"
+  style={style}
   {...rest}
 >
   <slot />

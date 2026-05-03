@@ -11,12 +11,12 @@ import Layout from "@/layouts/Layout.astro";
 import { getRelatedPosts } from "@/lib/recommendations";
 import { filterTocHeadings } from "@/lib/toc";
 import { calculateReadingTime, formatBlogDate, formatReadingTime } from "@/lib/utils";
-import { type CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry, getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", (post) => !post.data.draft);
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: { post },
   }));
 }
@@ -27,14 +27,14 @@ interface Props {
 
 const { post } = Astro.props;
 const { title, description, tags, publishDate } = post.data;
-const { Content, headings } = await post.render();
+const { Content, headings } = await render(post);
 const formattedDate = formatBlogDate(publishDate);
 const readingTime = calculateReadingTime(post.body ?? "");
 
 const tocHeadings = filterTocHeadings(headings);
 
 // Get related posts
-const relatedPosts = await getRelatedPosts(post.slug, 3);
+const relatedPosts = await getRelatedPosts(post.id, 3);
 
 // Tags are included in search via the JSON index
 ---

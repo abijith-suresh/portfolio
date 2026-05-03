@@ -18,19 +18,19 @@ function calculateSimilarity(currentPost: BlogPost, otherPost: BlogPost): number
 
 /**
  * Get related posts based on tag similarity
- * @param currentPostSlug - Slug of the current blog post
+ * @param currentPostId - ID of the current blog post
  * @param limit - Maximum number of related posts to return (default: 3)
  * @returns Array of related blog posts sorted by relevance
  */
 export async function getRelatedPosts(
-  currentPostSlug: string,
+  currentPostId: string,
   limit: number = 3
 ): Promise<BlogPost[]> {
   // Get all published blog posts
   const allPosts = await getCollection("blog", (post) => !post.data.draft);
 
   // Find the current post
-  const currentPost = allPosts.find((post) => post.slug === currentPostSlug);
+  const currentPost = allPosts.find((post) => post.id === currentPostId);
 
   if (!currentPost) {
     return [];
@@ -38,7 +38,7 @@ export async function getRelatedPosts(
 
   // Calculate similarity scores for all other posts
   const postsWithScores = allPosts
-    .filter((post) => post.slug !== currentPostSlug) // Exclude current post
+    .filter((post) => post.id !== currentPostId) // Exclude current post
     .map((post) => ({
       post,
       score: calculateSimilarity(currentPost, post),
@@ -57,13 +57,10 @@ export async function getRelatedPosts(
   // If we don't have enough related posts with matching tags, fill with recent posts
   if (postsWithScores.length < limit) {
     const remainingSlots = limit - postsWithScores.length;
-    const existingSlugs = new Set([
-      currentPostSlug,
-      ...postsWithScores.map((item) => item.post.slug),
-    ]);
+    const existingIds = new Set([currentPostId, ...postsWithScores.map((item) => item.post.id)]);
 
     const recentPosts = allPosts
-      .filter((post) => !existingSlugs.has(post.slug))
+      .filter((post) => !existingIds.has(post.id))
       .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
       .slice(0, remainingSlots)
       .map((post) => ({ post, score: 0, date: post.data.publishDate.valueOf() }));

@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 import SearchModal from "@/components/SearchModal.astro";
@@ -60,7 +60,7 @@ const {
     {jsonLd && <JsonLd {...jsonLd} />}
 
     <!-- View Transitions -->
-    <ViewTransitions fallback="swap" />
+    <ClientRouter fallback="swap" />
 
     <slot name="head" />
   </head>
@@ -98,6 +98,23 @@ const {
 
         // Don't set localStorage on first visit - let user's first manual toggle do that
       })();
+    </script>
+
+    <script>
+      // First-load entrance animation: play once per session, skip on back-navigation
+      const entered = sessionStorage.getItem("site-entered");
+      if (!entered) {
+        sessionStorage.setItem("site-entered", "1");
+      } else {
+        document.querySelectorAll(".page-enter").forEach((el) => {
+          el.classList.remove(
+            "page-enter",
+            "page-enter-delay-1",
+            "page-enter-delay-2",
+            "page-enter-delay-3"
+          );
+        });
+      }
     </script>
   </body>
 </html>
