@@ -3,6 +3,9 @@
   "private": true,
   "type": "module",
   "packageManager": "bun@1.3.5",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "license": "MIT",
   "scripts": {
     "dev": "astro dev",
@@ -27,7 +30,7 @@
     "@astrojs/mdx": "^5.0.4",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.2",
-    "@astrojs/vercel": "^9.0.5",
+    "@astrojs/vercel": "^10.0.6",
     "@iconify-json/fa6-brands": "^1.2.6",
     "@iconify-json/fa6-solid": "^1.2.4",
     "@vercel/og": "^0.11.1",

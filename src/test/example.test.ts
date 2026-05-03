@@ -15,7 +15,7 @@ describe("production readiness regressions", () => {
   });
 
   it("does not support blog updatedDate metadata", async () => {
-    const configSource = await readWorkspaceFile("src", "content", "config.ts");
+    const configSource = await readWorkspaceFile("src", "content.config.ts");
     const blogPageSource = await readWorkspaceFile("src", "pages", "blog", "[...slug].astro");
     const rssSource = await readWorkspaceFile("src", "pages", "rss.xml.ts");
 

@@ -5,13 +5,13 @@ import TagList from "@/components/TagList.astro";
 import { SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
 import { formatBlogDate } from "@/lib/utils";
-import { type CollectionEntry, getCollection } from "astro:content";
+import { type CollectionEntry, getCollection, render } from "astro:content";
 import { Icon } from "astro-icon/components";
 
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
   return projects.map((project) => ({
-    params: { slug: project.slug },
+    params: { slug: project.id },
     props: { project },
   }));
 }
@@ -22,7 +22,7 @@ interface Props {
 
 const { project } = Astro.props;
 const { title, description, tags, date, github, demo } = project.data;
-const { Content } = await project.render();
+const { Content } = await render(project);
 const formattedDate = formatBlogDate(date);
 ---
 
