@@ -9,10 +9,10 @@ export const SITE = {
   locale: "en-US",
 
   // Hero Section
-  greeting: "Abijith Suresh",
+  greeting: "Hey, I'm Abijith",
   role: "Software Developer",
   heroIntro:
-    "I build things for the web, mostly on the backend with Java and Spring Boot. I like clean code, good documentation, and solving problems that matter. Outside of work, I'm into gaming, anime, and stories in all their forms.",
+    "Backend engineer in Kochi who got into programming because building things from scratch felt like the most satisfying kind of problem. I work with Java and Spring Boot by day, and I'm still figuring things out as I go. Outside of work, I'm into gaming, anime, and stories in all their forms.",
 
   // Pagination
   postsPerPage: 10,
