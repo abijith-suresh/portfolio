@@ -6,6 +6,20 @@ This changelog follows the categories and intent of [Keep a Changelog](https://k
 
 ## Unreleased
 
+### Changed
+
+- Implemented the "Ink & Clay" color redesign: replaced the prior teal/Patina accent with a committed fired-clay (terracotta) accent across light and dark themes. The change is implemented in CSS custom properties and applied across components so identity surfaces and interactive states (links, tag pills, nav underlines, reading progress, card hovers, icon buttons, TOC active states, etc.) now use the Clay accent.
+
+- Files updated: src/styles/global.css, src/themes/ink-and-paper.ts, src/pages/api/og.png.ts, src/components/\* (BackLink, ContentCard, Hero, Link, Pagination, ReadingProgress, RecentPosts, SocialLinks, TOCHeader, TOCSidebar, TagList), DESIGN.md, DESIGN.json.
+
+### Docs
+
+- DESIGN.md and DESIGN.json updated to document the new Ink & Clay palette, named tokens, and the design rationale for the committed clay accent.
+
+### Testing
+
+- Verify site build and the following visual checks: homepage and blog pages (light and dark), reading-progress bar, tag pills, TOC active states, header/footer middot, and generated OG image color.
+
 ## 2026-05-01 — Repository metadata cleanup
 
 ### Changed
