@@ -12,12 +12,15 @@ This changelog follows the categories and intent of [Keep a Changelog](https://k
 
 ### Changed
 
-- Rewrote the hero greeting to a conversational first-person voice ("Hey, I'm Abijith") and rewrote the intro paragraph with more personality and specificity, replacing generic phrases.
+- Rewrote the hero greeting to a conversational first-person voice ("Hey, I'm Abijith"), shortened the intro to two focused sentences with a line break, and changed the tagline from "Software Developer" to "Backend Engineer".
 - Widened the hero clay rule from `w-12` to `w-20` so it reads as a confident compositional element rather than a tick mark.
-- Increased hero spacing (`pt-28/pb-16` → `md:pt-40/md:pb-20`) for a more generous opening; tightened the content sections to `py-8` for a focused rhythm.
+- Adjusted hero spacing to `pt-24 md:pt-32` for generous but not excessive breathing room; tightened content sections to `py-8` for a focused rhythm.
 - Replaced the "Latest Posts" heading with the uppercase tracked label treatment ("RECENT WRITING"), matching the about page's section markers and letting card titles stay the visual focus.
 - Made content card hover arrows visible at ~40% opacity at rest, transitioning to clay color on hover for better clickability affordance.
 - Entrance animations now play only on the first page load per session; subsequent navigations skip the staggered reveal for a snappier experience.
+- Reduced clay accent chroma from 0.115 to 0.065 in both light and dark themes, toning down the intensity while keeping the warm character.
+- Removed card hover background wash and shadow; hover feedback now uses lift + border color change + arrow shift only.
+- Updated DESIGN.md to reflect the new chroma values and simplified hover behavior.
 
 ## 2026-05-01 — Repository metadata cleanup
 

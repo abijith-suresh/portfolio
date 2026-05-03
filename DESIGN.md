@@ -2,8 +2,8 @@
 name: "abijith.sh"
 description: "Personal portfolio and blog of Abijith S — one backend engineer's home on the web"
 colors:
-  clay: "oklch(47% 0.115 30)"
-  clay-light: "oklch(69% 0.115 28)"
+  clay: "oklch(47% 0.065 30)"
+  clay-light: "oklch(69% 0.065 28)"
   unbleached: "oklch(97.5% 0.007 80)"
   inkstone: "oklch(17% 0.014 50)"
   washi: "oklch(95% 0.010 80)"
@@ -102,8 +102,8 @@ The palette breaks from the teal/cream convention that saturated the "warm but t
 
 ### Accent
 
-- **Clay** (`oklch(47% 0.115 30)`): The sole accent. Deep terracotta, red ochre, brick dust. Used for the logo, horizontal rule, prose links, tag pills, active nav, card hover borders, icon buttons, TOC active headings, and reading progress. Passes WCAG AA on the light background (≈6.3:1 contrast). Never used as a background fill or large surface color.
-- **Clay Light** (`oklch(69% 0.115 28)`): Dark theme variant. Same hue family, higher lightness. Passes WCAG AA on the dark background (≈7.5:1). Keeps the same character — fired clay, just caught in warm lamplight.
+- **Clay** (`oklch(47% 0.065 30)`): The sole accent. Muted terracotta, warm ochre dust. Used for the logo, horizontal rule, prose links, tag pills, active nav, card hover borders, icon buttons, TOC active headings, and reading progress. Passes WCAG AA on the light background (≈6.3:1 contrast). Never used as a background fill or large surface color.
+- **Clay Light** (`oklch(69% 0.065 28)`): Dark theme variant. Same hue family, higher lightness. Passes WCAG AA on the dark background (≈7.5:1). Keeps the same character — warm clay, just caught in warm lamplight.
 
 ### Light palette — "Unbleached Paper"
 
@@ -173,8 +173,8 @@ Shadows appear exclusively on hover feedback. The card hover state: subtle lift 
 
 - **Background:** Washi at rest. Pith on hover. Clay border reveal at hover.
 - **Border:** Linen Edge at 60% opacity at rest, full opacity + Clay on hover.
-- **Shadow:** None at rest. Hover Lift at hover.
-- **Hover behavior:** Background shifts, border solidifies with Clay tint, card lifts 2px, arrow icon shifts to Clay, 200ms ease-out.
+- **Shadow:** None. Elevation from lift alone.
+- **Hover behavior:** Border solidifies with Clay tint, card lifts 2px, arrow icon shifts to Clay, 200ms ease-out.
 
 ### Tag Pill
 
