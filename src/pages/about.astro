@@ -39,34 +39,18 @@ const paragraphs = AUTHOR.aboutNarrative.split("\n\n");
     <div class="mx-auto max-w-2xl w-full flex flex-col gap-10">
       <!-- Section: Background -->
       <section class="flex flex-col gap-3 page-enter page-enter-delay-2">
-        <div class="flex items-center gap-2.5">
-          <div
-            class="w-[3px] h-4 rounded-sm shrink-0"
-            style="background-color: var(--color-warm);"
-            aria-hidden="true"
-          >
-          </div>
-          <h2 class="text-[0.8125rem] font-semibold uppercase tracking-wide text-muted-foreground">
-            Background
-          </h2>
-        </div>
-        <p class="text-foreground/80 leading-relaxed">{paragraphs[0]}</p>
+        <h2 class="text-[0.8125rem] font-semibold uppercase tracking-wide text-muted-foreground">
+          Background
+        </h2>
+        <p class="text-foreground leading-relaxed">{paragraphs[0]}</p>
       </section>
 
       <!-- Section: This site -->
       <section class="flex flex-col gap-3 page-enter page-enter-delay-3">
-        <div class="flex items-center gap-2.5">
-          <div
-            class="w-[3px] h-4 rounded-sm shrink-0"
-            style="background-color: var(--color-warm);"
-            aria-hidden="true"
-          >
-          </div>
-          <h2 class="text-[0.8125rem] font-semibold uppercase tracking-wide text-muted-foreground">
-            This site
-          </h2>
-        </div>
-        <p class="text-foreground/80 leading-relaxed">{paragraphs[1]}</p>
+        <h2 class="text-[0.8125rem] font-semibold uppercase tracking-wide text-muted-foreground">
+          This site
+        </h2>
+        <p class="text-foreground leading-relaxed">{paragraphs[1]}</p>
       </section>
 
       <!-- Interests -->
@@ -82,7 +66,7 @@ const paragraphs = AUTHOR.aboutNarrative.split("\n\n");
             {
               AUTHOR.interests.map((interest, i) => (
                 <>
-                  <span class="text-sm text-foreground/70">{interest}</span>
+                  <span class="text-sm text-foreground">{interest}</span>
                   {i < AUTHOR.interests.length - 1 && (
                     <span class="mx-1 font-light opacity-60" style="color: var(--color-warm);">
                       /
