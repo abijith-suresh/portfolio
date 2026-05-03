@@ -10,9 +10,9 @@ export const SITE = {
 
   // Hero Section
   greeting: "Hey, I'm Abijith",
-  role: "Software Developer",
+  role: "Backend Engineer",
   heroIntro:
-    "Backend engineer in Kochi who got into programming because building things from scratch felt like the most satisfying kind of problem. I work with Java and Spring Boot by day, and I'm still figuring things out as I go. Outside of work, I'm into gaming, anime, and stories in all their forms.",
+    "Backend engineer in Kochi building things with Java and Spring Boot.\nI'm still figuring things out as I go.",
 
   // Pagination
   postsPerPage: 10,
