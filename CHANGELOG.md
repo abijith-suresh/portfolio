@@ -6,19 +6,18 @@ This changelog follows the categories and intent of [Keep a Changelog](https://k
 
 ## Unreleased
 
+### Added
+
+- Featured Projects section to the landing page, pulling project cards from the projects collection.
+
 ### Changed
 
-- Implemented the "Ink & Clay" color redesign: replaced the prior teal/Patina accent with a committed fired-clay (terracotta) accent across light and dark themes. The change is implemented in CSS custom properties and applied across components so identity surfaces and interactive states (links, tag pills, nav underlines, reading progress, card hovers, icon buttons, TOC active states, etc.) now use the Clay accent.
-
-- Files updated: src/styles/global.css, src/themes/ink-and-paper.ts, src/pages/api/og.png.ts, src/components/\* (BackLink, ContentCard, Hero, Link, Pagination, ReadingProgress, RecentPosts, SocialLinks, TOCHeader, TOCSidebar, TagList), DESIGN.md, DESIGN.json.
-
-### Docs
-
-- DESIGN.md and DESIGN.json updated to document the new Ink & Clay palette, named tokens, and the design rationale for the committed clay accent.
-
-### Testing
-
-- Verify site build and the following visual checks: homepage and blog pages (light and dark), reading-progress bar, tag pills, TOC active states, header/footer middot, and generated OG image color.
+- Rewrote the hero greeting to a conversational first-person voice ("Hey, I'm Abijith") and rewrote the intro paragraph with more personality and specificity, replacing generic phrases.
+- Widened the hero clay rule from `w-12` to `w-20` so it reads as a confident compositional element rather than a tick mark.
+- Increased hero spacing (`pt-28/pb-16` → `md:pt-40/md:pb-20`) for a more generous opening; tightened the content sections to `py-8` for a focused rhythm.
+- Replaced the "Latest Posts" heading with the uppercase tracked label treatment ("RECENT WRITING"), matching the about page's section markers and letting card titles stay the visual focus.
+- Made content card hover arrows visible at ~40% opacity at rest, transitioning to clay color on hover for better clickability affordance.
+- Entrance animations now play only on the first page load per session; subsequent navigations skip the staggered reveal for a snappier experience.
 
 ## 2026-05-01 — Repository metadata cleanup
 
