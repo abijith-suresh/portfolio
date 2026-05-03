@@ -80,32 +80,32 @@
 
 [data-theme="dark"] {
   /* ── Dark theme: Workshop at Night ─────────────────────────────────────── */
-  --background: oklch(13.5% 0.016 50); /* warm dark — amber-shifted, not cool */
+  --background: oklch(13.5% 0.006 50); /* near-neutral dark with warm bias   */
   --foreground: oklch(93% 0.01 75); /* warm off-white                      */
 
-  --card: oklch(18% 0.018 50); /* slightly elevated warm surface      */
+  --card: oklch(18% 0.008 50); /* slightly elevated surface           */
   --card-foreground: oklch(93% 0.01 75);
 
-  --popover: oklch(22% 0.018 50); /* popover / deeper surface            */
+  --popover: oklch(22% 0.009 50); /* popover / deeper surface            */
   --popover-foreground: oklch(93% 0.01 75);
 
   --primary: oklch(93% 0.01 75);
-  --primary-foreground: oklch(13.5% 0.016 50);
+  --primary-foreground: oklch(13.5% 0.006 50);
 
-  --secondary: oklch(18% 0.018 50);
+  --secondary: oklch(18% 0.008 50);
   --secondary-foreground: oklch(93% 0.01 75);
 
-  --muted: oklch(22% 0.018 50);
-  --muted-foreground: oklch(58% 0.014 62); /* warm stone                         */
+  --muted: oklch(22% 0.009 50);
+  --muted-foreground: oklch(58% 0.01 55); /* warm stone                         */
 
-  --accent: oklch(18% 0.018 50);
+  --accent: oklch(18% 0.008 50);
   --accent-foreground: oklch(93% 0.01 75);
 
   --destructive: oklch(63% 0.22 20); /* brighter red for dark mode          */
-  --destructive-foreground: oklch(13.5% 0.016 50);
+  --destructive-foreground: oklch(13.5% 0.006 50);
 
-  --border: oklch(28% 0.02 50); /* warm border                         */
-  --input: oklch(28% 0.02 50);
+  --border: oklch(28% 0.01 50); /* subtle warm border                  */
+  --input: oklch(28% 0.01 50);
   --ring: oklch(69% 0.09 155); /* lighter green — glows against warm dark */
 
   /* ── Green accent (dark) ─────────────────────────────────────────────── */
@@ -170,15 +170,15 @@
 
 @layer components {
   .card-hover {
-    @apply rounded-lg overflow-hidden;
+    @apply rounded-lg overflow-hidden border border-border;
     background: var(--card);
     @apply transition-all;
-    transition-duration: var(--transition-normal);
-    transition-timing-function: ease-out;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .card-hover:hover {
-    transform: scale(1.01);
+    transform: scale(1.015);
     background: var(--popover);
   }
 

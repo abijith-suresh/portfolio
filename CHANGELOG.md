@@ -22,6 +22,10 @@ This changelog follows the categories and intent of [Keep a Changelog](https://k
 - Removed card borders entirely; cards now use tonal surface steps (card → popover) for visual separation.
 - Replaced card translate-y hover with subtle scale(1.01) and tonal background wash for a smoother, more organic feel.
 - Updated DESIGN.md to document the new green accent and simplified card hover behavior.
+- Restored card borders as a static 1px element that does not participate in hover state.
+- Replaced card hover easing from generic `ease-out` to ease-out-quint (`cubic-bezier(0.22, 1, 0.36, 1)`) with 250ms duration for a smoother settle into place.
+- Increased card hover scale from 1.01 to 1.015 for perceptible but subtle movement.
+- Reduced dark theme surface chroma from 0.016–0.020 to 0.006–0.010 (near-neutral with warm bias) to eliminate the reddish-brown cast and let the green accent dominate the canvas.
 
 ## 2026-05-01 — Repository metadata cleanup
 
