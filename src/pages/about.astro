@@ -12,7 +12,7 @@ const paragraphs = AUTHOR.aboutNarrative.split("\n\n");
   type="profile"
   jsonLd={{ type: "person" }}
 >
-  <div class="w-full mx-auto flex grow flex-col gap-y-10 px-4 max-w-3xl pb-12 page-enter">
+  <div class="w-full mx-auto flex grow flex-col gap-y-12 px-4 max-w-3xl pb-12 page-enter">
     <Breadcrumb
       items={[
         { label: "Home", href: "/", icon: "home" },
@@ -20,58 +20,52 @@ const paragraphs = AUTHOR.aboutNarrative.split("\n\n");
       ]}
     />
 
-    <!-- Centered identity block -->
-    <header class="flex flex-col items-center text-center gap-4 page-enter page-enter-delay-1">
+    <!-- Identity header: avatar + name side by side -->
+    <header class="flex items-center gap-6 page-enter page-enter-delay-1">
       <img
         src={AUTHOR.avatar}
         alt={AUTHOR.name}
-        class="w-36 h-36 sm:w-44 sm:h-44 rounded-full object-cover ring-2 ring-border"
+        class="w-20 h-20 sm:w-28 sm:h-28 rounded-full object-cover ring-2 ring-border flex-shrink-0"
       />
       <div>
         <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-foreground font-display">
           {AUTHOR.fullName}
         </h1>
-        <p class="mt-1.5 text-muted-foreground text-sm">{AUTHOR.tagline}</p>
+        <p class="mt-1.5 text-muted-foreground">{AUTHOR.tagline}</p>
       </div>
     </header>
 
     <!-- Content sections -->
-    <div class="mx-auto max-w-2xl w-full flex flex-col gap-10">
+    <div class="flex flex-col gap-12">
       <!-- Section: Background -->
-      <section class="flex flex-col gap-3 page-enter page-enter-delay-2">
-        <div class="flex flex-col gap-0.5">
-          <h2
-            class="text-lg font-semibold uppercase tracking-wide text-muted-foreground font-display"
-          >
-            Background
+      <section class="flex flex-col gap-4 page-enter page-enter-delay-2">
+        <div class="flex flex-col gap-1">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-display">
+            Background.
           </h2>
           <p class="text-sm text-muted-foreground">How I got here</p>
         </div>
-        <p class="text-foreground leading-relaxed">{paragraphs[0]}</p>
+        <p class="max-w-2xl text-foreground leading-relaxed">{paragraphs[0]}</p>
       </section>
 
       <!-- Section: This site -->
-      <section class="flex flex-col gap-3 page-enter page-enter-delay-3">
-        <div class="flex flex-col gap-0.5">
-          <h2
-            class="text-lg font-semibold uppercase tracking-wide text-muted-foreground font-display"
-          >
-            This Site
+      <section class="flex flex-col gap-4 page-enter page-enter-delay-3">
+        <div class="flex flex-col gap-1">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-display">
+            This site.
           </h2>
           <p class="text-sm text-muted-foreground">What this corner of the internet is for</p>
         </div>
-        <p class="text-foreground leading-relaxed">{paragraphs[1]}</p>
+        <p class="max-w-2xl text-foreground leading-relaxed">{paragraphs[1]}</p>
       </section>
 
       <!-- Interests -->
       <aside class="page-enter page-enter-delay-3">
-        <div class="h-px w-full mb-8 bg-border" aria-hidden="true"></div>
-        <div class="flex flex-col gap-1">
-          <div class="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:gap-4">
-            <h2
-              class="text-lg font-semibold uppercase tracking-wide text-muted-foreground whitespace-nowrap font-display"
-            >
-              Away from the Keyboard
+        <div class="h-px w-full mb-10 bg-border" aria-hidden="true"></div>
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-col gap-1">
+            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-display">
+              Away from the keyboard.
             </h2>
             <span class="text-sm text-muted-foreground">When I'm not coding</span>
           </div>
@@ -79,7 +73,7 @@ const paragraphs = AUTHOR.aboutNarrative.split("\n\n");
             {
               AUTHOR.interests.map((interest, i) => (
                 <>
-                  <span class="text-sm text-foreground">{interest}</span>
+                  <span class="text-foreground">{interest}</span>
                   {i < AUTHOR.interests.length - 1 && (
                     <span class="mx-1 font-light opacity-60" style="color: var(--color-warm);">
                       /

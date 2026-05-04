@@ -20,23 +20,23 @@ colors:
   ember-red: "oklch(63% 0.22 20)"
 typography:
   display:
-    fontFamily: "Space Grotesk, Satoshi, system-ui, sans-serif"
+    fontFamily: "Bricolage Grotesque, Satoshi, system-ui, sans-serif"
     fontSize: "clamp(2.25rem, 6vw, 3.75rem)"
     fontWeight: 700
     lineHeight: 1.1
     letterSpacing: "-0.025em"
   headline:
-    fontFamily: "Space Grotesk, Satoshi, system-ui, sans-serif"
+    fontFamily: "Bricolage Grotesque, Satoshi, system-ui, sans-serif"
     fontSize: "1.5rem"
-    fontWeight: 600
+    fontWeight: 700
     lineHeight: 1.3
-    letterSpacing: "normal"
+    letterSpacing: "-0.015em"
   title:
-    fontFamily: "Space Grotesk, Satoshi, system-ui, sans-serif"
-    fontSize: "1.25rem"
-    fontWeight: 600
-    lineHeight: 1.4
-    letterSpacing: "normal"
+    fontFamily: "Bricolage Grotesque, Satoshi, system-ui, sans-serif"
+    fontSize: "1.875rem"
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: "-0.015em"
   body:
     fontFamily: "Satoshi, system-ui, sans-serif"
     fontSize: "1rem"
@@ -44,11 +44,11 @@ typography:
     lineHeight: 1.625
     letterSpacing: "normal"
   label:
-    fontFamily: "Space Grotesk, Satoshi, system-ui, sans-serif"
-    fontSize: "1.125rem"
-    fontWeight: 600
-    lineHeight: 1
-    letterSpacing: "0.05em"
+    fontFamily: "Bricolage Grotesque, Satoshi, system-ui, sans-serif"
+    fontSize: "1.5rem"
+    fontWeight: 700
+    lineHeight: 1.2
+    letterSpacing: "-0.015em"
 rounded:
   sm: "4px"
   md: "8px"
@@ -136,27 +136,26 @@ The palette uses warm neutrals paired with a deep evergreen accent. The green br
 
 ## 3. Typography
 
-**Display Font:** Space Grotesk (Satoshi, system-ui, sans-serif fallback)
+**Display Font:** Bricolage Grotesque (Satoshi, system-ui, sans-serif fallback)
 **Body Font:** Satoshi (system-ui, sans-serif fallback)
-**Label Font:** Space Grotesk (same as display; uppercase, wide tracking distinguishes labels from body)
+**Label Font:** Bricolage Grotesque (same as display; large bold title-case headings with trailing period distinguish section landmarks from body)
 
-**Character:** Two-family pairing chosen for complementary contrast. Space Grotesk descends from Space Mono — it carries a technical, precision-tool character through distinctive terminals (the `a`, `g`, `r` are immediately recognizable) that read as deliberate craft at display sizes. It has a taller cap height relative to x-height than geometric sans defaults, giving it presence and vertical command at large sizes. Satoshi is a geometric sans with warmth in its terminals, handling body text and functional UI with clean readability. The pairing creates structural hierarchy through typeface contrast: identity surfaces (display, headlines, titles, labels) use Space Grotesk; content and utility (body, nav, meta, cards) use Satoshi. The two families share geometric foundations but differ clearly in character — one reads as engineering precision, the other as readable warmth.
+**Character:** Two-family pairing chosen for genuine structural contrast. Bricolage Grotesque is a variable grotesque (weight 200–800, optical sizing 12–96) with origins in rough letterpress and industrial signage traditions. Where most geometric sans-serifs optimize for smooth, even strokes, Bricolage carries deliberate irregularity — slight ink traps, optically compensated junctions, letterforms that read as made rather than drawn. At display sizes with optical sizing maxed, it reads as a precision tool used with intent, which maps directly to this site's "craftsman's desk" identity. Satoshi is a refined, warm geometric sans that handles body text and functional UI with clean readability. The contrast is meaningful: Bricolage (rough, expressive, artisanal) for identity surfaces; Satoshi (polished, warm, readable) for content. The pairing tells the same story the color system does — intentional craft, not corporate uniformity.
 
 ### Hierarchy
 
-- **Display** (700, clamp 2.25rem–3.75rem, line-height 1.1, tracking -0.025em): Hero greeting, about page name. Space Grotesk. Single largest element. Negative tracking keeps it confident.
-- **Headline** (600, 1.5rem–2rem, line-height 1.3): Blog post titles, project detail titles. Space Grotesk.
-- **Title** (600, 1.5rem, line-height 1.4): Page titles on listing pages (Blog, Projects, Tags). Space Grotesk.
+- **Display** (700, clamp 2.25rem–3.75rem, line-height 1.1, tracking -0.025em): Hero greeting, about page name. Bricolage Grotesque. Single largest element. Negative tracking keeps it confident.
+- **Headline** (700, 1.875rem–2.25rem, line-height 1.2, tracking -0.015em): Page titles on listing pages (Blog., Projects.); about page and homepage section headings (Background., Projects., Writing.). Bricolage Grotesque. Trailing period is the personality marker.
+- **Title** (700, 1.5rem, line-height 1.3): Blog post titles, project detail titles. Bricolage Grotesque.
 - **Body** (400, 1rem, line-height 1.625): All running content. Satoshi. Max 65–75ch line length.
-- **Label primary** (600, 1.125rem, letter-spacing 0.05em, uppercase): Section markers ("Background", "Featured Projects"). Space Grotesk.
-- **Label secondary** (400, 0.875rem, sentence case): Descriptive sublabels ("How I got here", "Things I'm building"). Satoshi. Softer voice beneath the label.
+- **Section sublabel** (400, 0.875rem, sentence case): Descriptive line beneath section headings ("How I got here", "Things I'm building"). Satoshi. Muted. Softer voice beneath the heading.
 - **Card title** (600, 1.125rem): Blog and project card titles. Satoshi — cards are functional density, not identity.
 
 ### Named Rules
 
-**The Two-Family Rule.** Identity surfaces (display, headlines, page titles, labels) use Space Grotesk. Content surfaces (body, cards, nav, meta, breadcrumbs, tags) use Satoshi. The boundary is strict: if it announces identity or structure, it's Space Grotesk. If it's content to be read, it's Satoshi.
+**The Two-Family Rule.** Identity surfaces (display, headlines, page titles, section headings) use Bricolage Grotesque. Content surfaces (body, cards, nav, meta, breadcrumbs, tags) use Satoshi. The boundary is identity vs content.
 
-**The Label Pair Rule.** Section labels are always two-layered: a Space Grotesk primary label (uppercase, tracked, text-lg) and a Satoshi secondary line (sentence case, softer, text-sm). The secondary line is the voice; the primary line is the structure. Both appear together.
+**The Section Heading Rule.** Section landmarks are always two-layered: a Bricolage Grotesque heading (bold, tracking-tight, 1.5rem–1.875rem, Title Case, trailing period) and a Satoshi sublabel (sentence case, muted, text-sm). The period is the personality marker — it reads as deliberate and finished, not template-generated. Both appear together. The heading announces structure; the sublabel is the voice.
 
 **The Writing-First Rule.** Blog prose typography takes priority. Body line height (1.625) and line length (65-75ch) are tuned for long-form reading comfort. Everything else accommodates this.
 
@@ -210,7 +209,7 @@ No shadows on any state. Card hover uses scale and tonal background wash only.
 - **Do** cap body text at 65-75ch. Reading comfort is non-negotiable.
 - **Do** use tonal surface steps (Unbleached > Washi > Pith) instead of shadows for depth.
 - **Do** keep both light and dark themes warm. The dark is not the opposite of the light.
-- **Do** use Space Grotesk for identity surfaces (hero, page titles, section labels, detail titles) and Satoshi for content surfaces (body, cards, nav, meta). The boundary is identity vs content.
+- **Do** use Bricolage Grotesque for identity surfaces (hero, page titles, section headings, detail titles) and Satoshi for content surfaces (body, cards, nav, meta). The boundary is identity vs content.
 - **Do** pair section labels with a secondary descriptive line in Satoshi (sentence case, softer).
 
 ### Don't:
@@ -224,5 +223,5 @@ No shadows on any state. Card hover uses scale and tonal background wash only.
 - **Don't** use Evergreen as a large background fill or body text color. It marks identity and interaction, not surfaces.
 - **Don't** let the dark theme go cool. Ironwood (warm amber-shifted dark) is not negotiable.
 - **Don't** add 3D scenes, particle effects, scroll-jacking, or WebGL showcases. The craft shows in precision, not spectacle.
-- **Don't** use Space Grotesk for body text, card titles, or functional UI elements. It's an identity font, not a reading font.
-- **Don't** use Satoshi for page-level titles or section labels when Space Grotesk is available. The typographic contrast is the hierarchy.
+- **Don't** use Bricolage Grotesque for body text, card titles, or functional UI elements. It's an identity font, not a reading font.
+- **Don't** use Satoshi for page-level titles or section headings. The typographic contrast is the hierarchy.
