@@ -38,13 +38,23 @@ export const SOCIAL_LINKS = {
 export const AUTHOR = {
   name: "Abijith S",
   fullName: "Abijith Suresh",
-  tagline: "Developer, builder, writer.",
+  tagline: "Backend engineer at UST. Kochi, Kerala.",
   avatar: "/avatar.jpg",
   twitterHandle: "@abijith_sh", // Kept for SEO compatibility (twitter:creator metadata)
 
   // About Page Content
   aboutNarrative:
-    "I'm Abijith, a software developer based in Kochi, India. I've been working professionally for about a year and a half, primarily with Java and Spring Boot on the backend side of things. I got into programming because I liked the idea of building things from scratch — what started as curiosity turned into a career, and I'm still figuring things out as I go. Along the way I've picked up React, Python, and TypeScript, though backend development is where I feel most at home.\n\nThis site is where I document my journey — the things I learn, the problems I solve, and occasional thoughts on tech and life. It's mostly for my future self, but if you find something useful here, that's a bonus.",
+    "Backend development suits me because the work lives in systems: how things connect, where load accumulates, what breaks in production that never showed in testing. Java and Spring Boot are the daily tools. The actual job is building things that hold up. I've been doing this professionally since 2024, mostly on backend services.\n\nThis site is where I write through problems. Notes on things I've built, things I've read, the occasional opinion. Writing is how I figure out what I actually think. If you find something useful here, good.",
+
+  // Work Experience (extensible timeline)
+  workExperience: [
+    {
+      company: "UST",
+      role: "Software Engineer",
+      period: "2024\u2013Present",
+      description: "Building and maintaining backend services with Java and Spring Boot.",
+    },
+  ],
 
   // Interests (for tag pills on about page)
   interests: ["Gaming", "Anime", "Reading", "Movies & TV"],
