@@ -142,20 +142,28 @@ The palette uses warm neutrals paired with a deep evergreen accent. The green br
 
 **Character:** Two-family pairing chosen for genuine structural contrast. Bricolage Grotesque is a variable grotesque (weight 200–800, optical sizing 12–96) with origins in rough letterpress and industrial signage traditions. Where most geometric sans-serifs optimize for smooth, even strokes, Bricolage carries deliberate irregularity — slight ink traps, optically compensated junctions, letterforms that read as made rather than drawn. At display sizes with optical sizing maxed, it reads as a precision tool used with intent, which maps directly to this site's "craftsman's desk" identity. Satoshi is a refined, warm geometric sans that handles body text and functional UI with clean readability. The contrast is meaningful: Bricolage (rough, expressive, artisanal) for identity surfaces; Satoshi (polished, warm, readable) for content. The pairing tells the same story the color system does — intentional craft, not corporate uniformity.
 
-### Hierarchy
+### Type Scale
 
-- **Display** (700, clamp 2.25rem–3.75rem, line-height 1.1, tracking -0.025em): Hero greeting, about page name. Bricolage Grotesque. Single largest element. Negative tracking keeps it confident.
-- **Headline** (700, 1.875rem–2.25rem, line-height 1.2, tracking -0.015em): Page titles on listing pages (Blog, Projects); about page and homepage section headings (Background, Projects, Writing). Bricolage Grotesque.
-- **Title** (700, 1.5rem, line-height 1.3): Blog post titles, project detail titles. Bricolage Grotesque.
-- **Body** (400, 1rem, line-height 1.625): All running content. Satoshi. Max 65–75ch line length.
-- **Section sublabel** (400, 0.875rem, sentence case): Descriptive line beneath section headings ("How I got here", "Things I'm building"). Satoshi. Muted. Softer voice beneath the heading.
-- **Card title** (600, 1.125rem): Blog and project card titles. Satoshi — cards are functional density, not identity.
+Seven semantic levels. Each maps to one explicit Tailwind class combination. No arbitrary sizes.
+
+| Level        | Role                               | Tailwind classes                                            | Desktop px  | Font      | Notes                                                        |
+| ------------ | ---------------------------------- | ----------------------------------------------------------- | ----------- | --------- | ------------------------------------------------------------ |
+| Display      | Hero greeting                      | `text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight` | 60px        | Bricolage | Absolute maximum. Homepage only.                             |
+| Page title   | About page identity                | `text-4xl sm:text-5xl font-bold tracking-tight`             | 48px        | Bricolage | About h1. Must be 1.5× section h2 on desktop.                |
+| Page heading | Listing / detail page h1           | `text-3xl sm:text-4xl font-bold tracking-tight`             | 36px        | Bricolage | Blog, Projects, Tags, post/project titles. No competing h2s. |
+| Section h2   | Homepage + about section landmarks | `text-2xl sm:text-3xl font-bold tracking-tight`             | 30px        | Bricolage | Always paired with a sublabel.                               |
+| Card title   | Individual item titles             | `text-lg font-medium`                                       | 18px        | Satoshi   | Cards are content, not identity.                             |
+| Body         | Running prose                      | (base, 1rem)                                                | 16px        | Satoshi   | Line height 1.625. Max 65–75ch.                              |
+| Sublabel     | Section companion descriptions     | `text-base text-muted-foreground`                           | 16px        | Satoshi   | Paired with section h2. Always sentence case.                |
+| Utility      | Nav, meta, tags, actions           | `text-sm` / `text-xs`                                       | 14px / 12px | Satoshi   | Nav, breadcrumb, card meta, "View all" actions, tag pills.   |
 
 ### Named Rules
 
 **The Two-Family Rule.** Identity surfaces (display, headlines, page titles, section headings) use Bricolage Grotesque. Content surfaces (body, cards, nav, meta, breadcrumbs, tags) use Satoshi. The boundary is identity vs content.
 
-**The Section Heading Rule.** Section landmarks are always two-layered: a Bricolage Grotesque heading (bold, tracking-tight, 1.5rem–1.875rem, Title Case) and a Satoshi sublabel (sentence case, muted, text-base). Both appear together. The heading announces structure; the sublabel is the voice.
+**The Section Heading Rule.** Section landmarks are always two-layered: heading row (full-width Bricolage h2, bold, tracking-tight, Title Case) above a sublabel row (Satoshi `text-base` muted description on the left, "View all" utility link on the right, `items-baseline` aligned). The heading owns its row without competition. The sublabel and action share the subordinate row as a matched pair. Gap between rows: `gap-1` (4px).
+
+**The Page Title Hierarchy Rule.** About page h1 uses `text-4xl sm:text-5xl` — one level above section h2s (`text-2xl sm:text-3xl`). This gives a 1.6:1 ratio on desktop (48:30px). Any page with section h2s visible simultaneously must have its h1 maintain at minimum a 1.5:1 ratio against those h2s. Listing/detail pages with no competing h2s may use `text-3xl sm:text-4xl`.
 
 **The Writing-First Rule.** Blog prose typography takes priority. Body line height (1.625) and line length (65-75ch) are tuned for long-form reading comfort. Everything else accommodates this.
 
