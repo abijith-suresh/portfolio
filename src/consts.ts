@@ -42,19 +42,15 @@ export const AUTHOR = {
   avatar: "/avatar.jpg",
   twitterHandle: "@abijith_sh", // Kept for SEO compatibility (twitter:creator metadata)
 
-  // About Page Content
-  aboutNarrative:
-    "Backend development suits me because the work lives in systems: how things connect, where load accumulates, what breaks in production that never showed in testing. Java and Spring Boot are the daily tools. The actual job is building things that hold up. I've been doing this professionally since 2024, mostly on backend services.\n\nThis site is where I write through problems. Notes on things I've built, things I've read, the occasional opinion. Writing is how I figure out what I actually think. If you find something useful here, good.",
+  // About Page — three narrative sections
+  aboutWhatIDo:
+    "I work as a software engineer at UST, based in Kochi. Most of the work is backend: Java, Spring Boot, services that sit between data and the rest of the system. The actual job is reliability: thinking through failure modes, handling load, accounting for cases that don't show up in the happy path. I've been working on this since 2024.",
 
-  // Work Experience (extensible timeline)
-  workExperience: [
-    {
-      company: "UST",
-      role: "Software Engineer",
-      period: "2024\u2013Present",
-      description: "Building and maintaining backend services with Java and Spring Boot.",
-    },
-  ],
+  aboutHowIGotHere:
+    "The path was mostly curiosity. Tried things, broke them, worked out why. Java and Spring Boot came through professional work; Python, TypeScript, and enough React to trace a problem from the database to the browser came from not wanting to stop at a service boundary. Backend is where I've settled because the problems there are the ones I keep thinking about.",
+
+  aboutThisSite:
+    "Writing is how I understand what I actually think about something. This site is where that ends up: notes after shipping things, thoughts after reading, the occasional opinion. No particular theme except that it's mine.",
 
   // Interests (for tag pills on about page)
   interests: ["Gaming", "Anime", "Reading", "Movies & TV"],

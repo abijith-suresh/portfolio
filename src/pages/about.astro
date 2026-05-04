@@ -2,8 +2,6 @@
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import { AUTHOR, SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
-
-const paragraphs = AUTHOR.aboutNarrative.split("\n\n");
 ---
 
 <Layout
@@ -35,73 +33,62 @@ const paragraphs = AUTHOR.aboutNarrative.split("\n\n");
       </div>
     </header>
 
-    <!-- Content sections -->
+    <!-- Narrative sections -->
     <div class="flex flex-col gap-12">
-      <!-- Section: Experience -->
+      <!-- Section: What I do -->
       <section class="flex flex-col gap-4 page-enter page-enter-delay-2">
         <div class="flex flex-col gap-1">
           <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-display">
-            Experience
+            What I do
           </h2>
-          <p class="text-base text-muted-foreground">Where I've worked</p>
+          <p class="text-base text-muted-foreground">The day job</p>
         </div>
-        <ul class="flex flex-col gap-6">
-          {
-            AUTHOR.workExperience.map((job) => (
-              <li class="flex flex-col sm:grid sm:grid-cols-[8rem_1fr] gap-1 sm:gap-x-6">
-                <span class="text-sm text-muted-foreground tabular-nums sm:pt-0.5">
-                  {job.period}
-                </span>
-                <div class="flex flex-col gap-0.5">
-                  <span class="font-medium text-foreground">{job.role}</span>
-                  <span class="text-sm text-muted-foreground">{job.company}</span>
-                  <p class="text-sm text-muted-foreground leading-relaxed mt-1">
-                    {job.description}
-                  </p>
-                </div>
-              </li>
-            ))
-          }
-        </ul>
+        <p class="max-w-2xl text-foreground leading-relaxed">{AUTHOR.aboutWhatIDo}</p>
       </section>
 
-      <!-- Section: Background -->
+      <!-- Section: How I got here -->
       <section class="flex flex-col gap-4 page-enter page-enter-delay-3">
         <div class="flex flex-col gap-1">
           <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-display">
-            Background
+            How I got here
           </h2>
-          <p class="text-base text-muted-foreground">The short version</p>
+          <p class="text-base text-muted-foreground">The path</p>
         </div>
-        <div class="flex flex-col gap-4 max-w-2xl">
-          {paragraphs.map((p) => <p class="text-foreground leading-relaxed">{p}</p>)}
+        <p class="max-w-2xl text-foreground leading-relaxed">{AUTHOR.aboutHowIGotHere}</p>
+      </section>
+
+      <!-- Section: This site -->
+      <section class="flex flex-col gap-4 page-enter page-enter-delay-3">
+        <div class="flex flex-col gap-1">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-display">
+            This site
+          </h2>
+          <p class="text-base text-muted-foreground">Why it exists</p>
         </div>
+        <p class="max-w-2xl text-foreground leading-relaxed">{AUTHOR.aboutThisSite}</p>
       </section>
 
       <!-- Section: Away from the keyboard -->
-      <aside class="page-enter page-enter-delay-3">
-        <div class="h-px w-full mb-10 bg-border" aria-hidden="true"></div>
-        <div class="flex flex-col gap-4">
-          <div class="flex flex-col gap-1">
-            <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-display">
-              Away from the keyboard
-            </h2>
-            <span class="text-base text-muted-foreground">When I'm not coding</span>
-          </div>
-          <div class="flex flex-wrap gap-2">
-            {
-              AUTHOR.interests.map((interest) => (
-                <span
-                  class="text-xs px-3 py-1.5 rounded-md font-medium"
-                  style="background: var(--color-warm-muted); color: var(--color-warm);"
-                >
-                  {interest}
-                </span>
-              ))
-            }
-          </div>
+      <section class="flex flex-col gap-4 page-enter page-enter-delay-3">
+        <div class="flex flex-col gap-1">
+          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-display">
+            Away from the keyboard
+          </h2>
+          <p class="text-base text-muted-foreground">When I'm not coding</p>
         </div>
-      </aside>
+        <div class="flex flex-wrap gap-2">
+          {
+            AUTHOR.interests.map((interest) => (
+              <span
+                class="text-xs px-3 py-1.5 rounded-md font-medium"
+                style="background: var(--color-warm-muted); color: var(--color-warm);"
+              >
+                {interest}
+              </span>
+            ))
+          }
+        </div>
+      </section>
     </div>
   </div>
 </Layout>
