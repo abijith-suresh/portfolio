@@ -145,7 +145,7 @@ The palette uses warm neutrals paired with a deep evergreen accent. The green br
 ### Hierarchy
 
 - **Display** (700, clamp 2.25rem–3.75rem, line-height 1.1, tracking -0.025em): Hero greeting, about page name. Bricolage Grotesque. Single largest element. Negative tracking keeps it confident.
-- **Headline** (700, 1.875rem–2.25rem, line-height 1.2, tracking -0.015em): Page titles on listing pages (Blog., Projects.); about page and homepage section headings (Background., Projects., Writing.). Bricolage Grotesque. Trailing period is the personality marker.
+- **Headline** (700, 1.875rem–2.25rem, line-height 1.2, tracking -0.015em): Page titles on listing pages (Blog, Projects); about page and homepage section headings (Background, Projects, Writing). Bricolage Grotesque.
 - **Title** (700, 1.5rem, line-height 1.3): Blog post titles, project detail titles. Bricolage Grotesque.
 - **Body** (400, 1rem, line-height 1.625): All running content. Satoshi. Max 65–75ch line length.
 - **Section sublabel** (400, 0.875rem, sentence case): Descriptive line beneath section headings ("How I got here", "Things I'm building"). Satoshi. Muted. Softer voice beneath the heading.
@@ -155,7 +155,7 @@ The palette uses warm neutrals paired with a deep evergreen accent. The green br
 
 **The Two-Family Rule.** Identity surfaces (display, headlines, page titles, section headings) use Bricolage Grotesque. Content surfaces (body, cards, nav, meta, breadcrumbs, tags) use Satoshi. The boundary is identity vs content.
 
-**The Section Heading Rule.** Section landmarks are always two-layered: a Bricolage Grotesque heading (bold, tracking-tight, 1.5rem–1.875rem, Title Case, trailing period) and a Satoshi sublabel (sentence case, muted, text-sm). The period is the personality marker — it reads as deliberate and finished, not template-generated. Both appear together. The heading announces structure; the sublabel is the voice.
+**The Section Heading Rule.** Section landmarks are always two-layered: a Bricolage Grotesque heading (bold, tracking-tight, 1.5rem–1.875rem, Title Case) and a Satoshi sublabel (sentence case, muted, text-base). Both appear together. The heading announces structure; the sublabel is the voice.
 
 **The Writing-First Rule.** Blog prose typography takes priority. Body line height (1.625) and line length (65-75ch) are tuned for long-form reading comfort. Everything else accommodates this.
 

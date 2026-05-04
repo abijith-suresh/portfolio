@@ -18,12 +18,12 @@ const recentPosts = allPosts.slice(0, limit);
 {
   recentPosts.length > 0 && (
     <section class:list={cn("flex flex-col gap-y-4", className)}>
-      <div class="flex items-center justify-between">
+      <div class="flex items-baseline justify-between">
         <div class="flex flex-col gap-1">
           <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-display">
-            Writing.
+            Writing
           </h2>
-          <p class="text-sm text-muted-foreground">Things I've written</p>
+          <p class="text-base text-muted-foreground">Things I've written</p>
         </div>
         <Link
           href="/blog"
