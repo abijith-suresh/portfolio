@@ -12,7 +12,7 @@ export const SITE = {
   greeting: "Hey, I'm Abijith",
   role: "Backend Engineer",
   heroIntro:
-    "Backend engineer in Kochi building things with Java and Spring Boot.\nI'm still figuring things out as I go.",
+    "Based in Kochi, Kerala. I work on the backend, the part that keeps things running while everything else stays visible. Java and Spring Boot, mostly.",
 
   // Pagination
   postsPerPage: 10,
