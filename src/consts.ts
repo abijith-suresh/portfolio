@@ -12,7 +12,7 @@ export const SITE = {
   greeting: "Hey, I'm Abijith",
   role: "Backend Engineer",
   heroIntro:
-    "Backend engineer in Kochi building things with Java and Spring Boot.\nI'm still figuring things out as I go.",
+    "Based in Kochi, Kerala. I work on the backend, the part that keeps things running while everything else stays visible. Java and Spring Boot, mostly.",
 
   // Pagination
   postsPerPage: 10,
@@ -38,13 +38,19 @@ export const SOCIAL_LINKS = {
 export const AUTHOR = {
   name: "Abijith S",
   fullName: "Abijith Suresh",
-  tagline: "Developer, builder, writer.",
+  tagline: "Backend engineer at UST. Kochi, Kerala.",
   avatar: "/avatar.jpg",
   twitterHandle: "@abijith_sh", // Kept for SEO compatibility (twitter:creator metadata)
 
-  // About Page Content
-  aboutNarrative:
-    "I'm Abijith, a software developer based in Kochi, India. I've been working professionally for about a year and a half, primarily with Java and Spring Boot on the backend side of things. I got into programming because I liked the idea of building things from scratch — what started as curiosity turned into a career, and I'm still figuring things out as I go. Along the way I've picked up React, Python, and TypeScript, though backend development is where I feel most at home.\n\nThis site is where I document my journey — the things I learn, the problems I solve, and occasional thoughts on tech and life. It's mostly for my future self, but if you find something useful here, that's a bonus.",
+  // About Page — three narrative sections
+  aboutWhatIDo:
+    "I work as a software engineer at UST, based in Kochi. Most of the work is backend: Java, Spring Boot, services that sit between data and the rest of the system. The actual job is reliability: thinking through failure modes, handling load, accounting for cases that don't show up in the happy path. I've been working on this since 2024.",
+
+  aboutHowIGotHere:
+    "The path was mostly curiosity. Tried things, broke them, worked out why. Java and Spring Boot came through professional work; Python, TypeScript, and enough React to trace a problem from the database to the browser came from not wanting to stop at a service boundary. Backend is where I've settled because the problems there are the ones I keep thinking about.",
+
+  aboutThisSite:
+    "Writing is how I understand what I actually think about something. This site is where that ends up: notes after shipping things, thoughts after reading, the occasional opinion. No particular theme except that it's mine.",
 
   // Interests (for tag pills on about page)
   interests: ["Gaming", "Anime", "Reading", "Movies & TV"],

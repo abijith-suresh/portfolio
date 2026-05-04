@@ -74,10 +74,12 @@ const postsByYear = groupByYear(posts, (post) => post.data.publishDate);
     </div>
 
     <div class="flex flex-col gap-y-2 page-enter page-enter-delay-2">
-      <h1 class="text-3xl font-semibold text-foreground">Blog</h1>
-      <p class="text-muted-foreground">
-        Articles, tutorials, and thoughts on web development, design, and technology.
-      </p>
+      <div class="flex flex-col gap-1">
+        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-foreground font-display">
+          Blog
+        </h1>
+        <p class="text-base text-muted-foreground">Notes, write-ups, and the occasional opinion</p>
+      </div>
     </div>
 
     {
