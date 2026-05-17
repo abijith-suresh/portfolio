@@ -3,27 +3,35 @@ import { NAV_LINKS } from "@/consts";
 import Link from "@/components/Link.astro";
 import ThemePicker from "@/components/ThemePicker.astro";
 import { Icon } from "astro-icon/components";
+
+const currentPath = Astro.url.pathname;
 ---
 
-<div
-  class="mx-auto flex max-w-3xl items-center justify-between gap-4 px-4 py-3 border-b border-border/50"
->
+<div class="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4 md:px-8 md:py-5">
   <a
     href="/"
-    class="flex items-center hover:opacity-80 transition-opacity"
+    class="text-xl font-bold tracking-tight"
+    style="color: var(--color-accent);"
     data-astro-prefetch="tap"
   >
-    <span class="text-xl font-semibold tracking-tight" style="color: var(--color-warm);">AS</span>
+    AS
   </a>
 
-  <div class="flex items-center gap-4">
-    <nav class="flex items-center gap-4 text-sm sm:gap-6">
+  <div class="flex items-center gap-6">
+    <nav class="flex items-center gap-5">
       {
-        NAV_LINKS.map((link) => (
-          <Link href={link.href} class="nav-link capitalize" prefetch="viewport">
-            {link.label}
-          </Link>
-        ))
+        NAV_LINKS.map((link) => {
+          const isActive = currentPath.startsWith(link.href);
+          return (
+            <Link
+              href={link.href}
+              class:list={["nav-link", isActive && "active"]}
+              prefetch="viewport"
+            >
+              {link.label}
+            </Link>
+          );
+        })
       }
     </nav>
 

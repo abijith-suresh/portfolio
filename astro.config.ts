@@ -13,7 +13,7 @@ export default defineConfig({
     expressiveCode({
       themes: ["github-light", "github-dark"],
       useDarkModeMediaQuery: false,
-      themeCssSelector: (theme) => `[data-theme="${theme.name.split("-")[1]}"]`,
+      darkModeSelector: '[data-theme="dark"]',
       defaultProps: {
         wrap: true,
       },
@@ -59,8 +59,6 @@ export default defineConfig({
           "chevron-down",
           "magnifying-glass",
           "xmark",
-          "sun",
-          "moon",
           "arrow-right",
           "arrow-left",
           "arrow-up-right-from-square",
@@ -68,6 +66,8 @@ export default defineConfig({
           "lightbulb",
           "triangle-exclamation",
           "circle-exclamation",
+          "sun",
+          "moon",
         ],
       },
     }),
