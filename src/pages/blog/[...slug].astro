@@ -35,8 +35,6 @@ const tocHeadings = filterTocHeadings(headings);
 
 // Get related posts
 const relatedPosts = await getRelatedPosts(post.id, 3);
-
-// Tags are included in search via the JSON index
 ---
 
 <Layout
@@ -62,9 +60,9 @@ const relatedPosts = await getRelatedPosts(post.id, 3);
   {tocHeadings.length > 0 && <TOCHeader slot="table-of-contents" headings={tocHeadings} />}
 
   <section
-    class="grid grid-cols-[minmax(0px,1fr)_min(768px,100%)_minmax(0px,1fr)] gap-y-6 pb-12 page-enter"
+    class="grid grid-cols-[minmax(0px,1fr)_min(768px,100%)_minmax(0px,1fr)] gap-y-6 pb-16 page-enter"
   >
-    <div class="col-start-2 px-4 page-enter page-enter-delay-1">
+    <div class="col-start-2 px-6 md:px-8 pt-8 page-enter page-enter-delay-1">
       <Breadcrumb
         items={[
           { label: "Home", href: "/", icon: "home" },
@@ -74,18 +72,22 @@ const relatedPosts = await getRelatedPosts(post.id, 3);
       />
     </div>
 
-    <header class="col-start-2 flex flex-col gap-y-4 px-4 page-enter page-enter-delay-2">
-      <h1 class="text-3xl sm:text-4xl font-semibold text-foreground font-display">{title}</h1>
+    <header
+      class="col-start-2 flex flex-col gap-y-5 px-6 md:px-8 pt-4 page-enter page-enter-delay-2"
+    >
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight leading-tight">{title}</h1>
 
-      <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
-        <time datetime={publishDate.toISOString()}>
+      <div class="flex flex-wrap items-center gap-x-3 gap-y-1">
+        <time class="eyebrow" datetime={publishDate.toISOString()}>
           {formattedDate}
         </time>
-        <span>&middot;</span>
-        <span>{formatReadingTime(readingTime)}</span>
+        <span style="color: var(--color-muted);">&middot;</span>
+        <span class="eyebrow">{formatReadingTime(readingTime)}</span>
       </div>
 
-      <p class="text-lg text-muted-foreground max-w-2xl">{description}</p>
+      <p class="text-lg leading-relaxed max-w-2xl" style="color: var(--color-muted-foreground);">
+        {description}
+      </p>
 
       <div>
         <TagList tags={tags} />
@@ -94,15 +96,15 @@ const relatedPosts = await getRelatedPosts(post.id, 3);
 
     {tocHeadings.length > 0 && <TOCSidebar headings={tocHeadings} />}
 
-    <article class="prose col-start-2 max-w-none px-4 page-enter page-enter-delay-2">
+    <article class="prose col-start-2 max-w-none px-6 md:px-8 page-enter page-enter-delay-2">
       <Content />
     </article>
 
-    <div class="col-start-2 px-4 page-enter page-enter-delay-3">
+    <div class="col-start-2 px-6 md:px-8 page-enter page-enter-delay-3">
       <RelatedPosts posts={relatedPosts} />
     </div>
 
-    <div class="col-start-2 px-4 page-enter page-enter-delay-3">
+    <div class="col-start-2 px-6 md:px-8 page-enter page-enter-delay-3">
       <BackLink href="/blog" label="Back to Blog" />
     </div>
   </section>

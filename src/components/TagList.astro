@@ -18,8 +18,10 @@ const { tags, class: className, linkClass } = Astro.props;
       {tags.map((tag) => (
         <Link
           href={getTagHref(tag)}
-          class:list={cn("text-xs px-3 py-1.5 rounded-md font-medium transition-colors", linkClass)}
-          style="background: var(--color-warm-muted); color: var(--color-warm);"
+          class:list={cn(
+            "tag-pill transition-colors hover:bg-[var(--color-accent)] hover:text-[#111111]",
+            linkClass
+          )}
           prefetch="viewport"
         >
           {tag}

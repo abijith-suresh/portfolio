@@ -8,10 +8,10 @@ interface Props {
   size?: number;
 }
 
-const { class: className, size = 20 } = Astro.props;
+const { class: className, size = 18 } = Astro.props;
 ---
 
-<div class:list={["flex gap-4", className]}>
+<div class:list={["flex gap-5", className]}>
   <Link href={SOCIAL_LINKS.github} external class="social-link" aria-label="GitHub">
     <Icon name="fa6-brands:github" width={size} height={size} />
   </Link>
