@@ -2,8 +2,11 @@
 import BackLink from "@/components/BackLink.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import TagList from "@/components/TagList.astro";
+import TOCHeader from "@/components/TOCHeader.astro";
+import TOCSidebar from "@/components/TOCSidebar.astro";
 import { SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
+import { filterTocHeadings } from "@/lib/toc";
 import { formatBlogDate } from "@/lib/utils";
 import { type CollectionEntry, getCollection, render } from "astro:content";
 import { Icon } from "astro-icon/components";
@@ -22,13 +25,19 @@ interface Props {
 
 const { project } = Astro.props;
 const { title, description, tags, date, github, demo } = project.data;
-const { Content } = await render(project);
+const { Content, headings } = await render(project);
 const formattedDate = formatBlogDate(date);
+
+const tocHeadings = filterTocHeadings(headings);
 ---
 
 <Layout title={`${title} - Projects - ${SITE.title}`} description={description}>
-  <div class="w-full mx-auto flex grow flex-col gap-y-6 px-4 max-w-3xl pb-12 page-enter">
-    <div class="page-enter page-enter-delay-1">
+  {tocHeadings.length > 0 && <TOCHeader slot="table-of-contents" headings={tocHeadings} />}
+
+  <section
+    class="grid grid-cols-[minmax(0px,1fr)_min(768px,100%)_minmax(0px,1fr)] gap-y-6 pb-16 page-enter"
+  >
+    <div class="col-start-2 px-6 md:px-8 pt-8 page-enter page-enter-delay-1">
       <Breadcrumb
         items={[
           { label: "Home", href: "/", icon: "home" },
@@ -38,57 +47,51 @@ const formattedDate = formatBlogDate(date);
       />
     </div>
 
-    <article class="flex flex-col gap-y-6 page-enter page-enter-delay-2">
-      <header class="flex flex-col gap-y-4">
-        <h1 class="text-3xl sm:text-4xl font-semibold text-foreground font-display">{title}</h1>
+    <header
+      class="col-start-2 flex flex-col gap-y-5 px-6 md:px-8 pt-4 page-enter page-enter-delay-2"
+    >
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight leading-tight">{title}</h1>
 
-        <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
-          <time datetime={date.toISOString()}>{formattedDate}</time>
-        </div>
+      <time class="eyebrow" datetime={date.toISOString()}>
+        {formattedDate}
+      </time>
 
-        <p class="text-lg text-muted-foreground max-w-2xl">{description}</p>
+      <p class="text-lg leading-relaxed max-w-2xl" style="color: var(--color-muted-foreground);">
+        {description}
+      </p>
 
-        {
-          (github || demo) && (
-            <div class="flex flex-wrap gap-3">
-              {github && (
-                <a
-                  href={github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium border border-border rounded-lg hover:bg-accent transition-colors"
-                >
-                  <Icon name="fa6-brands:github" class="w-4 h-4" />
-                  View Source
-                </a>
-              )}
-              {demo && (
-                <a
-                  href={demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium bg-foreground text-background rounded-lg hover:opacity-90 transition-opacity"
-                >
-                  <Icon name="fa6-solid:arrow-up-right-from-square" class="w-4 h-4" />
-                  Live Demo
-                </a>
-              )}
-            </div>
-          )
-        }
+      {
+        (github || demo) && (
+          <div class="flex flex-wrap gap-3">
+            {github && (
+              <a href={github} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <Icon name="fa6-brands:github" class="w-4 h-4" />
+                Source
+              </a>
+            )}
+            {demo && (
+              <a href={demo} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <Icon name="fa6-solid:arrow-up-right-from-square" class="w-4 h-4" />
+                Live Demo
+              </a>
+            )}
+          </div>
+        )
+      }
 
-        <div>
-          <TagList tags={tags} />
-        </div>
-      </header>
+      <div>
+        <TagList tags={tags} />
+      </div>
+    </header>
 
-      <article class="prose max-w-none">
-        <Content />
-      </article>
+    {tocHeadings.length > 0 && <TOCSidebar headings={tocHeadings} />}
+
+    <article class="prose col-start-2 max-w-none px-6 md:px-8 page-enter page-enter-delay-2">
+      <Content />
     </article>
 
-    <div class="page-enter page-enter-delay-2">
+    <div class="col-start-2 px-6 md:px-8 page-enter page-enter-delay-3">
       <BackLink href="/projects" label="Back to Projects" />
     </div>
-  </div>
+  </section>
 </Layout>
