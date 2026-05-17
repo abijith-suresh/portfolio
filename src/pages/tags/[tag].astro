@@ -3,6 +3,7 @@ import BlogCard from "@/components/BlogCard.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import Link from "@/components/Link.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
+import SplitSection from "@/components/SplitSection.astro";
 import { SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
 import { getAllBlogPosts } from "@/lib/blog";
@@ -106,61 +107,77 @@ const contentByYear = groupByYear(allContent, (item) => item.date);
   noindex={isAlias}
   jsonLd={{ type: "website" }}
 >
-  <div class="w-full mx-auto flex grow flex-col gap-y-8 px-4 max-w-3xl pb-12 page-enter">
-    <div class="page-enter page-enter-delay-1">
-      <Breadcrumb
-        items={[
-          { label: "Home", href: "/", icon: "home" },
-          { label: "Tags", href: "/tags", icon: "tags" },
-          { label: tagLabel, icon: "tag" },
-        ]}
-      />
-    </div>
+  <div class="w-full mx-auto flex grow flex-col gap-y-10 pb-16 page-enter">
+    <div class="mx-auto w-full max-w-[1200px] px-6 md:px-8 pt-8 flex flex-col gap-y-8">
+      <div class="page-enter page-enter-delay-1">
+        <Breadcrumb
+          items={[
+            { label: "Home", href: "/", icon: "home" },
+            { label: "Tags", href: "/tags", icon: "tags" },
+            { label: tagLabel, icon: "tag" },
+          ]}
+        />
+      </div>
 
-    <div class="flex flex-col gap-y-2 page-enter page-enter-delay-2">
-      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-foreground font-display">
-        {tagLabel}
-      </h1>
-      <p class="text-base text-muted-foreground">
-        {totalCount}
-        {totalCount === 1 ? "item" : "items"}
-        {
-          postCount > 0 && projectCount > 0 && (
-            <span>
-              {" "}
-              &middot; {postCount} {postCount === 1 ? "post" : "posts"}, {projectCount}{" "}
-              {projectCount === 1 ? "project" : "projects"}
-            </span>
-          )
-        }
-      </p>
+      <div class="flex flex-col gap-y-2 page-enter page-enter-delay-2">
+        <span class="eyebrow">Tag</span>
+        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">
+          {tagLabel}
+        </h1>
+        <p style="color: var(--color-muted-foreground);">
+          {totalCount}
+          {totalCount === 1 ? "item" : "items"}
+          {
+            postCount > 0 && projectCount > 0 && (
+              <span>
+                {" "}
+                &middot; {postCount} {postCount === 1 ? "post" : "posts"}, {projectCount}{" "}
+                {projectCount === 1 ? "project" : "projects"}
+              </span>
+            )
+          }
+        </p>
+      </div>
     </div>
 
     {
       allContent.length > 0 ? (
-        <div class="flex flex-col gap-8">
+        <div class="mx-auto w-full max-w-[1200px] px-6 md:px-8 flex flex-col gap-8">
           {contentByYear.map(({ year, items: yearContent }) => (
-            <div class="flex flex-col gap-6">
-              <div class="flex items-center gap-4 text-sm text-muted-foreground">
-                <span class="tabular-nums font-medium">{year}</span>
-                <div class="flex-1 border-t border-border/50" />
+            <SplitSection label={String(year)}>
+              <div class="flex flex-col gap-3">
+                {yearContent.map(({ type, item }) =>
+                  type === "blog" ? <BlogCard post={item} /> : <ProjectCard project={item} />
+                )}
               </div>
-              {yearContent.map(({ type, item }) =>
-                type === "blog" ? <BlogCard post={item} /> : <ProjectCard project={item} />
-              )}
-            </div>
+            </SplitSection>
           ))}
         </div>
       ) : (
-        <p class="text-muted-foreground text-center py-8">No content found with this tag.</p>
+        <p class="text-center py-16" style="color: var(--color-muted-foreground);">
+          No content found with this tag.
+        </p>
       )
     }
 
-    <Link
-      href="/tags"
-      class="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors pt-6 border-t border-border/50"
-    >
-      &larr; View all tags
-    </Link>
+    <div class="mx-auto w-full max-w-[1200px] px-6 md:px-8 pt-8">
+      <Link href="/tags" class="back-link">
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 12L6 8L10 4"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+        View all tags
+      </Link>
+    </div>
   </div>
 </Layout>

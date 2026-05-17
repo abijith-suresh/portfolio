@@ -1,5 +1,6 @@
 ---
 import Breadcrumb from "@/components/Breadcrumb.astro";
+import SplitSection from "@/components/SplitSection.astro";
 import { AUTHOR, SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
 ---
@@ -10,84 +11,73 @@ import Layout from "@/layouts/Layout.astro";
   type="profile"
   jsonLd={{ type: "person" }}
 >
-  <div class="w-full mx-auto flex grow flex-col gap-y-12 px-4 max-w-3xl pb-12 page-enter">
-    <Breadcrumb
-      items={[
-        { label: "Home", href: "/", icon: "home" },
-        { label: "About", icon: "about" },
-      ]}
-    />
-
-    <!-- Identity header: avatar + name side by side -->
-    <header class="flex items-center gap-6 page-enter page-enter-delay-1">
-      <img
-        src={AUTHOR.avatar}
-        alt={AUTHOR.name}
-        class="w-20 h-20 sm:w-28 sm:h-28 rounded-full object-cover ring-2 ring-border flex-shrink-0"
-      />
-      <div>
-        <h1 class="text-4xl sm:text-5xl font-bold tracking-tight text-foreground font-display">
-          {AUTHOR.fullName}
-        </h1>
-        <p class="mt-1.5 text-muted-foreground">{AUTHOR.tagline}</p>
+  <div class="w-full mx-auto flex grow flex-col gap-y-16 pb-16 page-enter">
+    <div class="mx-auto w-full max-w-[1200px] px-6 md:px-8 pt-8">
+      <div class="page-enter page-enter-delay-1">
+        <Breadcrumb
+          items={[
+            { label: "Home", href: "/", icon: "home" },
+            { label: "About", icon: "about" },
+          ]}
+        />
       </div>
+    </div>
+
+    <!-- Identity header — 25/75 split: avatar left, name right -->
+    <header class="mx-auto w-full max-w-[1200px] px-6 md:px-8 page-enter page-enter-delay-1">
+      <SplitSection label="About">
+        <div class="flex items-center gap-8">
+          <img
+            src={AUTHOR.avatar}
+            alt={AUTHOR.name}
+            class="w-20 h-20 sm:w-28 sm:h-28 rounded-full object-cover flex-shrink-0"
+          />
+          <div>
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1]">
+              {AUTHOR.fullName}
+            </h1>
+            <p class="mt-2" style="color: var(--color-muted-foreground);">{AUTHOR.tagline}</p>
+          </div>
+        </div>
+      </SplitSection>
     </header>
 
-    <!-- Narrative sections -->
-    <div class="flex flex-col gap-12">
+    <!-- Narrative sections — 25/75 split -->
+    <div class="mx-auto w-full max-w-[1200px] px-6 md:px-8 flex flex-col gap-12">
       <!-- Section: What I do -->
-      <section class="flex flex-col gap-4 page-enter page-enter-delay-2">
-        <div class="flex flex-col gap-1">
-          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-display">
-            What I do
-          </h2>
-          <p class="text-base text-muted-foreground">The day job</p>
-        </div>
-        <p class="max-w-2xl text-foreground leading-relaxed">{AUTHOR.aboutWhatIDo}</p>
+      <section class="page-enter page-enter-delay-2">
+        <SplitSection label="The day job" sublabel="What I do">
+          <p class="leading-relaxed max-w-[65ch]" style="color: var(--color-muted-foreground);">
+            {AUTHOR.aboutWhatIDo}
+          </p>
+        </SplitSection>
       </section>
 
       <!-- Section: How I got here -->
-      <section class="flex flex-col gap-4 page-enter page-enter-delay-3">
-        <div class="flex flex-col gap-1">
-          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-display">
-            How I got here
-          </h2>
-          <p class="text-base text-muted-foreground">The path</p>
-        </div>
-        <p class="max-w-2xl text-foreground leading-relaxed">{AUTHOR.aboutHowIGotHere}</p>
+      <section class="page-enter page-enter-delay-2">
+        <SplitSection label="The path" sublabel="How I got here">
+          <p class="leading-relaxed max-w-[65ch]" style="color: var(--color-muted-foreground);">
+            {AUTHOR.aboutHowIGotHere}
+          </p>
+        </SplitSection>
       </section>
 
       <!-- Section: This site -->
-      <section class="flex flex-col gap-4 page-enter page-enter-delay-3">
-        <div class="flex flex-col gap-1">
-          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-display">
-            This site
-          </h2>
-          <p class="text-base text-muted-foreground">Why it exists</p>
-        </div>
-        <p class="max-w-2xl text-foreground leading-relaxed">{AUTHOR.aboutThisSite}</p>
+      <section class="page-enter page-enter-delay-3">
+        <SplitSection label="Why it exists" sublabel="This site">
+          <p class="leading-relaxed max-w-[65ch]" style="color: var(--color-muted-foreground);">
+            {AUTHOR.aboutThisSite}
+          </p>
+        </SplitSection>
       </section>
 
       <!-- Section: Away from the keyboard -->
-      <section class="flex flex-col gap-4 page-enter page-enter-delay-3">
-        <div class="flex flex-col gap-1">
-          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-foreground font-display">
-            Away from the keyboard
-          </h2>
-          <p class="text-base text-muted-foreground">When I'm not coding</p>
-        </div>
-        <div class="flex flex-wrap gap-2">
-          {
-            AUTHOR.interests.map((interest) => (
-              <span
-                class="text-xs px-3 py-1.5 rounded-md font-medium"
-                style="background: var(--color-warm-muted); color: var(--color-warm);"
-              >
-                {interest}
-              </span>
-            ))
-          }
-        </div>
+      <section class="page-enter page-enter-delay-3">
+        <SplitSection label="When I'm not coding" sublabel="Away from the keyboard">
+          <div class="flex flex-wrap gap-2">
+            {AUTHOR.interests.map((interest) => <span class="tag-pill">{interest}</span>)}
+          </div>
+        </SplitSection>
       </section>
     </div>
   </div>

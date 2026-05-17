@@ -2,6 +2,7 @@
 import BlogCard from "@/components/BlogCard.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import PaginatedListLayout from "@/components/PaginatedListLayout.astro";
+import SplitSection from "@/components/SplitSection.astro";
 import { SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
 import { getAllBlogPosts } from "@/lib/blog";
@@ -63,28 +64,29 @@ const postsByYear = groupByYear(posts, (post) => post.data.publishDate);
   description="Articles, tutorials, and thoughts on web development, design, and technology."
   jsonLd={{ type: "website" }}
 >
-  <div class="w-full mx-auto flex grow flex-col gap-y-8 px-4 max-w-3xl pb-12 page-enter">
-    <div class="page-enter page-enter-delay-1">
-      <Breadcrumb
-        items={[
-          { label: "Home", href: "/", icon: "home" },
-          { label: "Blog", icon: "blog" },
-        ]}
-      />
-    </div>
+  <div class="w-full mx-auto flex grow flex-col gap-y-10 pb-16 page-enter">
+    <div class="mx-auto w-full max-w-[1200px] px-6 md:px-8 pt-8 flex flex-col gap-y-8">
+      <div class="page-enter page-enter-delay-1">
+        <Breadcrumb
+          items={[
+            { label: "Home", href: "/", icon: "home" },
+            { label: "Blog", icon: "blog" },
+          ]}
+        />
+      </div>
 
-    <div class="flex flex-col gap-y-2 page-enter page-enter-delay-2">
-      <div class="flex flex-col gap-1">
-        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-foreground font-display">
-          Blog
-        </h1>
-        <p class="text-base text-muted-foreground">Notes, write-ups, and the occasional opinion</p>
+      <div class="flex flex-col gap-y-2 page-enter page-enter-delay-2">
+        <span class="eyebrow">Writing</span>
+        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">Blog</h1>
+        <p style="color: var(--color-muted-foreground);">
+          Notes, write-ups, and the occasional opinion
+        </p>
       </div>
     </div>
 
     {
       posts.length > 0 ? (
-        <>
+        <div class="mx-auto w-full max-w-[1200px] px-6 md:px-8">
           <PaginatedListLayout
             currentPage={currentPage}
             totalPages={totalPages}
@@ -96,21 +98,21 @@ const postsByYear = groupByYear(posts, (post) => post.data.publishDate);
           >
             <div slot="items" class="flex flex-col gap-8">
               {postsByYear.map(({ year, items: yearPosts }) => (
-                <div class="flex flex-col gap-6">
-                  <div class="flex items-center gap-4 text-sm text-muted-foreground">
-                    <span class="tabular-nums font-medium">{year}</span>
-                    <div class="flex-1 border-t border-border/50" />
+                <SplitSection label={String(year)}>
+                  <div class="flex flex-col gap-3">
+                    {yearPosts.map((post) => (
+                      <BlogCard post={post} />
+                    ))}
                   </div>
-                  {yearPosts.map((post) => (
-                    <BlogCard post={post} />
-                  ))}
-                </div>
+                </SplitSection>
               ))}
             </div>
           </PaginatedListLayout>
-        </>
+        </div>
       ) : (
-        <p class="text-muted-foreground text-center py-8">No blog posts to display yet.</p>
+        <p class="text-center py-16" style="color: var(--color-muted-foreground);">
+          No blog posts to display yet.
+        </p>
       )
     }
   </div>
