@@ -23,23 +23,21 @@ import Layout from "@/layouts/Layout.astro";
       </div>
     </div>
 
-    <!-- Identity header — 25/75 split: avatar left, name right -->
+    <!-- Identity header — centered, no split -->
     <header class="mx-auto w-full max-w-[1200px] px-6 md:px-8 page-enter page-enter-delay-1">
-      <SplitSection label="About">
-        <div class="flex items-center gap-8">
-          <img
-            src={AUTHOR.avatar}
-            alt={AUTHOR.name}
-            class="w-20 h-20 sm:w-28 sm:h-28 rounded-full object-cover flex-shrink-0"
-          />
-          <div>
-            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1]">
-              {AUTHOR.fullName}
-            </h1>
-            <p class="mt-2" style="color: var(--color-muted-foreground);">{AUTHOR.tagline}</p>
-          </div>
+      <div class="flex flex-col items-center gap-4">
+        <img
+          src={AUTHOR.avatar}
+          alt={AUTHOR.name}
+          class="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover"
+        />
+        <div class="text-center">
+          <h1 class="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1]">
+            {AUTHOR.fullName}
+          </h1>
+          <p class="mt-2" style="color: var(--color-muted-foreground);">{AUTHOR.tagline}</p>
         </div>
-      </SplitSection>
+      </div>
     </header>
 
     <!-- Narrative sections — 25/75 split -->
