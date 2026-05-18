@@ -21,7 +21,7 @@ export default defineConfig({
       styleOverrides: {
         codeFontSize: "0.875rem",
         borderColor: "var(--border)",
-        borderRadius: "0.5rem",
+        borderRadius: "0",
         codeBackground: "color-mix(in oklab, var(--muted) 25%, transparent)",
         frames: {
           editorActiveTabForeground: "var(--muted-foreground)",
