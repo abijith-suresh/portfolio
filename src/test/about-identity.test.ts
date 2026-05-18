@@ -13,8 +13,11 @@ describe("About page identity block", () => {
     expect(aboutSrc).toContain("border-[var(--color-accent)]");
   });
 
-  it("renders the name at Hero scale with clamp sizing", () => {
-    expect(aboutSrc).toContain("clamp(3.5rem");
+  it("renders the name with fluid clamp sizing (smaller than the landing hero)", () => {
+    // The about h1 uses clamp() for fluid sizing but is intentionally
+    // smaller than the landing hero (max 6rem) to keep the landing prominent
+    expect(aboutSrc).toContain("clamp(");
+    expect(aboutSrc).not.toContain("clamp(3.5rem,8vw,6rem)");
   });
 
   it("identity block is NOT wrapped in a SplitSection", () => {

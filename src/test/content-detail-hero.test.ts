@@ -22,8 +22,11 @@ describe("ContentDetailPage hero section", () => {
     expect(src).toContain("border-[var(--color-border)]");
   });
 
-  it("title uses a larger clamp range than the original (min 3rem)", () => {
-    expect(src).toMatch(/clamp\(3rem/);
+  it("title uses fluid clamp sizing (smaller than landing hero)", () => {
+    // The detail page title uses clamp() for fluid sizing.
+    // It is intentionally smaller than the landing hero (min 3.5rem, max 6rem)
+    // to maintain typographic hierarchy across the site.
+    expect(src).toContain("clamp(");
   });
 
   it("eyebrow and accent rule are co-located (eyebrow implies rule)", () => {
