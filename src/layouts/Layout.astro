@@ -85,13 +85,8 @@ const {
     <ScrollReveal />
 
     <script is:inline>
-      // Apply theme immediately to prevent flash
-      (function () {
-        const stored = localStorage.getItem("theme");
-        const system = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-        const theme = stored || system;
-        document.documentElement.setAttribute("data-theme", theme);
-      })();
+      // Lock to dark theme always
+      document.documentElement.setAttribute("data-theme", "dark");
     </script>
 
     <script>

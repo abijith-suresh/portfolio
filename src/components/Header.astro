@@ -1,7 +1,6 @@
 ---
 import { NAV_LINKS } from "@/consts";
 import Link from "@/components/Link.astro";
-import ThemePicker from "@/components/ThemePicker.astro";
 import Container from "@/components/ui/Container.astro";
 import { Icon } from "astro-icon/components";
 
@@ -46,8 +45,6 @@ const currentPath = Astro.url.pathname;
       >
         <Icon name="fa6-solid:magnifying-glass" class="w-4 h-4" />
       </button>
-
-      <ThemePicker />
     </div>
   </div>
 
@@ -61,8 +58,6 @@ const currentPath = Astro.url.pathname;
     >
       <Icon name="fa6-solid:magnifying-glass" class="w-4 h-4" />
     </button>
-
-    <ThemePicker />
 
     <button
       id="mobile-nav-open"

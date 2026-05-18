@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <rect id="bg" width="128" height="128" rx="16" fill="#f4f4f4"/>
+  <rect width="128" height="128" rx="16" fill="#111111"/>
   <text
     x="64"
     y="84"
@@ -10,9 +10,4 @@
     letter-spacing="-3"
     fill="#f5a623"
   >AS</text>
-  <style>
-    @media (prefers-color-scheme: dark) {
-      #bg { fill: #111111; }
-    }
-  </style>
 </svg>

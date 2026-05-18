@@ -2,15 +2,15 @@
 
 /* ==========================================================================
    Swiss Style Design System
-   International Typographic Style — Manrope, 3-color system
-   Base: #F4F4F4 / Text: #111111 / Accent: #F5A623
+   International Typographic Style — Manrope, dark-only
+   Base: #111111 / Text: #F4F4F4 / Accent: #F5A623
    ========================================================================== */
 
 @theme inline {
   --font-sans: "Manrope", system-ui, sans-serif;
 
-  --color-base: #f4f4f4;
-  --color-text: #111111;
+  --color-base: #111111;
+  --color-text: #f4f4f4;
   --color-accent: #f5a623;
 
   /* Semantic tokens for components that reference these */
@@ -20,34 +20,17 @@
   --color-card: var(--color-base);
   --color-card-foreground: var(--color-text);
 
-  --color-muted: #999999;
-  --color-muted-foreground: #666666;
-  --color-border: #e0e0e0;
+  --color-muted: #888888;
+  --color-muted-foreground: #999999;
+  --color-border: #2a2a2a;
   --color-warning: #e67e22;
-  --color-danger: #c0392b;
+  --color-danger: #e74c3c;
 }
 
 /* ==========================================================================
-   Light Mode (default)
+   Theme — dark only
    ========================================================================== */
 :root {
-  --color-base: #f4f4f4;
-  --color-text: #111111;
-  --color-accent: #f5a623;
-  --color-muted: #999999;
-  --color-muted-foreground: #666666;
-  --color-border: #e0e0e0;
-  --color-warning: #e67e22;
-  --color-danger: #c0392b;
-  --color-card-hover-text: #111111;
-
-  color-scheme: light;
-}
-
-/* ==========================================================================
-   Dark Mode — data-theme attribute (toggled by ThemePicker)
-   ========================================================================== */
-[data-theme="dark"] {
   --color-base: #111111;
   --color-text: #f4f4f4;
   --color-accent: #f5a623;
