@@ -32,7 +32,7 @@ import Layout from "@/layouts/Layout.astro";
           <div class="flex items-start gap-6">
             <img src={AUTHOR.avatar} alt={AUTHOR.name} class="w-24 h-24 object-cover shrink-0" />
             <div>
-              <h1 class="text-3xl sm:text-4xl font-bold tracking-tight leading-tight">
+              <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold tracking-tight leading-tight">
                 {AUTHOR.fullName}
               </h1>
               <p class="mt-1" style="color: var(--color-muted-foreground);">{AUTHOR.tagline}</p>
