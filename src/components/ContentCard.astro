@@ -16,7 +16,7 @@ interface Props {
 const { title, description, tags, href, meta, class: className } = Astro.props;
 ---
 
-<article class:list={cn("group card-hover", className)}>
+<article class:list={cn("group card-hover", className)} data-scroll-reveal>
   <Link href={href} class="block p-6" prefetch="hover">
     <div class="flex flex-col gap-3">
       <div class="flex items-start justify-between gap-3">
