@@ -1,0 +1,13 @@
+---
+interface Props {
+  /** The empty-state message to display */
+  message: string;
+  class?: string;
+}
+
+const { message, class: className } = Astro.props;
+---
+
+<p class:list={["text-center py-16", className]} style="color: var(--color-muted-foreground);">
+  {message}
+</p>

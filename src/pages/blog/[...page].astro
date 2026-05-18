@@ -3,6 +3,7 @@ import BlogCard from "@/components/BlogCard.astro";
 import PaginatedListLayout from "@/components/PaginatedListLayout.astro";
 import SplitSection from "@/components/SplitSection.astro";
 import Container from "@/components/ui/Container.astro";
+import EmptyState from "@/components/ui/EmptyState.astro";
 import PageShell from "@/components/ui/PageShell.astro";
 import { SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
@@ -100,9 +101,7 @@ const postsByYear = groupByYear(posts, (post) => post.data.publishDate);
           </PaginatedListLayout>
         </Container>
       ) : (
-        <p class="text-center py-16" style="color: var(--color-muted-foreground);">
-          No blog posts to display yet.
-        </p>
+        <EmptyState message="No blog posts to display yet." />
       )
     }
   </PageShell>

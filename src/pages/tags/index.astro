@@ -2,6 +2,7 @@
 import Link from "@/components/Link.astro";
 import SplitSection from "@/components/SplitSection.astro";
 import Container from "@/components/ui/Container.astro";
+import EmptyState from "@/components/ui/EmptyState.astro";
 import PageShell from "@/components/ui/PageShell.astro";
 import { SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
@@ -43,9 +44,7 @@ const tagsByLetter = groupByFirstLetter(tags, (t) => t.label);
           ))}
         </Container>
       ) : (
-        <p class="text-center py-16" style="color: var(--color-muted-foreground);">
-          No tags found.
-        </p>
+        <EmptyState message="No tags found." />
       )
     }
   </PageShell>
