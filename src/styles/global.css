@@ -379,21 +379,6 @@
     }
   }
 
-  .fade-in {
-    animation: pageEnter 0.25s ease-out forwards;
-    opacity: 0;
-  }
-
-  .fade-in-delay-1 {
-    animation-delay: 60ms;
-  }
-  .fade-in-delay-2 {
-    animation-delay: 120ms;
-  }
-  .fade-in-delay-3 {
-    animation-delay: 180ms;
-  }
-
   /* ==========================================================================
      Prose Styles (Blog content typography)
      ========================================================================== */
