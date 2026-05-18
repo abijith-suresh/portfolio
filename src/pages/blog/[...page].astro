@@ -9,40 +9,12 @@ import { SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
 import { getAllBlogPosts } from "@/lib/blog";
 import { groupByYear } from "@/lib/group-by-year";
-import { paginate } from "@/lib/pagination";
+import { buildPaginationUrls, generatePaginatedPaths } from "@/lib/paginated-routes";
 import type { CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
   const allPosts = await getAllBlogPosts();
-  const totalPosts = allPosts.length;
-  const totalPages = Math.ceil(totalPosts / SITE.postsPerPage);
-
-  // Always generate at least the first page, even when empty
-  if (totalPages === 0) {
-    return [
-      {
-        params: { page: undefined },
-        props: {
-          items: [],
-          currentPage: 1,
-          totalPages: 0,
-          hasNext: false,
-          hasPrev: false,
-        },
-      },
-    ];
-  }
-
-  // Generate paths for all pages
-  return Array.from({ length: totalPages }, (_, i) => {
-    const page = i + 1;
-    const paginatedPosts = paginate(allPosts, page);
-
-    return {
-      params: { page: page === 1 ? undefined : String(page) },
-      props: { ...paginatedPosts },
-    };
-  });
+  return generatePaginatedPaths(allPosts, SITE.postsPerPage);
 }
 
 interface Props {
@@ -55,9 +27,7 @@ interface Props {
 
 const { items: posts, currentPage, totalPages, hasNext, hasPrev } = Astro.props;
 
-const prevUrl = hasPrev ? (currentPage === 2 ? "/blog" : `/blog/${currentPage - 1}`) : null;
-const nextUrl = hasNext ? `/blog/${currentPage + 1}` : null;
-
+const { prevUrl, nextUrl } = buildPaginationUrls("/blog", currentPage, hasPrev, hasNext);
 const postsByYear = groupByYear(posts, (post) => post.data.publishDate);
 ---
 

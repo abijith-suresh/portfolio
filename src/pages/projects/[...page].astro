@@ -8,41 +8,14 @@ import PageShell from "@/components/ui/PageShell.astro";
 import { SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
 import { groupByYear } from "@/lib/group-by-year";
-import { paginate } from "@/lib/pagination";
+import { buildPaginationUrls, generatePaginatedPaths } from "@/lib/paginated-routes";
 import { getAllProjects, sortProjects } from "@/lib/projects";
 import type { CollectionEntry } from "astro:content";
+
 export async function getStaticPaths() {
   const allProjects = await getAllProjects();
   const sortedProjects = sortProjects(allProjects, "date");
-  const totalProjects = sortedProjects.length;
-  const totalPages = Math.ceil(totalProjects / SITE.projectsPerPage);
-
-  // Always generate at least the first page, even when empty
-  if (totalPages === 0) {
-    return [
-      {
-        params: { page: undefined },
-        props: {
-          items: [],
-          currentPage: 1,
-          totalPages: 0,
-          hasNext: false,
-          hasPrev: false,
-        },
-      },
-    ];
-  }
-
-  // Generate paths for all pages
-  return Array.from({ length: totalPages }, (_, i) => {
-    const page = i + 1;
-    const paginatedProjects = paginate(sortedProjects, page, SITE.projectsPerPage);
-
-    return {
-      params: { page: page === 1 ? undefined : String(page) },
-      props: { ...paginatedProjects },
-    };
-  });
+  return generatePaginatedPaths(sortedProjects, SITE.projectsPerPage);
 }
 
 interface Props {
@@ -55,9 +28,7 @@ interface Props {
 
 const { items: projects, currentPage, totalPages, hasNext, hasPrev } = Astro.props;
 
-const prevUrl = hasPrev ? (currentPage === 2 ? "/projects" : `/projects/${currentPage - 1}`) : null;
-const nextUrl = hasNext ? `/projects/${currentPage + 1}` : null;
-
+const { prevUrl, nextUrl } = buildPaginationUrls("/projects", currentPage, hasPrev, hasNext);
 const projectsByYear = groupByYear(projects, (project) => project.data.date);
 ---
 
