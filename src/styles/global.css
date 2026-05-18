@@ -522,7 +522,9 @@
   }
 
   .prose :where(code):not(:where(.not-prose, .not-prose *)) {
-    font-family: var(--font-sans);
+    font-family:
+      ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono",
+      monospace;
     font-size: 0.875em;
     font-weight: 500;
     background-color: color-mix(in srgb, var(--color-text) 6%, transparent);
@@ -575,7 +577,9 @@
   }
 
   .prose :where(kbd):not(:where(.not-prose, .not-prose *)) {
-    font-family: var(--font-sans);
+    font-family:
+      ui-monospace, "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono",
+      monospace;
     font-size: 0.75rem;
     font-weight: 500;
     padding: 0.15em 0.5em;
