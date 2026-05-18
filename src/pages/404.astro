@@ -1,5 +1,5 @@
 ---
-import Link from "@/components/Link.astro";
+import Button from "@/components/ui/Button.astro";
 import Container from "@/components/ui/Container.astro";
 import { SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
@@ -30,10 +30,10 @@ import { Icon } from "astro-icon/components";
       </div>
 
       <div class="pt-4">
-        <Link href="/" class="btn btn-primary" prefetch="viewport">
+        <Button href="/" variant="primary" prefetch="viewport">
           <Icon name="fa6-solid:arrow-left" class="w-3.5 h-3.5" />
           Back to Home
-        </Link>
+        </Button>
       </div>
     </Container>
   </div>

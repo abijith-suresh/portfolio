@@ -2,6 +2,7 @@
 import BackLink from "@/components/BackLink.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import TagList from "@/components/TagList.astro";
+import Button from "@/components/ui/Button.astro";
 import TOCHeader from "@/components/TOCHeader.astro";
 import TOCSidebar from "@/components/TOCSidebar.astro";
 import { SITE } from "@/consts";
@@ -64,16 +65,16 @@ const tocHeadings = filterTocHeadings(headings);
         (github || demo) && (
           <div class="flex flex-wrap gap-3">
             {github && (
-              <a href={github} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <Button href={github} external variant="secondary">
                 <Icon name="fa6-brands:github" class="w-4 h-4" />
                 Source
-              </a>
+              </Button>
             )}
             {demo && (
-              <a href={demo} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <Button href={demo} external variant="primary">
                 <Icon name="fa6-solid:arrow-up-right-from-square" class="w-4 h-4" />
                 Live Demo
-              </a>
+              </Button>
             )}
           </div>
         )

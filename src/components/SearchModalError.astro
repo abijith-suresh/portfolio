@@ -1,3 +1,7 @@
+---
+import Button from "@/components/ui/Button.astro";
+---
+
 <div id="search-error" class="hidden flex-col items-center justify-center py-12 px-4 text-center">
   <svg
     class="w-10 h-10 mb-4"
@@ -17,5 +21,5 @@
   <p class="text-sm max-w-sm mb-4" style="color: var(--color-muted-foreground);">
     Failed to load search. Please try again later.
   </p>
-  <button id="retry-search" class="btn btn-primary"> Try Again </button>
+  <Button id="retry-search" variant="primary"> Try Again </Button>
 </div>
