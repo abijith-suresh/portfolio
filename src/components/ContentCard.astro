@@ -1,5 +1,6 @@
 ---
 import Link from "@/components/Link.astro";
+import Tag from "@/components/ui/Tag.astro";
 import { cn } from "@/lib/utils";
 import { Icon } from "astro-icon/components";
 
@@ -36,7 +37,7 @@ const { title, description, tags, href, meta, class: className } = Astro.props;
         tags.length > 0 && (
           <div class="flex flex-wrap gap-1.5 mt-1">
             {tags.map((tag: string) => (
-              <span class="tag-pill">{tag}</span>
+              <Tag label={tag} />
             ))}
           </div>
         )

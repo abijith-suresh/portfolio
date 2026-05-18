@@ -4,6 +4,7 @@ import PaginatedListLayout from "@/components/PaginatedListLayout.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
 import SplitSection from "@/components/SplitSection.astro";
 import Container from "@/components/ui/Container.astro";
+import PageHeader from "@/components/ui/PageHeader.astro";
 import { SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
 import { groupByYear } from "@/lib/group-by-year";
@@ -76,13 +77,12 @@ const projectsByYear = groupByYear(projects, (project) => project.data.date);
         />
       </div>
 
-      <div class="flex flex-col gap-y-2 page-enter page-enter-delay-2">
-        <span class="eyebrow">Work</span>
-        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">Projects</h1>
-        <p style="color: var(--color-muted-foreground);">
-          Shipped work, side projects, and experiments
-        </p>
-      </div>
+      <PageHeader
+        eyebrow="Work"
+        title="Projects"
+        subtitle="Shipped work, side projects, and experiments"
+        class="page-enter page-enter-delay-2"
+      />
     </Container>
 
     {

@@ -1,5 +1,6 @@
 ---
 import Link from "@/components/Link.astro";
+import Tag from "@/components/ui/Tag.astro";
 import { formatBlogDate } from "@/lib/utils";
 import { type CollectionEntry } from "astro:content";
 
@@ -40,7 +41,7 @@ const { posts, class: className } = Astro.props;
                 {tags.length > 0 && (
                   <div class="flex flex-wrap gap-1.5 mt-3">
                     {tags.slice(0, 3).map((tag) => (
-                      <span class="tag-pill">{tag}</span>
+                      <Tag label={tag} />
                     ))}
                   </div>
                 )}

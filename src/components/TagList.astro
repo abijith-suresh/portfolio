@@ -1,5 +1,5 @@
 ---
-import Link from "@/components/Link.astro";
+import Tag from "@/components/ui/Tag.astro";
 import { getTagHref } from "@/lib/tags";
 import { cn } from "@/lib/utils";
 
@@ -16,16 +16,7 @@ const { tags, class: className, linkClass } = Astro.props;
   tags.length > 0 && (
     <div class:list={cn("flex flex-wrap gap-2", className)}>
       {tags.map((tag) => (
-        <Link
-          href={getTagHref(tag)}
-          class:list={cn(
-            "tag-pill transition-colors hover:bg-[var(--color-accent)] hover:text-[#111111]",
-            linkClass
-          )}
-          prefetch="viewport"
-        >
-          {tag}
-        </Link>
+        <Tag label={tag} interactive href={getTagHref(tag)} class:list={linkClass} />
       ))}
     </div>
   )

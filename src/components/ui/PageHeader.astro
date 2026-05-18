@@ -1,0 +1,20 @@
+---
+interface Props {
+  /** Small uppercase label above the title */
+  eyebrow?: string;
+  /** Page title */
+  title: string;
+  /** Subtitle / description below the title */
+  subtitle?: string;
+  /** Additional CSS class */
+  class?: string;
+}
+
+const { eyebrow, title, subtitle, class: className } = Astro.props;
+---
+
+<div class:list={["flex flex-col gap-y-2", className]}>
+  {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+  <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">{title}</h1>
+  {subtitle && <p style="color: var(--color-muted-foreground);">{subtitle}</p>}
+</div>

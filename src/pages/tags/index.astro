@@ -3,6 +3,7 @@ import Breadcrumb from "@/components/Breadcrumb.astro";
 import Link from "@/components/Link.astro";
 import SplitSection from "@/components/SplitSection.astro";
 import Container from "@/components/ui/Container.astro";
+import PageHeader from "@/components/ui/PageHeader.astro";
 import { SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
 import { getAllContentTagCounts } from "@/lib/content-tags";
@@ -28,11 +29,12 @@ const tagsByLetter = groupByFirstLetter(tags, (t) => t.label);
         />
       </div>
 
-      <div class="flex flex-col gap-y-2 page-enter page-enter-delay-2">
-        <span class="eyebrow">Browse</span>
-        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">All Tags</h1>
-        <p style="color: var(--color-muted-foreground);">Browse posts and projects by topic</p>
-      </div>
+      <PageHeader
+        eyebrow="Browse"
+        title="All Tags"
+        subtitle="Browse posts and projects by topic"
+        class="page-enter page-enter-delay-2"
+      />
     </Container>
 
     {
