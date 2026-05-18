@@ -121,7 +121,7 @@
 
   /* ── Split Label ─────────────────────────────────────────────────────── */
   .split-label {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 700;
     letter-spacing: 0.02em;
     text-transform: uppercase;
@@ -142,7 +142,6 @@
 
   .card-hover:hover {
     background-color: var(--color-accent);
-    transform: translateY(-2px);
   }
 
   .card-hover:hover,
@@ -223,6 +222,8 @@
 
   .nav-link.active {
     color: var(--color-text);
+    padding-bottom: 2px;
+    border-bottom: 2px solid var(--color-accent);
   }
 
   /* ── Social Link ─────────────────────────────────────────────────────── */
@@ -244,14 +245,13 @@
     font-weight: 500;
     color: var(--color-text);
     text-decoration: none;
-    text-decoration-line: underline;
-    text-decoration-color: transparent;
-    text-underline-offset: 3px;
-    transition: text-decoration-color 150ms ease;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 150ms ease;
   }
 
   .footer-link:hover {
-    text-decoration-color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
   }
 
   .footer-link-arrow {
@@ -299,7 +299,7 @@
   }
 
   .btn:hover {
-    transform: translateY(-1px);
+    /* intentional: no transform on hover */
   }
 
   .btn-primary {
