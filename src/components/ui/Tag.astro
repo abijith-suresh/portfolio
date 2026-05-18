@@ -21,7 +21,7 @@ const { label, interactive = false, href, class: className } = Astro.props;
     <Link
       href={href}
       class:list={cn(
-        "tag-pill transition-colors hover:bg-[var(--color-accent)] hover:text-[#111111]",
+        "tag-pill transition-colors hover:bg-[var(--color-accent)] hover:text-[var(--color-card-hover-text)]",
         className
       )}
       prefetch="viewport"

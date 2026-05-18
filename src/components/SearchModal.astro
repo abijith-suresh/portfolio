@@ -171,12 +171,12 @@ import SearchModalSkeleton from "@/components/SearchModalSkeleton.astro";
 
   .search-result-item:hover *,
   .search-result-item[data-focused="true"] * {
-    color: #111111 !important;
+    color: var(--color-card-hover-text) !important;
   }
 
   .search-highlight {
     background-color: var(--color-accent);
-    color: #111111;
+    color: var(--color-card-hover-text);
     font-weight: 600;
     padding: 0 0.125rem;
   }

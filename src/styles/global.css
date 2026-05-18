@@ -147,15 +147,15 @@
 
   .card-hover:hover,
   .card-hover:hover * {
-    --color-text: #111111;
+    --color-text: var(--color-card-hover-text);
     --color-muted: #333333;
     --color-muted-foreground: #333333;
-    color: #111111 !important;
+    color: var(--color-card-hover-text) !important;
   }
 
   .card-hover:hover .tag-pill {
-    background-color: rgba(17, 17, 17, 0.12);
-    color: #111111 !important;
+    background-color: color-mix(in srgb, var(--color-card-hover-text) 12%, transparent);
+    color: var(--color-card-hover-text) !important;
   }
 
   /* ── Tag Link (Tags page) ──────────────────────────────────────────────── */
