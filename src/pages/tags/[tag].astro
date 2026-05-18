@@ -1,6 +1,5 @@
 ---
 import BlogCard from "@/components/BlogCard.astro";
-import BackLink from "@/components/BackLink.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
 import SplitSection from "@/components/SplitSection.astro";
 import Container from "@/components/ui/Container.astro";
@@ -137,9 +136,5 @@ const contentByYear = groupByYear(allContent, (item) => item.date);
         </p>
       )
     }
-
-    <Container class="pt-8">
-      <BackLink href="/tags" label="View all tags" />
-    </Container>
   </PageShell>
 </Layout>

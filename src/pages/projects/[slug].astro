@@ -1,5 +1,4 @@
 ---
-import BackLink from "@/components/BackLink.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import TagList from "@/components/TagList.astro";
 import Button from "@/components/ui/Button.astro";
@@ -25,7 +24,7 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const { title, description, tags, date, github, demo } = project.data;
+const { title, description, tags, date, github, demo, heroImage } = project.data;
 const { Content, headings } = await render(project);
 const formattedDate = formatBlogDate(date);
 
@@ -85,14 +84,18 @@ const tocHeadings = filterTocHeadings(headings);
       </div>
     </header>
 
+    {
+      heroImage && (
+        <div class="col-start-2 px-6 md:px-8 page-enter page-enter-delay-2">
+          <img src={heroImage} alt={title} class="w-full object-cover" />
+        </div>
+      )
+    }
+
     {tocHeadings.length > 0 && <TOCSidebar headings={tocHeadings} />}
 
     <article class="prose col-start-2 max-w-none px-6 md:px-8 page-enter page-enter-delay-2">
       <Content />
     </article>
-
-    <div class="col-start-2 px-6 md:px-8 page-enter page-enter-delay-3">
-      <BackLink href="/projects" label="Back to Projects" />
-    </div>
   </section>
 </Layout>
