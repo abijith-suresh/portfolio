@@ -309,11 +309,13 @@
   .btn-secondary {
     background-color: transparent;
     color: var(--color-text);
+    border: 1px solid var(--color-text);
   }
 
   .btn-secondary:hover {
     background-color: var(--color-accent);
     color: #111111;
+    border-color: transparent;
   }
 
   /* ── Icon Button ──────────────────────────────────────────────────────── */
