@@ -2,12 +2,7 @@
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import Container from "@/components/ui/Container.astro";
 import PageHeader from "@/components/ui/PageHeader.astro";
-
-interface BreadcrumbItem {
-  label: string;
-  href?: string;
-  icon?: string;
-}
+import type { BreadcrumbItem } from "@/lib/types";
 
 interface Props {
   /** Breadcrumb trail items */
