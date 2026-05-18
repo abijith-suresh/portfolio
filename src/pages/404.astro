@@ -1,5 +1,6 @@
 ---
 import Link from "@/components/Link.astro";
+import Container from "@/components/ui/Container.astro";
 import { SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
@@ -12,9 +13,7 @@ import { Icon } from "astro-icon/components";
   jsonLd={{ type: "website" }}
 >
   <div class="w-full mx-auto flex grow flex-col page-enter">
-    <div
-      class="mx-auto w-full max-w-[1200px] px-6 md:px-8 flex flex-col items-center justify-center gap-y-8 py-28 page-enter"
-    >
+    <Container class="flex flex-col items-center justify-center gap-y-8 py-28 page-enter">
       <div
         class="text-[8rem] font-bold select-none leading-none"
         style="color: var(--color-accent); opacity: 0.3;"
@@ -36,6 +35,6 @@ import { Icon } from "astro-icon/components";
           Back to Home
         </Link>
       </div>
-    </div>
+    </Container>
   </div>
 </Layout>

@@ -1,6 +1,7 @@
 ---
 import Breadcrumb from "@/components/Breadcrumb.astro";
 import SplitSection from "@/components/SplitSection.astro";
+import Container from "@/components/ui/Container.astro";
 import { AUTHOR, SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
 ---
@@ -12,7 +13,7 @@ import Layout from "@/layouts/Layout.astro";
   jsonLd={{ type: "person" }}
 >
   <div class="w-full mx-auto flex grow flex-col gap-y-16 pb-16 page-enter">
-    <div class="mx-auto w-full max-w-[1200px] px-6 md:px-8 pt-8">
+    <Container class="pt-8">
       <div class="page-enter page-enter-delay-1">
         <Breadcrumb
           items={[
@@ -21,27 +22,29 @@ import Layout from "@/layouts/Layout.astro";
           ]}
         />
       </div>
-    </div>
+    </Container>
 
     <!-- Identity header — centered, no split -->
-    <header class="mx-auto w-full max-w-[1200px] px-6 md:px-8 page-enter page-enter-delay-1">
-      <div class="flex flex-col items-center gap-4">
-        <img
-          src={AUTHOR.avatar}
-          alt={AUTHOR.name}
-          class="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover"
-        />
-        <div class="text-center">
-          <h1 class="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1]">
-            {AUTHOR.fullName}
-          </h1>
-          <p class="mt-2" style="color: var(--color-muted-foreground);">{AUTHOR.tagline}</p>
+    <header class="page-enter page-enter-delay-1">
+      <Container>
+        <div class="flex flex-col items-center gap-4">
+          <img
+            src={AUTHOR.avatar}
+            alt={AUTHOR.name}
+            class="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover"
+          />
+          <div class="text-center">
+            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1]">
+              {AUTHOR.fullName}
+            </h1>
+            <p class="mt-2" style="color: var(--color-muted-foreground);">{AUTHOR.tagline}</p>
+          </div>
         </div>
-      </div>
+      </Container>
     </header>
 
     <!-- Narrative sections — 25/75 split -->
-    <div class="mx-auto w-full max-w-[1200px] px-6 md:px-8 flex flex-col gap-12">
+    <Container class="flex flex-col gap-12">
       <!-- Section: What I do -->
       <section class="page-enter page-enter-delay-2">
         <SplitSection label="The day job" sublabel="What I do">
@@ -77,6 +80,6 @@ import Layout from "@/layouts/Layout.astro";
           </div>
         </SplitSection>
       </section>
-    </div>
+    </Container>
   </div>
 </Layout>

@@ -4,6 +4,7 @@ import ProjectCard from "@/components/ProjectCard.astro";
 import RecentPosts from "@/components/RecentPosts.astro";
 import FooterLink from "@/components/FooterLink.astro";
 import SplitSection from "@/components/SplitSection.astro";
+import Container from "@/components/ui/Container.astro";
 import { SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
 import { getAllBlogPosts } from "@/lib/blog";
@@ -27,7 +28,7 @@ const hasProjects = allProjects.length > 0;
     {
       hasProjects && (
         <section class="pb-16 page-enter page-enter-delay-1">
-          <div class="mx-auto max-w-[1200px] px-6 md:px-8">
+          <Container>
             <SplitSection label="Projects">
               <div class="flex flex-col gap-3">
                 {allProjects.map((project) => (
@@ -38,7 +39,7 @@ const hasProjects = allProjects.length > 0;
                 </div>
               </div>
             </SplitSection>
-          </div>
+          </Container>
         </section>
       )
     }
@@ -46,9 +47,9 @@ const hasProjects = allProjects.length > 0;
     {
       hasPosts && (
         <section class="pb-16 page-enter page-enter-delay-2">
-          <div class="mx-auto max-w-[1200px] px-6 md:px-8">
+          <Container>
             <RecentPosts />
-          </div>
+          </Container>
         </section>
       )
     }

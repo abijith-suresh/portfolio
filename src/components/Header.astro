@@ -2,12 +2,13 @@
 import { NAV_LINKS } from "@/consts";
 import Link from "@/components/Link.astro";
 import ThemePicker from "@/components/ThemePicker.astro";
+import Container from "@/components/ui/Container.astro";
 import { Icon } from "astro-icon/components";
 
 const currentPath = Astro.url.pathname;
 ---
 
-<div class="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4 md:px-8 md:py-5">
+<Container class="flex items-center justify-between py-4 md:py-5">
   <a
     href="/"
     class="text-xl font-bold tracking-tight"
@@ -48,4 +49,4 @@ const currentPath = Astro.url.pathname;
       <ThemePicker />
     </div>
   </div>
-</div>
+</Container>

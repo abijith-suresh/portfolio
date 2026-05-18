@@ -3,6 +3,7 @@ import Breadcrumb from "@/components/Breadcrumb.astro";
 import PaginatedListLayout from "@/components/PaginatedListLayout.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
 import SplitSection from "@/components/SplitSection.astro";
+import Container from "@/components/ui/Container.astro";
 import { SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
 import { groupByYear } from "@/lib/group-by-year";
@@ -65,7 +66,7 @@ const projectsByYear = groupByYear(projects, (project) => project.data.date);
   jsonLd={{ type: "website" }}
 >
   <div class="w-full mx-auto flex grow flex-col gap-y-10 pb-16 page-enter">
-    <div class="mx-auto w-full max-w-[1200px] px-6 md:px-8 pt-8 flex flex-col gap-y-8">
+    <Container class="pt-8 flex flex-col gap-y-8">
       <div class="page-enter page-enter-delay-1">
         <Breadcrumb
           items={[
@@ -82,11 +83,11 @@ const projectsByYear = groupByYear(projects, (project) => project.data.date);
           Shipped work, side projects, and experiments
         </p>
       </div>
-    </div>
+    </Container>
 
     {
       projects.length > 0 ? (
-        <div class="mx-auto w-full max-w-[1200px] px-6 md:px-8">
+        <Container>
           <PaginatedListLayout
             currentPage={currentPage}
             totalPages={totalPages}
@@ -108,7 +109,7 @@ const projectsByYear = groupByYear(projects, (project) => project.data.date);
               ))}
             </div>
           </PaginatedListLayout>
-        </div>
+        </Container>
       ) : (
         <p class="text-center py-16" style="color: var(--color-muted-foreground);">
           No projects to display yet.

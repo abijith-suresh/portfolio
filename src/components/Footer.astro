@@ -1,12 +1,13 @@
 ---
 import FooterLink from "@/components/FooterLink.astro";
+import Container from "@/components/ui/Container.astro";
 import { SITE, SOCIAL_LINKS } from "@/consts";
 
 const currentYear = new Date().getFullYear();
 ---
 
 <footer class="mt-auto">
-  <div class="mx-auto max-w-[1200px] px-6 md:px-8 py-12">
+  <Container class="py-12">
     <div class="flex flex-col md:flex-row items-start md:items-end justify-between gap-6">
       <div class="flex flex-wrap items-center gap-x-5 gap-y-2">
         <FooterLink href={SOCIAL_LINKS.github} external>GitHub</FooterLink>
@@ -21,5 +22,5 @@ const currentYear = new Date().getFullYear();
         {SITE.author}
       </p>
     </div>
-  </div>
+  </Container>
 </footer>
