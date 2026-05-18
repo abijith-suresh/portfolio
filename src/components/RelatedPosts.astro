@@ -1,6 +1,5 @@
 ---
-import ContentCard from "@/components/ContentCard.astro";
-import { calculateReadingTime, formatBlogDate, formatReadingTime } from "@/lib/utils";
+import BlogCard from "@/components/BlogCard.astro";
 import { type CollectionEntry } from "astro:content";
 
 interface Props {
@@ -17,22 +16,9 @@ const { posts, class: className } = Astro.props;
       <span class="eyebrow">Related</span>
       <h2 class="text-xl font-bold mt-2 mb-6">Related Posts</h2>
       <div class="flex flex-col gap-3">
-        {posts.map((post) => {
-          const { title, description, tags, publishDate } = post.data;
-          const formattedDate = formatBlogDate(publishDate);
-          const readingTime = calculateReadingTime(post.body ?? "");
-          const meta = `${formattedDate} · ${formatReadingTime(readingTime)}`;
-
-          return (
-            <ContentCard
-              title={title}
-              description={description}
-              tags={tags}
-              href={`/blog/${post.id}`}
-              meta={meta}
-            />
-          );
-        })}
+        {posts.map((post) => (
+          <BlogCard post={post} />
+        ))}
       </div>
     </section>
   )
