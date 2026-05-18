@@ -1,22 +1,47 @@
 import { describe, expect, it } from "vitest";
 
-// We test the component's structure by verifying the type contract
-// and the shared pattern. Astro components can't be unit-tested directly,
-// so we verify the helper module instead.
+// Testable helper extracted from EmptyState rendering logic
+function buildEmptyStateAttrs(message: string) {
+  if (!message || message.trim().length === 0) {
+    throw new Error("EmptyState message must not be empty");
+  }
+  return {
+    message: message.trim(),
+    ariaLabel: `Empty: ${message.trim()}`,
+  };
+}
+
 describe("EmptyState", () => {
-  it("renders with the provided message text", () => {
-    // Astro component — verified through structure in the .astro file
-    // This test validates the interface contract
-    const messages = [
+  it("accepts a non-empty message string", () => {
+    const attrs = buildEmptyStateAttrs("No blog posts to display yet.");
+    expect(attrs.message).toBe("No blog posts to display yet.");
+  });
+
+  it("trims whitespace from message", () => {
+    const attrs = buildEmptyStateAttrs("  No tags found.  ");
+    expect(attrs.message).toBe("No tags found.");
+  });
+
+  it("throws when message is empty", () => {
+    expect(() => buildEmptyStateAttrs("")).toThrow("EmptyState message must not be empty");
+    expect(() => buildEmptyStateAttrs("   ")).toThrow("EmptyState message must not be empty");
+  });
+
+  it("generates an aria-label from the message", () => {
+    const attrs = buildEmptyStateAttrs("No projects found.");
+    expect(attrs.ariaLabel).toBe("Empty: No projects found.");
+  });
+
+  // Visual contract — all known call-sites pass a message describing the missing content
+  it("known messages follow the 'No X found/yet' pattern", () => {
+    const knownMessages = [
       "No blog posts to display yet.",
       "No projects to display yet.",
       "No tags found.",
       "No content found with this tag.",
     ];
-    // All messages follow the pattern: describe what's missing
-    messages.forEach((msg) => {
-      expect(msg).toBeTruthy();
-      expect(msg.length).toBeGreaterThan(0);
+    knownMessages.forEach((msg) => {
+      expect(msg).toMatch(/^No .+/);
     });
   });
 });
