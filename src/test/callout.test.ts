@@ -1,33 +1,16 @@
 import { describe, expect, it } from "vitest";
-
-const calloutConfig = {
-  note: {
-    borderClass: "border-l-[var(--color-accent)]",
-    icon: "fa6-solid:circle-info",
-  },
-  tip: {
-    borderClass: "border-l-[var(--color-accent)]",
-    icon: "fa6-solid:lightbulb",
-  },
-  warning: {
-    borderClass: "border-l-[var(--color-accent)]",
-    icon: "fa6-solid:triangle-exclamation",
-  },
-  danger: {
-    borderClass: "border-l-[var(--color-text)]",
-    icon: "fa6-solid:circle-exclamation",
-  },
-} as const;
+import { calloutConfig } from "@/lib/callout-config";
 
 describe("Callout config", () => {
   it("has exactly four variants", () => {
     expect(Object.keys(calloutConfig)).toEqual(["note", "tip", "warning", "danger"]);
   });
 
-  it("each variant has an icon and border class", () => {
+  it("each variant has an icon, border class, and bg class", () => {
     for (const [_variant, config] of Object.entries(calloutConfig)) {
       expect(config.icon).toBeTruthy();
       expect(config.borderClass).toBeTruthy();
+      expect("bgClass" in config).toBe(true);
     }
   });
 
@@ -40,5 +23,21 @@ describe("Callout config", () => {
     expect(configValues).not.toMatch(/amber-\d/);
     // Must not contain dark: overrides
     expect(configValues).not.toContain("dark:");
+  });
+
+  it("warning and danger have distinct border classes from note and tip", () => {
+    expect(calloutConfig.warning.borderClass).not.toBe(calloutConfig.note.borderClass);
+    expect(calloutConfig.danger.borderClass).not.toBe(calloutConfig.note.borderClass);
+    expect(calloutConfig.warning.borderClass).not.toBe(calloutConfig.danger.borderClass);
+  });
+
+  it("warning and danger have non-empty background classes", () => {
+    expect(calloutConfig.warning.bgClass).toBeTruthy();
+    expect(calloutConfig.danger.bgClass).toBeTruthy();
+  });
+
+  it("note and tip have empty background classes (informational, no tint)", () => {
+    expect(calloutConfig.note.bgClass).toBe("");
+    expect(calloutConfig.tip.bgClass).toBe("");
   });
 });
