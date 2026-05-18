@@ -1,10 +1,9 @@
 ---
 import BlogCard from "@/components/BlogCard.astro";
-import Breadcrumb from "@/components/Breadcrumb.astro";
 import PaginatedListLayout from "@/components/PaginatedListLayout.astro";
 import SplitSection from "@/components/SplitSection.astro";
 import Container from "@/components/ui/Container.astro";
-import PageHeader from "@/components/ui/PageHeader.astro";
+import PageShell from "@/components/ui/PageShell.astro";
 import { SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
 import { getAllBlogPosts } from "@/lib/blog";
@@ -66,25 +65,15 @@ const postsByYear = groupByYear(posts, (post) => post.data.publishDate);
   description="Articles, tutorials, and thoughts on web development, design, and technology."
   jsonLd={{ type: "website" }}
 >
-  <div class="w-full mx-auto flex grow flex-col gap-y-10 pb-16 page-enter">
-    <Container class="pt-8 flex flex-col gap-y-8">
-      <div class="page-enter page-enter-delay-1">
-        <Breadcrumb
-          items={[
-            { label: "Home", href: "/", icon: "home" },
-            { label: "Blog", icon: "blog" },
-          ]}
-        />
-      </div>
-
-      <PageHeader
-        eyebrow="Writing"
-        title="Blog"
-        subtitle="Notes, write-ups, and the occasional opinion"
-        class="page-enter page-enter-delay-2"
-      />
-    </Container>
-
+  <PageShell
+    breadcrumbs={[
+      { label: "Home", href: "/", icon: "home" },
+      { label: "Blog", icon: "blog" },
+    ]}
+    eyebrow="Writing"
+    title="Blog"
+    subtitle="Notes, write-ups, and the occasional opinion"
+  >
     {
       posts.length > 0 ? (
         <Container>
@@ -116,5 +105,5 @@ const postsByYear = groupByYear(posts, (post) => post.data.publishDate);
         </p>
       )
     }
-  </div>
+  </PageShell>
 </Layout>

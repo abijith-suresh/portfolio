@@ -1,11 +1,10 @@
 ---
 import BlogCard from "@/components/BlogCard.astro";
-import Breadcrumb from "@/components/Breadcrumb.astro";
 import BackLink from "@/components/BackLink.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
 import SplitSection from "@/components/SplitSection.astro";
 import Container from "@/components/ui/Container.astro";
-import PageHeader from "@/components/ui/PageHeader.astro";
+import PageShell from "@/components/ui/PageShell.astro";
 import { SITE } from "@/consts";
 import Layout from "@/layouts/Layout.astro";
 import { getAllBlogPosts } from "@/lib/blog";
@@ -109,26 +108,16 @@ const contentByYear = groupByYear(allContent, (item) => item.date);
   noindex={isAlias}
   jsonLd={{ type: "website" }}
 >
-  <div class="w-full mx-auto flex grow flex-col gap-y-10 pb-16 page-enter">
-    <Container class="pt-8 flex flex-col gap-y-8">
-      <div class="page-enter page-enter-delay-1">
-        <Breadcrumb
-          items={[
-            { label: "Home", href: "/", icon: "home" },
-            { label: "Tags", href: "/tags", icon: "tags" },
-            { label: tagLabel, icon: "tag" },
-          ]}
-        />
-      </div>
-
-      <PageHeader
-        eyebrow="Tag"
-        title={tagLabel}
-        subtitle={`${totalCount} ${totalCount === 1 ? "item" : "items"}${postCount > 0 && projectCount > 0 ? ` · ${postCount} ${postCount === 1 ? "post" : "posts"}, ${projectCount} ${projectCount === 1 ? "project" : "projects"}` : ""}`}
-        class="page-enter page-enter-delay-2"
-      />
-    </Container>
-
+  <PageShell
+    breadcrumbs={[
+      { label: "Home", href: "/", icon: "home" },
+      { label: "Tags", href: "/tags", icon: "tags" },
+      { label: tagLabel, icon: "tag" },
+    ]}
+    eyebrow="Tag"
+    title={tagLabel}
+    subtitle={`${totalCount} ${totalCount === 1 ? "item" : "items"}${postCount > 0 && projectCount > 0 ? ` · ${postCount} ${postCount === 1 ? "post" : "posts"}, ${projectCount} ${projectCount === 1 ? "project" : "projects"}` : ""}`}
+  >
     {
       allContent.length > 0 ? (
         <Container class="flex flex-col gap-8">
@@ -152,5 +141,5 @@ const contentByYear = groupByYear(allContent, (item) => item.date);
     <Container class="pt-8">
       <BackLink href="/tags" label="View all tags" />
     </Container>
-  </div>
+  </PageShell>
 </Layout>
