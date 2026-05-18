@@ -13,7 +13,7 @@ export default defineConfig({
     expressiveCode({
       themes: ["github-light", "github-dark"],
       useDarkModeMediaQuery: false,
-      themeCssSelector: (theme) => `[data-theme="${theme.name.split("-")[1]}"]`,
+      darkModeSelector: '[data-theme="dark"]',
       defaultProps: {
         wrap: true,
       },
@@ -21,7 +21,7 @@ export default defineConfig({
       styleOverrides: {
         codeFontSize: "0.875rem",
         borderColor: "var(--border)",
-        borderRadius: "0.5rem",
+        borderRadius: "0",
         codeBackground: "color-mix(in oklab, var(--muted) 25%, transparent)",
         frames: {
           editorActiveTabForeground: "var(--muted-foreground)",
@@ -59,8 +59,6 @@ export default defineConfig({
           "chevron-down",
           "magnifying-glass",
           "xmark",
-          "sun",
-          "moon",
           "arrow-right",
           "arrow-left",
           "arrow-up-right-from-square",
@@ -68,6 +66,9 @@ export default defineConfig({
           "lightbulb",
           "triangle-exclamation",
           "circle-exclamation",
+          "sun",
+          "moon",
+          "bars",
         ],
       },
     }),

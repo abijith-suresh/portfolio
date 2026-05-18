@@ -1,0 +1,34 @@
+---
+import Link from "@/components/Link.astro";
+import { cn } from "@/lib/utils";
+
+interface Props {
+  /** The tag label */
+  label: string;
+  /** Render as a link (interactive) or a span (static) */
+  interactive?: boolean;
+  /** Link href (only used when interactive) */
+  href?: string;
+  /** Additional CSS class */
+  class?: string;
+}
+
+const { label, interactive = false, href, class: className } = Astro.props;
+---
+
+{
+  interactive && href ? (
+    <Link
+      href={href}
+      class:list={cn(
+        "tag-pill transition-colors hover:bg-[var(--color-accent)] hover:text-[var(--color-card-hover-text)]",
+        className
+      )}
+      prefetch="viewport"
+    >
+      {label}
+    </Link>
+  ) : (
+    <span class:list={cn("tag-pill", className)}>{label}</span>
+  )
+}

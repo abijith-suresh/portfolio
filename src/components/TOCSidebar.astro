@@ -26,13 +26,16 @@ function getIndent(depth: number): string {
       )}
     >
       <div class="flex max-h-[calc(100vh-8rem)] flex-col overflow-y-auto pr-4">
-        <span class="text-base font-semibold mb-3">On this page</span>
+        <span class="eyebrow mb-4">On this page</span>
         <ul class="flex list-none flex-col gap-y-2" id="toc-sidebar-list">
           {filteredHeadings.map((heading) => (
-            <li class:list={["text-sm text-foreground/60", getIndent(heading.depth)]}>
+            <li
+              class:list={["text-sm", getIndent(heading.depth)]}
+              style="color: var(--color-muted-foreground);"
+            >
               <a
                 href={`#${heading.slug}`}
-                class="toc-sidebar-link underline decoration-transparent underline-offset-[3px] transition-all duration-200"
+                class="toc-sidebar-link transition-all duration-200"
                 data-heading-link={heading.slug}
               >
                 {heading.text}
