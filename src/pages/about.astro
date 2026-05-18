@@ -25,21 +25,30 @@ import Layout from "@/layouts/Layout.astro";
       </div>
     </Container>
 
-    <!-- Identity block — standalone, same grammar as Hero -->
+    <!-- Identity block — side-by-side: text left, portrait right -->
     <Container class="page-enter page-enter-delay-1">
-      <div class="flex flex-col gap-4">
-        <span class="eyebrow">{SITE.role}</span>
-        <div class="w-12 border-t-2 border-[var(--color-accent)]"></div>
-        <h1 class="text-[clamp(2.25rem,5vw,4rem)] font-bold tracking-tight leading-[1.05]">
-          {AUTHOR.fullName}
-        </h1>
-        <p
-          class="text-lg leading-relaxed max-w-[60ch]"
-          style="color: var(--color-muted-foreground);"
-        >
-          {AUTHOR.tagline}
-        </p>
-        <img src={AUTHOR.avatar} alt={AUTHOR.name} class="w-24 h-24 object-cover mt-2" />
+      <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 md:gap-12 items-start">
+        <!-- Text column -->
+        <div class="flex flex-col gap-4">
+          <span class="eyebrow">{SITE.role}</span>
+          <div class="w-12 border-t-2 border-[var(--color-accent)]"></div>
+          <h1 class="text-[clamp(2.25rem,5vw,4rem)] font-bold tracking-tight leading-[1.05]">
+            {AUTHOR.fullName}
+          </h1>
+          <p
+            class="text-lg leading-relaxed max-w-[52ch]"
+            style="color: var(--color-muted-foreground);"
+          >
+            {AUTHOR.tagline}
+          </p>
+        </div>
+
+        <!-- Portrait column -->
+        <img
+          src={AUTHOR.avatar}
+          alt={AUTHOR.fullName}
+          class="w-48 h-60 md:w-56 md:h-72 object-cover object-top"
+        />
       </div>
     </Container>
 
