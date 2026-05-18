@@ -68,6 +68,7 @@ export default defineConfig({
           "circle-exclamation",
           "sun",
           "moon",
+          "bars",
         ],
       },
     }),
