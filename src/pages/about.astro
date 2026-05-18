@@ -25,24 +25,22 @@ import Layout from "@/layouts/Layout.astro";
       </div>
     </Container>
 
-    <!-- Identity header — centered, no split -->
-    <header class="page-enter page-enter-delay-1">
-      <Container>
-        <div class="flex flex-col items-center gap-4">
-          <img
-            src={AUTHOR.avatar}
-            alt={AUTHOR.name}
-            class="w-24 h-24 sm:w-32 sm:h-32 rounded-full object-cover"
-          />
-          <div class="text-center">
-            <h1 class="text-4xl sm:text-5xl font-bold tracking-tight leading-[1.1]">
-              {AUTHOR.fullName}
-            </h1>
-            <p class="mt-2" style="color: var(--color-muted-foreground);">{AUTHOR.tagline}</p>
+    <!-- Identity header — split layout with square photo -->
+    <Container class="page-enter page-enter-delay-1">
+      <SplitSection label="Who">
+        <div class="flex flex-col gap-6">
+          <div class="flex items-start gap-6">
+            <img src={AUTHOR.avatar} alt={AUTHOR.name} class="w-24 h-24 object-cover shrink-0" />
+            <div>
+              <h1 class="text-3xl sm:text-4xl font-bold tracking-tight leading-tight">
+                {AUTHOR.fullName}
+              </h1>
+              <p class="mt-1" style="color: var(--color-muted-foreground);">{AUTHOR.tagline}</p>
+            </div>
           </div>
         </div>
-      </Container>
-    </header>
+      </SplitSection>
+    </Container>
 
     <!-- Narrative sections — 25/75 split -->
     <Container class="flex flex-col gap-12">
