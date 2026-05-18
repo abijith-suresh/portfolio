@@ -14,7 +14,14 @@ const { eyebrow, title, subtitle, class: className } = Astro.props;
 ---
 
 <div class:list={["flex flex-col gap-y-2", className]}>
-  {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+  {
+    eyebrow && (
+      <>
+        <span class="eyebrow">{eyebrow}</span>
+        <div class="w-12 border-t-2 border-[var(--color-accent)]" />
+      </>
+    )
+  }
   <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold tracking-tight">{title}</h1>
   {subtitle && <p style="color: var(--color-muted-foreground);">{subtitle}</p>}
 </div>
