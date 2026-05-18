@@ -258,14 +258,19 @@
     border-bottom-color: var(--color-accent);
   }
 
-  .footer-link-arrow {
+  .footer-link-arrow-internal,
+  .footer-link-arrow-external {
     font-size: 12px;
     transition: transform 150ms ease;
     display: inline-block;
   }
 
-  .footer-link:hover .footer-link-arrow {
-    transform: translate(1px, -1px);
+  .footer-link:hover .footer-link-arrow-internal {
+    transform: translateX(4px);
+  }
+
+  .footer-link:hover .footer-link-arrow-external {
+    transform: translate(2px, -2px);
   }
 
   /* ── Button ───────────────────────────────────────────────────────────── */
