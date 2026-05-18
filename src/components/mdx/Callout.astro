@@ -1,27 +1,8 @@
 ---
 import { cn } from "@/lib/utils";
+import { calloutConfig } from "@/lib/callout-config";
+import type { CalloutVariant } from "@/lib/callout-config";
 import { Icon } from "astro-icon/components";
-
-const calloutConfig = {
-  note: {
-    borderClass: "border-l-[var(--color-accent)]",
-    icon: "fa6-solid:circle-info",
-  },
-  tip: {
-    borderClass: "border-l-[var(--color-accent)]",
-    icon: "fa6-solid:lightbulb",
-  },
-  warning: {
-    borderClass: "border-l-[var(--color-accent)]",
-    icon: "fa6-solid:triangle-exclamation",
-  },
-  danger: {
-    borderClass: "border-l-[var(--color-text)]",
-    icon: "fa6-solid:circle-exclamation",
-  },
-} as const;
-
-type CalloutVariant = keyof typeof calloutConfig;
 
 interface Props {
   variant?: CalloutVariant;
@@ -49,6 +30,7 @@ const displayTitle = title || variant.charAt(0).toUpperCase() + variant.slice(1)
       class:list={cn(
         "relative px-4 py-3 my-6 border-l-4 text-sm",
         config.borderClass,
+        config.bgClass,
         "[&[open]>summary_.chevron]:rotate-180 [&[open]>summary]:mb-3",
         className
       )}
@@ -73,7 +55,12 @@ const displayTitle = title || variant.charAt(0).toUpperCase() + variant.slice(1)
     </details>
   ) : (
     <div
-      class:list={cn("relative px-4 py-3 my-6 border-l-4 text-sm", config.borderClass, className)}
+      class:list={cn(
+        "relative px-4 py-3 my-6 border-l-4 text-sm",
+        config.borderClass,
+        config.bgClass,
+        className
+      )}
     >
       <div class="flex items-center font-medium mb-2">
         <Icon

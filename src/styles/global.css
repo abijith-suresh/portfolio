@@ -22,8 +22,9 @@
 
   --color-muted: #999999;
   --color-muted-foreground: #666666;
-
   --color-border: #e0e0e0;
+  --color-warning: #e67e22;
+  --color-danger: #c0392b;
 }
 
 /* ==========================================================================
@@ -36,6 +37,8 @@
   --color-muted: #999999;
   --color-muted-foreground: #666666;
   --color-border: #e0e0e0;
+  --color-warning: #e67e22;
+  --color-danger: #c0392b;
   --color-card-hover-text: #111111;
 
   color-scheme: light;
@@ -51,6 +54,8 @@
   --color-muted: #888888;
   --color-muted-foreground: #999999;
   --color-border: #2a2a2a;
+  --color-warning: #e67e22;
+  --color-danger: #e74c3c;
   --color-card-hover-text: #111111;
 
   color-scheme: dark;
